@@ -2,12 +2,16 @@
 
 	"use strict";
 
+	new Photostack( document.getElementById( "photostack" ), {
+		callback : function( item ) {
+			console.log(item)
+		}
+	} );
+
 	$('body').scrollspy({
 		target: '.navbar-fixed-top',
 		offset: 75
 	});
-
-	new WOW().init();
 
 	$('a.page-scroll').bind('click', function (event) {
 		var $ele = $(this);
@@ -34,7 +38,7 @@
 		$('#galleryImage').attr("src", $(e.relatedTarget).data("src"));
 	});
 
-	var bannerH = $(".siteheader").height();
+	var bannerH = $(".siteheader").height() + ( $("#about").height() / 2 );
 
 	$(window).scroll( function(){
 		var Wscroll = $(this).scrollTop();

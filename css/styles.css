@@ -183,6 +183,15 @@ aside {
 	color: #fff;
 }
 
+.sitefooter .copyright a {
+	color: #b7b7b7;
+}
+
+.sitefooter .copyright i {
+	margin-left: 5px;
+	margin-right: 5px;
+}
+
 .navbar-default {
 	border-color: rgba(0, 0, 0, .05);
 	background-color: #111;
@@ -733,7 +742,9 @@ img::-moz-selection {
   content: "";
 	background-color: #000;
 	background-image: url(../img/fauzie-bg2.jpg);
+	background-position: center bottom;
 	background-size: cover;
+	background-repeat: no-repeat;
   opacity: 0.3;
   top: 0;
   left: 0;
@@ -741,4 +752,10 @@ img::-moz-selection {
   right: 0;
   position: absolute;
   z-index: -1;
+	-webkit-transition: opacity 1s ease-out;
+	transition: opacity 1s ease-out;
+}
+
+.navbar-default.navbar-fixed-top + #about::after {
+	opacity: 0;
 }
