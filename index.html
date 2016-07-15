@@ -19,7 +19,7 @@
 	<link rel="stylesheet" href="css/ionicons.css" />
 	<link rel="stylesheet" href="css/styles.css" /> </head>
 
-<body class="bg-inverse">
+<body class="">
 	<header id="home" class="siteheader">
 		<div class="header-content">
 			<div class="inner">
@@ -53,11 +53,11 @@
 			</div>
 		</div>
 	</nav>
-	<section id="about" style="background-color:#111">
-		<div class="container">
+	<section id="about">
+		<div class="container section-title">
 			<div class="row">
 				<div class="col-lg-12 text-xs-center">
-					<h2 class="wow fadeInUp text-primary section-title">Rizal Fauzie Ridwan</h2>
+					<h2 class="wow fadeInUp text-primary">Rizal Fauzie Ridwan</h2>
 					<hr class="primary">
 					<p class="lead wow flipInX" data-wow-delay="1s">also known as <em>fauzie</em> or <em>fauzievolute</em></p>
 				</div>
@@ -67,7 +67,7 @@
 			<div class="row">
 				<div class="col-lg-12 text-xs-center wow fadeInUp">
 					<p>I'm a smart worker, fast learner, and always try something new. Breathing at Bandung, West Java, Indonesia.
-						<br>I'm a graphic &amp; web designer, like to help people for designing and developing their website, blog and some web application, sample at my work.
+						<br>a graphic &amp; web designer, like to help people for designing and developing their website, blog and some web application, sample at my work.
 						<br>If you interest to my services, or you have other needs more detailed, you can send me a message.</p>
 				</div>
 			</div>
@@ -198,6 +198,8 @@
 				<div class="col-xs-12 col-lg-6 text-xs-right">
 					<button class="btn btn-lg text-normal btn-secondary-outline">Outline</button>
 					<button class="btn btn-lg text-normal btn-primary-outline">Buttons</button>
+					<button class="btn btn-lg text-normal btn-primary">Primary</button>
+					<button class="btn btn-lg text-normal btn-primary disabled">Primary</button>
 					<button class="btn btn-lg text-normal btn-danger-outline">Are Here</button>
 				</div>
 				<div class="col-xs-12">
@@ -297,7 +299,7 @@
 			</div>
 		</div>
 	</aside>
-	<section id="last">
+	<section id="last" class="bg-main">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-8 col-lg-offset-2 text-xs-center">
@@ -308,21 +310,31 @@
 				<div class="col-lg-10 col-lg-offset-1 text-xs-center">
 					<form class="contact-form row">
 						<div class="col-md-4">
-							<label></label>
-							<input type="text" class="form-control" placeholder="Name"> </div>
-						<div class="col-md-4">
-							<label></label>
-							<input type="text" class="form-control" placeholder="Email"> </div>
-						<div class="col-md-4">
-							<label></label>
-							<input type="text" class="form-control" placeholder="Phone"> </div>
-						<div class="col-md-12">
-							<label></label>
-							<textarea class="form-control" rows="9" placeholder="Your message here.."></textarea>
+							<div class="form-group">
+								<input type="text" class="form-control" id="your-name" name="your-name">
+								<label class="form-control-label" for="your-name"><span class="label-content" data-content="Your Name">Your Name</span></label>
+							</div>
 						</div>
-						<div class="col-md-4 col-md-offset-4">
-							<label></label>
-							<button type="button" data-toggle="modal" data-target="#alertModal" class="btn btn-primary btn-block btn-lg">Send <i class="ion-android-arrow-forward"></i></button>
+						<div class="col-md-4">
+							<div class="form-group">
+								<input type="text" class="form-control" id="your-email" name="your-email">
+								<label class="form-control-label" for="your-email"><span class="label-content" data-content="Your Email">Your Email</span></label>
+							</div>
+						</div>
+						<div class="col-md-4">
+							<div class="form-group">
+								<input type="phone" class="form-control" id="your-phone" name="your-phone">
+								<label class="form-control-label" for="your-phone"><span class="label-content" data-content="Phone Number">Phone Number</span></label>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<div class="form-group">
+								<textarea class="form-control" rows="4" id="your-message" name="your-message"></textarea>
+								<label class="form-control-label" for="your-message"><span class="label-content" data-content="Your Message">Your Message</span></label>
+							</div>
+						</div>
+						<div class="col-md-4 col-md-offset-4 submit-group">
+							<button type="button" class="btn btn-primary-outline btn-block btn-lg"><span>Send <i class="ion-android-arrow-forward"></i></span></button>
 						</div>
 					</form>
 				</div>
