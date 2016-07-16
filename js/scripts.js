@@ -8,6 +8,8 @@
 		}
 	} );
 
+	$('[data-toggle="tooltip"]').tooltip();
+
 	$('body').scrollspy({
 		target: '.navbar-fixed-top',
 		offset: 75
