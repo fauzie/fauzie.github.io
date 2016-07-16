@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-US">
+<html lang="en-US" class="no-js">
 
 <head>
 	<meta charset="utf-8">
@@ -20,9 +20,10 @@
 	<link rel="stylesheet" href="css/bootstrap.css" />
 	<link rel="stylesheet" href="css/animate.css" />
 	<link rel="stylesheet" href="css/ionicons.css" />
+	<link rel="stylesheet" href="css/photostack.css" />
+	<link rel="stylesheet" href="css/photoswipe.css" />
 	<link rel="stylesheet" href="css/styles.css" />
 	<script src="js/modernizr.min.js"></script>
-	<script src="js/jquery.1.9.1.min.js"></script>
 	<script src="js/wow.min.js"></script>
 	<script>new WOW().init();</script>
 </head>
@@ -46,14 +47,15 @@
 	<nav id="topNav" class="navbar navbar-default" itemscope itemtype="http://schema.org/SiteNavigationElement">
 		<div class="container">
 			<button class="navbar-toggler hidden-md-up pull-right" type="button" data-toggle="collapse" data-target="#collapsingNavbar"> ☰ </button>
-			<a class="navbar-brand page-scroll" href="/"><img src="img/fauzie-logo.png"></a>
+			<a class="navbar-brand page-scroll" href="#home"><img src="img/fauzie-logo.png"></a>
 			<div class="collapse navbar-toggleable-sm" id="collapsingNavbar">
 				<ul class="nav navbar-nav">
-					<li class="nav-item"> <a class="nav-link page-scroll" href="#home">Hello!</a> </li>
+					<li class="nav-item"> <a class="nav-link page-scroll" href="#about">About</a> </li>
+					<li class="nav-item"> <a class="nav-link page-scroll" href="#skills">Skills</a> </li>
 					<li class="nav-item"> <a class="nav-link page-scroll" href="#projects">Projects</a> </li>
 					<li class="nav-item"> <a class="nav-link page-scroll" href="#services">Services</a> </li>
 					<li class="nav-item"> <a class="nav-link page-scroll" href="#three">5 Tiers</a> </li>
-					<li class="nav-item"> <a class="nav-link page-scroll" href="#four">More</a> </li>
+					<li class="nav-item"> <a class="nav-link page-scroll" href="#contact">Contact</a> </li>
 				</ul>
 				<ul class="nav navbar-nav pull-xs-right">
 					<li class="nav-item"> <a class="nav-link page-scroll" data-toggle="modal" title="A free Bootstrap theme" href="#aboutModal">Get a Quote</a> </li>
@@ -66,42 +68,216 @@
 		<div class="container section-title">
 			<div class="row">
 				<div class="col-lg-12 text-xs-center">
-					<h2 class="wow fadeInUp text-primary" itemprop="name">Rizal Fauzie Ridwan</h2>
+					<h2 class="wow fadeInUp" itemprop="name">Rizal Fauzie Ridwan</h2>
+					<span class="jobTitle" itemprop="jobTitle">Web Designer &amp; Developer</span>
+					<a class="url" href="http://fauzie.my.id/" itemprop="url">www.fauzie.my.id</a>
 					<hr class="primary">
-					<p class="lead wow flipInX" data-wow-delay="1s" itemprop="disambiguatingDescription">also known as <em>fauzie</em> or <em>fauzievolute</em></p>
+					<p class="lead wow flipInX" data-wow-delay="1s">also known as <em itemprop="additionalName">fauzie</em> or <em itemprop="additionalName">fauzievolute</em></p>
 				</div>
 			</div>
 		</div>
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-12 text-xs-center wow fadeInUp">
+				<div class="col-lg-12 text-xs-center site-desc wow fadeInUp">
 					<p>I'm a smart worker, fast learner, and always try something new. <span itemprop="jobTitle">A graphic &amp; web designer</span>, like to help people for designing and developing their website, blog and some web application.
-						<br>Was born and lived in <a href="https://www.google.co.id/maps/place/Bandung,+Bandung+City,+West+Java/" target="_blank" title="View on Google Maps" itemprop="streetAddress">Bandung, West Java, Indonesia</a>. Husband from lovely wife <a href="http://alfarise.com/" target="_blank" title="Go to Our Family's Blog" itemprop="url">&hearts; Arsela Lestari</a> since 10<sup>th</sup> April 2016.</p>
+						<br>Was born and lived in <span itemprop="address">Bandung, West Java, Indonesia</span>. The husband of beloved wife <a href="http://alfarise.com/" target="ext" title="Go to Our Family's Blog" itemprop="url">&hearts; Arsela Lestari</a> since 10<sup>th</sup> April 2016.</p>
+				</div>
+			</div>
+			<div class="row fauzie-details">
+				<div class="col-lg-3 text-xs-center wow zoomInDown" data-wow-delay="1.5s">
+					<i class="icon-lg ion-ios-body"></i> <span itemprop="birthDate">25 Years Old</span>
+				</div>
+				<div class="col-lg-3 text-xs-center wow zoomInDown" data-wow-delay="2s">
+					<i class="icon-lg ion-ios-flag"></i> <span itemprop="citizenship">Indonesian</span>
+				</div>
+				<div class="col-lg-3 text-xs-center wow zoomInDown" data-wow-delay="2.5s">
+					<i class="icon-lg ion-ios-heart"></i> <span itemprop="status">Married</span>
+				</div>
+				<div class="col-lg-3 text-xs-center wow zoomInDown" data-wow-delay="3s">
+					<i class="icon-lg ion-ios-moon"></i> <span itemprop="religion">100% Moslem</span>
 				</div>
 			</div>
 		</div>
 	</section>
 	<!-- #about -->
-	<section id="photostack" class="bg-main photostack photostack-start" itemscope itemtype="http://schema.org/ImageGallery">
-		<div class="photostack-container">
-			<figure>
-				<a href="http://goo.gl/Qw3ND4" class="photostack-img"><img src="img/1.jpg" alt="img01"/></a>
-				<figcaption>
-					<h2 class="photostack-title">Serenity Beach</h2>
+	<section id="photostack" class="bg-main photostack photostack-start">
+		<div class="photostack-container" itemscope itemtype="http://schema.org/ImageGallery">
+			<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+				<a href="img/photos/fauzie-1.jpg" class="photostack-img" itemprop="contentUrl" data-size="713x800">
+					<img src="img/photos/fauzie-1_thumb.jpg" itemprop="thumbnail" alt="fauzie 1">
+				</a>
+				<figcaption itemprop="caption description">
+					<h2 class="photostack-title">My Backyard <small>- 2013</small></h2>
 				</figcaption>
-			</figure>
+			</figure><!--photostack item-->
+			<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+				<a href="img/photos/fauzie-2.jpg" class="photostack-img" itemprop="contentUrl" data-size="450x558">
+					<img src="img/photos/fauzie-2_thumb.jpg" itemprop="thumbnail" alt="fauzie 2">
+				</a>
+				<figcaption itemprop="caption description">
+					<h2 class="photostack-title">Relaxing at Restaurant <small>- 2015</small></h2>
+				</figcaption>
+			</figure><!--photostack item-->
+			<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+				<a href="img/photos/fauzie-3.jpg" class="photostack-img" itemprop="contentUrl" data-size="800x800">
+					<img src="img/photos/fauzie-3_thumb.jpg" itemprop="thumbnail" alt="fauzie 3">
+				</a>
+				<figcaption itemprop="caption description">
+					<h2 class="photostack-title">Sisha at Cafe <small>- 2015</small></h2>
+				</figcaption>
+			</figure><!--photostack item-->
+			<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+				<a href="img/photos/fauzie-4.jpg" class="photostack-img" itemprop="contentUrl" data-size="677x800">
+					<img src="img/photos/fauzie-4_thumb.jpg" itemprop="thumbnail" alt="fauzie 4">
+				</a>
+				<figcaption itemprop="caption description">
+					<h2 class="photostack-title">Eid Al-Fitr <small>- 2015</small></h2>
+				</figcaption>
+			</figure><!--photostack item-->
+			<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+				<a href="img/photos/fauzie-5.jpg" class="photostack-img" itemprop="contentUrl" data-size="615x900">
+					<img src="img/photos/fauzie-5_thumb.jpg" itemprop="thumbnail" alt="fauzie 5">
+				</a>
+				<figcaption itemprop="caption description">
+					<h2 class="photostack-title">Eid Al-Fitr with My Wife <small>- 2016</small></h2>
+				</figcaption>
+			</figure><!--photostack item-->
+			<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+				<a href="img/photos/alfarise-1.jpg" class="photostack-img" itemprop="contentUrl" data-size="600x600">
+					<img src="img/photos/alfarise-1_thumb.jpg" itemprop="thumbnail" alt="alfarise 1">
+				</a>
+				<figcaption itemprop="caption description">
+					<h2 class="photostack-title">With my Wife <small>- 2016</small></h2>
+				</figcaption>
+			</figure><!--photostack item-->
+			<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+				<a href="img/photos/alfarise-2.jpg" class="photostack-img" itemprop="contentUrl" data-size="683x800">
+					<img src="img/photos/alfarise-2_thumb.jpg" itemprop="thumbnail" alt="alfarise 2">
+				</a>
+				<figcaption itemprop="caption description">
+					<h2 class="photostack-title">Great Mosque Bandung <small>- 2015</small></h2>
+				</figcaption>
+			</figure><!--photostack item-->
+			<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+				<a href="img/photos/alfarise-3.jpg" class="photostack-img" itemprop="contentUrl" data-size="900x674">
+					<img src="img/photos/alfarise-3_thumb.jpg" itemprop="thumbnail" alt="alfarise 3">
+				</a>
+				<figcaption itemprop="caption description">
+					<h2 class="photostack-title">Farm House Lembang <small>- 2016</small></h2>
+				</figcaption>
+			</figure><!--photostack item-->
+			<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+				<a href="img/photos/alfarise-4.jpg" class="photostack-img" itemprop="contentUrl" data-size="904x600">
+					<img src="img/photos/alfarise-4_thumb.jpg" itemprop="thumbnail" alt="alfarise 4">
+				</a>
+				<figcaption itemprop="caption description">
+					<h2 class="photostack-title">Lembang Garden <small>- 2016</small></h2>
+				</figcaption>
+			</figure><!--photostack item-->
+			<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
+				<a href="img/photos/alfarise-5.jpg" class="photostack-img" itemprop="contentUrl" data-size="900x674">
+					<img src="img/photos/alfarise-5_thumb.jpg" itemprop="thumbnail" alt="alfarise 5">
+				</a>
+				<figcaption itemprop="caption description">
+					<h2 class="photostack-title">Lembang Garden <small>- 2016</small></h2>
+				</figcaption>
+			</figure><!--photostack item-->
 		</div>
 	</section>
 	<!-- #photostack -->
+	<section id="skills" class="bg-light">
+		<div class="container section-title">
+			<div class="row">
+				<div class="col-lg-12 text-xs-center">
+					<h2 class="wow fadeInUp">My Skills</h2>
+					<hr class="primary">
+					<p class="lead wow flipInX" data-wow-delay="1s">illustration skill mastery in a presentation</p>
+				</div>
+			</div>
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 left-frontend">
+					<h6 class="skill-title">Front-End</h6>
+					<div class="skillbars">
+						<div class="skillbar-wrap">
+							<div class="icon text-right"><i class="ion-social-html5"></i></div>
+							<div class="bar-and-text">
+								<span>HTML 5</span><div class="bar"><div class="filled wow fadeInLeft" style="width:90%;"></div></div>
+							</div>
+							<div class="number-wrap text-right"><div class="number">90%</div></div>
+						</div>
+						<div class="skillbar-wrap">
+							<div class="icon text-right"><i class="ion-social-css3"></i></div>
+							<div class="bar-and-text">
+								<span>CSS 3</span><div class="bar"><div class="filled wow fadeInLeft" style="width:80%;" data-wow-delay=".3s"></div></div>
+							</div>
+							<div class="number-wrap text-right"><div class="number">80%</div></div>
+						</div>
+						<div class="skillbar-wrap">
+							<div class="icon text-right"><i class="ion-social-javascript"></i></div>
+							<div class="bar-and-text">
+								<span>JavaScript / jQuery</span><div class="bar"><div class="filled wow fadeInLeft" style="width:60%;" data-wow-delay=".6s"></div></div>
+							</div>
+							<div class="number-wrap text-right"><div class="number">60%</div></div>
+						</div>
+						<div class="skillbar-wrap">
+							<div class="icon text-right"><i class="ion-social-nodejs"></i></div>
+							<div class="bar-and-text">
+								<span>NodeJS</span><div class="bar"><div class="filled wow fadeInLeft" style="width:45%;" data-wow-delay=".9s"></div></div>
+							</div>
+							<div class="number-wrap text-right"><div class="number">45%</div></div>
+						</div>
+					</div>
+				</div><!-- .left-frontend -->
+				<div class="col-lg-6 right-backend">
+					<h6 class="skill-title">Back-End</h6>
+					<div class="skillbars">
+						<div class="skillbar-wrap">
+							<div class="icon text-right"><i class="ion-code"></i></div>
+							<div class="bar-and-text">
+								<span>PHP</span><div class="bar"><div class="filled wow fadeInLeft" style="width:80%;" data-wow-delay=".9s"></div></div>
+							</div>
+							<div class="number-wrap text-right"><div class="number">80%</div></div>
+						</div>
+						<div class="skillbar-wrap">
+							<div class="icon text-right"><i class="ion-social-python"></i></div>
+							<div class="bar-and-text">
+								<span>Python</span><div class="bar"><div class="filled wow fadeInLeft" style="width:30%;" data-wow-delay="1.2s"></div></div>
+							</div>
+							<div class="number-wrap text-right"><div class="number">30%</div></div>
+						</div>
+						<div class="skillbar-wrap">
+							<div class="icon text-right"><i class="ion-ios-barcode"></i></div>
+							<div class="bar-and-text">
+								<span>Bash Script</span><div class="bar"><div class="filled wow fadeInLeft" style="width:50%;" data-wow-delay="1.5s"></div></div>
+							</div>
+							<div class="number-wrap text-right"><div class="number">50%</div></div>
+						</div>
+						<div class="skillbar-wrap">
+							<div class="icon text-right"><i class="ion-social-tux"></i></div>
+							<div class="bar-and-text">
+								<span>Linux Server</span><div class="bar"><div class="filled wow fadeInLeft" style="width:70%;" data-wow-delay="1.8s"></div></div>
+							</div>
+							<div class="number-wrap text-right"><div class="number">70%</div></div>
+						</div>
+					</div>
+				</div><!-- .right-backend -->
+			</div>
+		</div>
+	</section>
+	<!-- #skills -->
 	<section id="projects" class="bg-alt">
 		<div class="container section-title">
 			<div class="row">
 				<div class="col-lg-12 text-xs-center">
-					<h2 class="wow fadeInUp text-primary">Latest Projects</h2>
+					<h2 class="wow fadeInUp">Latest Projects</h2>
 					<hr class="primary">
-					<p class="lead wow flipInX" data-wow-delay="1s">my recent works and projects on desk.</p>
+					<p class="lead wow flipInX" data-wow-delay="1s">my recent works and projects on my desk</p>
 				</div>
 			</div>
+		</div>
+		<div class="container">
 			<div class="row">
 				<div class="card-group">
 					<!-- card -->
@@ -134,7 +310,7 @@
 		<div class="container section-title">
 			<div class="row">
 				<div class="col-lg-12 text-xs-center">
-					<h2 class="wow fadeInUp text-primary">Services</h2>
+					<h2 class="wow fadeInUp">Services</h2>
 					<hr class="primary">
 					<p class="lead wow flipInX" data-wow-delay="1s">my skills and services i can do</p>
 				</div>
@@ -164,7 +340,7 @@
 		</div>
 	</section>
 	<!-- #services -->
-	<aside class="bg-alt">
+	<aside>
 		<div class="container text-xs-center">
 			<div class="call-to-action">
 				<h2 class="text-primary">Get Started</h2> <a href="http://www.bootstrapzero.com" target="ext" class="btn btn-primary-outline btn-lg wow flipInX text-uppercase">Free Download</a> </div>
@@ -185,38 +361,42 @@
 		</div>
 	</aside>
 
-	<section id="last" class="bg-main">
+	<section id="contact" class="bg-main">
+		<div class="container section-title">
+			<div class="row">
+				<div class="col-lg-12 text-xs-center">
+					<h2 class="wow fadeInUp">Get in Touch</h2>
+					<hr class="primary">
+					<p class="lead wow flipInX" data-wow-delay="1s">I love feedback. Fill out the form below and i'll get back to you as soon as possible</p>
+				</div>
+			</div>
+		</div>
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-8 col-lg-offset-2 text-xs-center">
-					<h2 class="margin-top-0 wow fadeIn">Get in Touch</h2>
-					<hr class="primary">
-					<p>We love feedback. Fill out the form below and we'll get back to you as soon as possible.</p>
-				</div>
 				<div class="col-lg-10 col-lg-offset-1 text-xs-center">
 					<form class="contact-form row">
 						<div class="col-md-4">
 							<div class="form-group">
-								<input type="text" class="form-control" id="your-name" name="your-name" autocomplete="off">
-								<label class="form-control-label" for="your-name"><span class="label-content" data-content="Your Name">Your Name</span></label>
+								<input type="text" class="form-control" id="name" name="name" autocomplete="off">
+								<label class="form-control-label" for="name"><span class="label-content" data-content="Your Name">Your Name</span></label>
 							</div>
 						</div>
 						<div class="col-md-4">
 							<div class="form-group">
-								<input type="text" class="form-control" id="your-email" name="your-email" autocomplete="off">
-								<label class="form-control-label" for="your-email"><span class="label-content" data-content="Your Email">Your Email</span></label>
+								<input type="text" class="form-control" id="email" name="email" autocomplete="off">
+								<label class="form-control-label" for="email"><span class="label-content" data-content="Your Email">Your Email</span></label>
 							</div>
 						</div>
 						<div class="col-md-4">
 							<div class="form-group">
-								<input type="phone" class="form-control" id="your-phone" name="your-phone" autocomplete="off">
-								<label class="form-control-label" for="your-phone"><span class="label-content" data-content="Phone Number">Phone Number</span></label>
+								<input type="phone" class="form-control" id="phone" name="phone" autocomplete="off">
+								<label class="form-control-label" for="phone"><span class="label-content" data-content="Phone Number">Phone Number</span></label>
 							</div>
 						</div>
 						<div class="col-md-12">
 							<div class="form-group">
-								<textarea class="form-control" rows="4" id="your-message" name="your-message" autocomplete="off"></textarea>
-								<label class="form-control-label" for="your-message"><span class="label-content" data-content="Your Message">Your Message</span></label>
+								<textarea class="form-control" rows="4" id="message" name="message" autocomplete="off"></textarea>
+								<label class="form-control-label" for="message"><span class="label-content" data-content="Your Message">Your Message</span></label>
 							</div>
 						</div>
 						<div class="col-md-4 col-md-offset-4 submit-group">
@@ -230,35 +410,23 @@
 	<footer id="footer" class="sitefooter">
 		<div class="container">
 			<div class="row">
-				<div class="col-xs-6 col-sm-3">
-					<h6 class="text-uppercase">Bootstrap 4</h6>
-					<ul class="list-unstyled">
-						<li><a href="https://medium.com/@bootply/bootstrap-4-whats-new-visual-guide-c84dd81d8387" target="ext">What's New</a></li>
-						<li><a href="http://codeply.com/tagged/bootstrap-4" target="ext">Examples</a></li>
-						<li><a href="http://getbootstrap.com" target="ext">Official</a></li>
-						<li><a href="http://www.codeply.com/go/p/bootstrap_4.0.alpha" target="ext">Playground</a></li>
-					</ul>
-				</div>
-				<div class="col-xs-6 col-sm-3 column">
-					<h6 class="text-uppercase">About</h6>
-					<ul class="list-unstyled">
-						<li><a href="#">Contact Us</a></li>
-						<li><a href="#">Delivery Information</a></li>
-						<li><a href="#">Privacy Policy</a></li>
-						<li><a href="#">Terms &amp; Conditions</a></li>
-					</ul>
-				</div>
-				<div class="col-xs-12 col-sm-6 text-xs-right">
+				<div class="col-xs-12 col-sm-6 col-sm-push-3 text-xs-center">
 					<h6 class="text-uppercase">Follow Me</h6>
-					<ul class="list-inline">
-						<li class="list-inline-item"><a rel="nofollow" target="_blank" href="https://facebook.com/fauzievolute" title="Facebook"><i class="icon-lg ion-social-facebook-outline"></i></a></li>
-						<li class="list-inline-item"><a rel="nofollow" target="_blank" href="https://twitter.com/fauzievolute" title="Twitter"><i class="icon-lg ion-social-twitter-outline"></i></a>&nbsp;</li>
-						<li class="list-inline-item"><a rel="nofollow" target="_blank" href="https://github.com/fauzie" title="GitHub"><i class="icon-lg ion-social-github-outline"></i></a></li>
+					<ul class="list-inline social-media">
+						<li class="list-inline-item"><a rel="nofollow" target="ext" href="https://github.com/fauzie" title="GitHub"><i class="icon-lg ion-social-github-outline"></i></a></li>
+						<li class="list-inline-item"><a rel="nofollow" target="ext" href="https://twitter.com/fauzievolute" title="Twitter"><i class="icon-lg ion-social-twitter-outline"></i></a></li>
+						<li class="list-inline-item"><a rel="nofollow" target="ext" href="https://facebook.com/fauzievolute" title="Facebook"><i class="icon-lg ion-social-facebook-outline"></i></a></li>
+						<li class="list-inline-item"><a rel="nofollow" target="ext" href="http://plus.google.com/+RizalFauzieRidwan" title="Google+"><i class="icon-lg ion-social-googleplus-outline"></i></a></li>
+						<li class="list-inline-item"><a rel="nofollow" target="ext" href="http://instagram.com/fauzievolute" title="Instagram"><i class="icon-lg ion-social-instagram-outline"></i></a></li>
 					</ul>
 				</div>
 			</div>
-			<br> <span class="pull-right text-muted small copyright">Made with<i class="ion-ios-heart"></i>by <a href="http://fauzie.my.id/" title="Home">fauzie</a> &copy; 2016. Powered by <a href="https://pages.github.com/" title="GitHub Page" target="_blank"><i class="ion-social-octocat"></i>GitHub Page</a>.</span>
+			<div class="row">
+				<div class="col-xs-12 col-sm-6 col-sm-push-3 text-xs-center">
+					<span class="pull-right text-muted small copyright">Made with<i class="ion-ios-heart"></i>by <a href="http://fauzie.my.id/" title="Home">fauzie</a> &copy; 2016. Powered by <a href="https://pages.github.com/" title="GitHub Page" target="ext"><i class="ion-social-octocat"></i>GitHub Page</a>.</span>
+				</div>
 			</div>
+		</div>
 	</footer>
 	<div id="galleryModal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
 		<div class="modal-dialog">
@@ -299,10 +467,49 @@
 			</div>
 		</div>
 	</div>
-	<!--scripts loaded here-->
+	<!-- PhotoSwipe -->
+	<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+		<div class="pswp__bg"></div>
+		<div class="pswp__scroll-wrap">
+			<div class="pswp__container">
+				<div class="pswp__item"></div>
+				<div class="pswp__item"></div>
+				<div class="pswp__item"></div>
+			</div>
+			<div class="pswp__ui pswp__ui--hidden">
+				<div class="pswp__top-bar">
+					<div class="pswp__counter"></div>
+					<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+					<button class="pswp__button pswp__button--share" title="Share"></button>
+					<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+					<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+					<div class="pswp__preloader">
+						<div class="pswp__preloader__icn">
+							<div class="pswp__preloader__cut">
+								<div class="pswp__preloader__donut"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+					<div class="pswp__share-tooltip"></div>
+				</div>
+				<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+				<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+				<div class="pswp__caption">
+					<div class="pswp__caption__center"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- /PhotoSwipe -->
+
+	<script src="js/jquery.1.9.1.min.js"></script>
 	<script src="js/tether.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/jquery.easing.min.js"></script>
+	<script src="js/photoswipe.min.js"></script>
+	<script src="js/photoswipe-ui.min.js"></script>
 	<script src="js/photostack.js"></script>
 	<script src="js/typed.min.js"></script>
 	<script src="js/scripts.js"></script>

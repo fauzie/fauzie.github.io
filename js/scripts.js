@@ -38,7 +38,8 @@
 		$('#galleryImage').attr("src", $(e.relatedTarget).data("src"));
 	});
 
-	var bannerH = $(".siteheader").height() + ( $("#about").height() / 2 );
+	var bannerH = $(".siteheader").height() + $("#about").height() + 500,
+			aboutH = $(".siteheader").height() + ($("#about").height() / 2);
 
 	$(window).scroll( function(){
 		var Wscroll = $(this).scrollTop();
@@ -47,6 +48,12 @@
 		} else {
 			$("#topNav").removeClass("navbar-fixed-top animated slideInDown");
 		}
+		if ( Wscroll >= aboutH ) {
+			$("#about").addClass("faded");
+		} else {
+			$("#about").removeClass("faded");
+		}
+		console.log( aboutH );
 	});
 
 	$("#typed").typed({

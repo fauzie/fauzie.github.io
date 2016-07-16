@@ -1,4 +1,38 @@
+/*=========================================
+ * = Google Fonts
+ ========================================*/
+
 @import url(https://fonts.googleapis.com/css?family=Titillium+Web:300,400,600,700);
+
+/*=========================================
+ * = Global Override
+ ========================================*/
+
+::-moz-selection {
+	text-shadow: none;
+	color: #111;
+	background: #eee;
+}
+
+::selection {
+	text-shadow: none;
+	color: #111;
+	background: #eee;
+}
+
+img::selection {
+	color: #111;
+	background: 0 0;
+}
+
+img::-moz-selection {
+	color: #111;
+	background: 0 0;
+}
+
+:focus {
+	outline: 0 !important;
+}
 
 html,
 body {
@@ -21,6 +55,43 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	letter-spacing: 2px;
 }
 
+a {
+	color: #fa023c;
+	-webkit-transition: all .35s;
+	-moz-transition: all .35s;
+	transition: all .35s;
+}
+
+a:hover,
+a:focus {
+	color: #fff;
+	outline: 0;
+	text-decoration: none;
+	text-shadow: 0 0 10px #fa023c;
+	-webkit-text-shadow: 0 0 10px #fa023c;
+	-moz-text-shadow: 0 0 10px #fa023c;
+}
+
+p {
+	color: #ccc;
+	font-size: 17px;
+	line-height: 1.7;
+	margin-bottom: 20px;
+	font-family: 'Titillium Web', 'Helvetica Neue', Arial, sans-serif;
+}
+
+section {
+	padding: 90px 0 50px;
+}
+
+aside {
+	padding: 45px 0;
+}
+
+/*=========================================
+ * = Class Helper
+ ========================================*/
+
 .bg-inverse {
 	background-color: #2a282b;
 }
@@ -38,9 +109,6 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 	background: #111;
 	border-color: #333;
 }
-
-
-/* workaround modal-open padding issue */
 
 body.modal-open {
 	padding-right: 0 !important;
@@ -73,31 +141,6 @@ hr.primary {
 	opacity: 1;
 }
 
-a {
-	color: #fa023c;
-	-webkit-transition: all .35s;
-	-moz-transition: all .35s;
-	transition: all .35s;
-}
-
-a:hover,
-a:focus {
-	color: #fff;
-	outline: 0;
-	text-decoration: none;
-	text-shadow: 0 0 10px #fa023c;
-	-webkit-text-shadow: 0 0 10px #fa023c;
-	-moz-text-shadow: 0 0 10px #fa023c;
-}
-
-p {
-	color: #ccc;
-	font-size: 17px;
-	line-height: 1.7;
-	margin-bottom: 20px;
-	font-family: 'Titillium Web', 'Helvetica Neue', Arial, sans-serif;
-}
-
 .text-normal {
 	font-family: 'Helvetica Neue', Arial, sans-serif;
 }
@@ -107,7 +150,7 @@ p {
 }
 
 .icon-lg {
-	font-size: 50px;
+	font-size: 30px;
 	line-height: 18px;
 }
 
@@ -117,6 +160,10 @@ p {
 
 .bg-alt {
 	background-color: #191919;
+}
+
+.bg-light {
+	background-color: #252525;
 }
 
 .text-faded {
@@ -142,15 +189,8 @@ p {
 	color: #fa023c !important;
 }
 
-section {
-	padding: 90px 0 50px;
-}
-
-aside {
-	padding: 45px 0;
-}
-
 .section-title h2 {
+	color: #eee;
 	text-transform: capitalize;
 	letter-spacing: 2px;
 	margin-bottom: 0;
@@ -183,6 +223,16 @@ aside {
 	color: #fff;
 }
 
+.social-media a {
+  display: block;
+  width: 60px;
+  height: 60px;
+}
+
+.sitefooter .copyright {
+	text-align: center;
+}
+
 .sitefooter .copyright a {
 	color: #b7b7b7;
 }
@@ -191,6 +241,10 @@ aside {
 	margin-left: 5px;
 	margin-right: 5px;
 }
+
+/*=========================================
+ * = Navigation
+ ========================================*/
 
 .navbar-default {
 	border-color: rgba(0, 0, 0, .05);
@@ -277,7 +331,6 @@ aside {
 	padding-top: 175px;
 }
 
-
 /* responsive nav */
 
 @media(max-width:48em) {
@@ -341,6 +394,10 @@ aside {
 	}
 }
 
+/*=========================================
+ * = Header
+ ========================================*/
+
 .siteheader {
 	position: relative;
 	min-height: auto;
@@ -365,6 +422,10 @@ aside {
 .siteheader .header-content .inner .site-title {
 	margin-top: 0;
 	margin-bottom: 0;
+}
+
+.siteheader .header-content .inner .site-title > span {
+	display: none;
 }
 
 .siteheader .header-content .inner .site-subtitle {
@@ -396,7 +457,11 @@ aside {
 
 @media(min-width:34em) {
 	.icon-lg {
-		font-size: 80px;
+		font-size: 50px;
+	}
+	#about .fauzie-details {
+		margin: 15px auto 30px;
+		width: 80%;
 	}
 	.siteheader {
 		min-height: 100%;
@@ -429,20 +494,13 @@ aside {
 	}
 }
 
-.list-group-item,
-.card-footer {
-	background-color: transparent;
-}
+/*=========================================
+ * = Forms
+ ========================================*/
 
 textarea {
 	resize: vertical;
 }
-
-.call-to-action h2 {
-	margin: 0 auto 20px;
-}
-
-/* Forms */
 
 .submit-group {
 	margin-top: 3em;
@@ -582,8 +640,6 @@ textarea {
 	}
 }
 
-
-
 .btn {
 	border-width: 0;
 	-webkit-border-radius: 0;
@@ -706,32 +762,98 @@ textarea {
 	100% { opacity:1; }
 }
 
-::-moz-selection {
-	text-shadow: none;
-	color: #111;
-	background: #eee;
+/*=========================================
+ * = Skill Bars
+ ========================================*/
+
+.skill-title {
+	display: block;
+  margin-bottom: 2rem;
+	text-align: center;
+	text-transform: uppercase;
+}
+.skillbars .skillbar-wrap {
+  display: table;
+  width: 100%;
+  padding-bottom: 30px;
+}
+.skillbars .skillbar-wrap .icon {
+	display: table-cell;
+	vertical-align: bottom;
+  width: 10%;
+  padding-right: 15px;
+}
+.skillbars .skillbar-wrap .icon i {
+  display: block;
+	font-size: 32px;
+  line-height: 1em;
+  text-align: center;
+}
+.skillbars .skillbar-wrap .bar-and-text {
+	display: table-cell;
+	vertical-align: bottom;
+  width: 80%;
+  text-transform: uppercase;
+}
+.skillbars .skillbar-wrap .bar-and-text > span {
+  font-weight: 600;
+  font-size: 15px;
+}
+.skillbars .skillbar-wrap .bar-and-text .bar {
+  background: #111;
+  height: 5px;
+  margin-top: 5px;
+  overflow: hidden;
+}
+.skillbars .skillbar-wrap .bar-and-text .bar .filled {
+	background-color: #fa023c;
+  height: 5px;
+  position: relative;
+}
+.skillbars .skillbar-wrap .bar-and-text .bar .filled:after {
+  content: "";
+  position: absolute;
+  height: 5px;
+  width: 5px;
+  right: -5px;
+  top: 0px;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid transparent;
+}
+.skillbars .skillbar-wrap .number-wrap {
+	display: table-cell;
+	vertical-align: bottom;
+  width: 10%;
+}
+.skillbars .skillbar-wrap .number-wrap .number {
+  background: #111;
+  padding: 5px 10px;
+  color: #b5b5b5;
+  font-size: 10px;
+	font-weight: 400;
+  line-height: 1;
+  display: inline-block;
+  position: relative;
+  top: 7px;
+}
+.skillbars .skillbar-wrap .number-wrap .number:before {
+  content: "";
+  position: absolute;
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid transparent;
+  border-top: 5px solid transparent;
+  border-right: 5px solid #111;
+  display: inline-block;
+  height: 5px;
+  vertical-align: top;
+  width: 5px;
+  left: -10px;
 }
 
-::selection {
-	text-shadow: none;
-	color: #111;
-	background: #eee;
-}
-
-img::selection {
-	color: #111;
-	background: 0 0;
-}
-
-img::-moz-selection {
-	color: #111;
-	background: 0 0;
-}
-
-:focus {
-	outline: 0 !important;
-}
-
+/*=========================================
+ * = Custom Section Specific
+ ========================================*/
 
 #about {
 	position: relative;
@@ -756,6 +878,30 @@ img::-moz-selection {
 	transition: opacity 1s ease-out;
 }
 
-.navbar-default.navbar-fixed-top + #about::after {
+#about.faded::after {
 	opacity: 0;
+}
+
+#about a.url,
+#about .jobTitle {
+	display: none;
+}
+
+#about .site-desc a {
+	color: inherit;
+}
+
+#about .fauzie-details .icon-lg {
+	display: block;
+	line-height: 1em;
+	color: #fefefe;
+}
+
+#about .fauzie-details .icon-lg + span {
+	display: block;
+	text-align: center;
+	line-height: 46px;
+	font-size: 18px;
+	text-transform: uppercase;
+	font-weight: 600;
 }
