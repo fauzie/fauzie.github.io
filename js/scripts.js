@@ -33,13 +33,19 @@
 					$('body').addClass('quote-review');
 				}
 			});
+			/*new SelectFx(document.getElementById('selectfx'), {
+				stickyPlaceholder: false,
+				onChange: function(val){
+					document.querySelector('span.cs-placeholder').style.backgroundColor = val;
+				}
+			});*/
 		}
 		return window.history.pushState(null, null, '#getquote');
 	}).on('hidden.bs.modal', function (e) {
 		return window.history.back();
 	});
 
-	$('a.page-scroll').on('click', function (event) {
+	$('a.page-scroll').on('click touchend', function (event) {
 		if (this.hash !== "") {
 			event.preventDefault();
 			var hash = this.hash, navset = hash === "#about" ? 0 : 76;

@@ -411,7 +411,7 @@ hr.primary {
 	color: #fa023c;
 }
 
-.navbar-default .nav .nav-link::before {
+.navbar-default .nav .nav-link:before {
 	content: " ";
 	position: absolute;
 	left: 0;
@@ -427,7 +427,7 @@ hr.primary {
 	transition: transform 0.1s;
 }
 
-.navbar-default .nav .nav-link.active::before {
+.navbar-default .nav .nav-link.active:before {
 	transform: scale3d(1, 1, 1);
 	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 	transition-duration: 0.3s;
@@ -817,7 +817,7 @@ textarea {
     top: 2px;
 }
 
-.btn:not(.disabled)::before {
+.btn:not(.disabled):before {
 	content: '';
 	position: absolute;
 	top: 0;
@@ -836,7 +836,7 @@ textarea {
 	transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
 }
 
-.btn:not(.disabled):hover::before {
+.btn:not(.disabled):hover:before {
 	-webkit-transform: scale3d(1, 1, 1);
 	transform: scale3d(1, 1, 1);
 	opacity: 1;
@@ -848,8 +848,8 @@ textarea {
 	box-shadow: inset 0px 0px 0px 2px #ccc;
 }
 
-.btn.btn-secondary::before,
-.btn.btn-secondary-outline::before {
+.btn.btn-secondary:before,
+.btn.btn-secondary-outline:before {
 	border-color: #ccc;
 }
 
@@ -1032,7 +1032,7 @@ textarea {
 	padding-top: 176px;
 }
 
-#about::after {
+#about:after {
   content: "";
 	background-color: #000;
 	background-image: url(../img/fauzie-bg2.jpg);
@@ -1050,7 +1050,7 @@ textarea {
 	transition: opacity 1s ease-out;
 }
 
-#about.faded::after {
+#about.faded:after {
 	opacity: 0;
 }
 
@@ -1168,13 +1168,18 @@ textarea {
 }
 
 #form-wrap .form-numbers {
+	display: block;
 	position: relative;
 	cursor: default;
 	width: 2em;
+	font-size: 1.8rem;
+	font-weight: 400;
 	visibility: hidden;
+	overflow: hidden;
 }
 
 #form-wrap .form-numbers span {
+	color: #eee;
 	float: right;
   width: 40%;
   text-align: center;
@@ -1184,14 +1189,9 @@ textarea {
 	float: left;
 }
 
-#form-wrap .form-numbers .number-new {
-	position: absolute;
-	left: 0;
-	-webkit-transform: translateY(100%);
-	transform: translateY(100%);
-}
-
 #form-wrap .form-numbers:after {
+	color: #fff;
+	display: table;
   position: absolute;
   width: 100%;
   text-align: center;
@@ -1199,6 +1199,14 @@ textarea {
   font-weight: 300;
   opacity: 0.4;
   left: 0;
+	clear: both;
+}
+
+#form-wrap .form-numbers .number-new {
+	position: absolute;
+	left: 0;
+	-webkit-transform: translateY(100%);
+	transform: translateY(100%);
 }
 
 /* Animations for numbers */
@@ -1542,13 +1550,164 @@ textarea {
 	from { opacity: 0; -webkit-transform: translate3d(0,-500px,0); transform: translate3d(0,-500px,0); }
 }
 
+/* Custom Radio Input */
+
+.modal-form .form-fields .form-radio-group {
+	display: block;
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+.form-fields .form-radio-group input[type="radio"] {
+	position: absolute;
+	display: block;
+	margin: 30px auto 20px;
+	margin: 0 auto 20px;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	cursor: pointer;
+}
+
+.form-fields > li .form-radio-group span {
+	float: left;
+	position: relative;
+	margin-right: 3%;
+	padding: 10px;
+	max-width: 200px;
+	width: 30%;
+	text-align: center;
+	font-weight: 700;
+	font-size: 50%;
+}
+
+.form-fields > li .form-radio-group span label {
+	color: #aba2a2;
+}
+
+.form-overview .form-fields > li .form-radio-group span {
+	max-width: 140px;
+}
+
+.form-overview .form-fields > li .form-radio-group span {
+	font-size: 75%;
+}
+
+.form-fields > li .form-radio-group label {
+	display: block;
+	padding-top: 50%;
+	width: 100%;
+	height: 100%;
+	cursor: pointer;
+	font-size: 1rem;
+	margin: 0;
+}
+
+.form-fields .form-radio-group label[data-info]:before {
+	content: attr(data-info);
+	display: block;
+	margin: 0 auto;
+	color: inherit;
+	font-size: .8em;
+	font-weight: 300;
+	text-align: center;
+	position: absolute;
+	top: 100%;
+	left: 0;
+	right: 0;
+	opacity: 0;
+	visibility: hidden;
+	-webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
+	transition: transform 0.3s, opacity 0.2s;
+	-webkit-transform: translate3d(0,50%,0);
+	transform: translate(0,50%,0);
+}
+
+.form-fields .form-radio-group label:after {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 100%;
+	height: 100%;
+	background: none;
+	content: "";
+	opacity: 0.5;
+	color: #ccc;
+	font-family: "Ionicons";
+  speak: none;
+	font-size: 4.5em;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  text-rendering: auto;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+	-webkit-transition: opacity 0.2s;
+	transition: opacity 0.2s;
+	-webkit-transform: translate(-50%,-50%);
+	transform: translate(-50%,-50%);
+}
+
+.form-fields .form-radio-group label.radio-conversion:after {
+	content: "\f370";
+}
+.form-fields .form-radio-group label.radio-social:after {
+	content: "\f3ac";
+}
+.form-fields .form-radio-group label.radio-apps:after {
+	content: "\f2c3";
+}
+
+.form-fields > li .form-radio-group span label:hover,
+.form-fields > li .form-radio-group span label:focus,
+.form-fields .form-radio-group input[type="radio"]:checked + label,
+.form-overview .form-fields .form-radio-group input[type="radio"]:checked + label {
+	color: #fff;
+}
+
+.form-fields .form-radio-group label[data-info]:hover:before,
+.form-fields .field-current .form-radio-group input[type="radio"]:checked + label:before {
+	opacity: .9;
+	visibility: visible;
+	-webkit-transform: translate3d(0,0,0);
+	transform: translate(0,0,0);
+}
+
+.form-fields .form-radio-group input[type="radio"]:checked + label:before {
+	visibility: hidden;
+}
+
+.form-fields .form-radio-group label:hover:after,
+.form-fields .form-radio-group label:focus:after,
+.form-fields input[type="radio"]:focus + label:after {
+	opacity: 1;
+	color: #fff;
+	text-shadow: none;
+}
+
+.form-fields input[type="radio"]:checked + label:after {
+	opacity: 1;
+	color: #fa023c;
+	text-shadow: none;
+}
+
+.modal-form .form-fields .form-field.field-mark {
+	padding-left: 1em;
+	background-image: url(../img/dollar.svg);
+  background-position: left center;
+  background-size: auto 60%;
+  background-repeat: no-repeat;
+}
+
 /* Review after Wizard */
 
 #form-wrap .modal-form.form-overview {
 	display: block;
 	height: 100%;
-	overflow-y: scroll;
-	overflow-x: hidden;
+	overflow: hidden;
 }
 
 #form-wrap .modal-form.form-overview .form-fields > li {
@@ -1567,6 +1726,15 @@ textarea {
 	font-size: 1rem;
 	padding: 10px 15px;
 	border: 2px solid rgba(255,255,255,0.3);
+}
+
+#form-wrap .modal-form.form-overview li .form-field.form-radio-group {
+	border: 0;
+	padding: 0;
+}
+
+#form-wrap .modal-form.form-overview li .form-field.form-radio-group input[type="radio"]:checked + label:before {
+	visibility: visible;
 }
 
 #form-wrap .modal-form.form-overview li .form-field:focus,
@@ -1593,16 +1761,389 @@ body.modal-open.quote-review .modal-dialog .modal-footer {
 }
 
 /*=========================================
+ * = SelectFx Color Picker
+ ========================================*/
+
+/* Default custom select styles */
+div.cs-select {
+	display: inline-block;
+	vertical-align: middle;
+	position: relative;
+	text-align: left;
+	background: #fff;
+	z-index: 100;
+	width: 100%;
+	max-width: 500px;
+	padding: 0;
+	margin: 0;
+	font-size: 1em;
+	border: none !important;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+div.cs-select:focus {
+	outline: none; /* For better accessibility add a style for this in your skin */
+}
+
+.cs-select select {
+	display: none !important;
+}
+
+.cs-select span {
+	display: block;
+	position: relative;
+	cursor: pointer;
+	padding: 1em;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+/* Placeholder and selected option */
+.cs-select > span {
+	padding-right: 3em;
+}
+
+.cs-select > span::after,
+.cs-select .cs-selected span::after {
+	speak: none;
+	position: absolute;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	transform: translateY(-50%);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.cs-select > span::after {
+	content: '\25BE';
+	right: 1em;
+}
+
+.cs-select .cs-selected span::after {
+	content: '\2713';
+	margin-left: 1em;
+}
+
+.cs-select.cs-active > span::after {
+	-webkit-transform: translateY(-50%) rotate(180deg);
+	transform: translateY(-50%) rotate(180deg);
+}
+
+/* Options */
+.cs-select .cs-options {
+	position: absolute;
+	overflow: hidden;
+	width: 100%;
+	background: #fff;
+	visibility: hidden;
+	z-index: 10000;
+}
+
+.cs-select.cs-active .cs-options {
+	visibility: visible;
+}
+
+.cs-select ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+.cs-select ul span {
+	padding: 1em;
+}
+
+.cs-select ul li.cs-focus span {
+	background-color: #ddd;
+}
+
+/* Optgroup and optgroup label */
+.cs-select li.cs-optgroup ul {
+	padding-left: 1em;
+}
+
+.cs-select li.cs-optgroup > span {
+	cursor: default;
+}
+
+/* Custom select */
+/* Read the article: http://tympanus.net/codrops/2014/07/10/inspiration-for-custom-select-elements/ */
+/* Demo: http://tympanus.net/Development/SelectInspiration/ */
+/* GitHub: https://github.com/codrops/SelectInspiration */
+
+/* Custom select skin: fullscreen color picker (adjusted for fullscreen form) */
+div.cs-skin-boxes {
+	background: transparent;
+	font-size: 0.65em;
+	font-weight: 700;
+	max-width: 300px;
+	z-index: 2000;
+	color: #fff;
+}
+
+@media screen and (max-width: 30em) {
+	div.cs-skin-boxes { font-size: 1em; }
+}
+
+.cs-skin-boxes > span {
+	border: 3px solid #292c30;
+	border-radius: 5px;
+	width: 150px;
+	height: 140px;
+	font-size: 14px;
+	padding: 0 0 0 10px;
+	background: #555b64;
+}
+
+div.cs-skin-boxes:focus > span {
+	box-shadow: 0 0 0 2px rgba(255,255,255,0.1);
+}
+
+.cs-skin-boxes > span::before {
+	content: '';
+	display: block;
+	padding-top: 110px;
+	margin-left: -10px;
+	box-shadow: 0 25px 0 #292c30, inset 0 -10px #292c30;
+}
+
+.cs-skin-boxes > span::after,
+.cs-skin-boxes.cs-active > span::after {
+	top: auto;
+	-webkit-transform: none;
+	transform: none;
+}
+
+.cs-skin-boxes .cs-options {
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	overflow: auto;
+	background: #3b3f45;
+	font-size: 12px;
+	opacity: 0;
+	-webkit-transition: opacity 0.3s, visibility 0s 0.3s;
+	transition: opacity 0.3s, visibility 0s 0.3s;
+}
+
+.cs-skin-boxes.cs-active .cs-options {
+	opacity: 1;
+	-webkit-transition: opacity 0.3s;
+	transition: opacity 0.3s;
+}
+
+.cs-skin-boxes .cs-options ul {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	padding: 10px;
+}
+
+.cs-skin-boxes .cs-options li {
+	width: 20%;
+	height: 25%;
+	float: left;
+	position: relative;
+	cursor: pointer;
+	border-radius: 14px;
+	overflow: hidden;
+	opacity: 0;
+	color: rgba(255,255,255,0.6);
+	border: 10px solid transparent;
+	background-clip: padding-box;
+	-webkit-transform: scale3d(0.8,0.8,1);
+	transform: scale3d(0.8,0.8,1);
+	box-shadow: inset 0 -6em 0 -2em #282b30, inset 0 -1px 1px #000;
+	-webkit-transition: -webkit-transform 0.3s, opacity 0.3s;
+	transition: transform 0.3s, opacity 0.3s;
+}
+
+@media screen and (max-width: 30em) {
+	.cs-skin-boxes .cs-options li { box-shadow: none; border-width: 3px; border-radius: 8px;}
+}
+
+.cs-skin-boxes.cs-active .cs-options li {
+	opacity: 1;
+	-webkit-transform: scale3d(1,1,1);
+	transform: scale3d(1,1,1);
+}
+
+.cs-skin-boxes.cs-active .cs-options li:nth-child(2) {
+	-webkit-transition-delay: 0.01s;
+	transition-delay: 0.01s;
+}
+
+.cs-skin-boxes.cs-active .cs-options li:nth-child(3) {
+	-webkit-transition-delay: 0.02s;
+	transition-delay: 0.02s;
+}
+
+.cs-skin-boxes.cs-active .cs-options li:nth-child(4) {
+	-webkit-transition-delay: 0.03s;
+	transition-delay: 0.03s;
+}
+
+.cs-skin-boxes.cs-active .cs-options li:nth-child(5) {
+	-webkit-transition-delay: 0.04s;
+	transition-delay: 0.04s;
+}
+
+.cs-skin-boxes.cs-active .cs-options li:nth-child(6) {
+	-webkit-transition-delay: 0.05s;
+	transition-delay: 0.05s;
+}
+
+.cs-skin-boxes.cs-active .cs-options li:nth-child(7) {
+	-webkit-transition-delay: 0.06s;
+	transition-delay: 0.06s;
+}
+
+.cs-skin-boxes.cs-active .cs-options li:nth-child(8) {
+	-webkit-transition-delay: 0.07s;
+	transition-delay: 0.07s;
+}
+
+.cs-skin-boxes.cs-active .cs-options li:nth-child(9) {
+	-webkit-transition-delay: 0.08s;
+	transition-delay: 0.08s;
+}
+
+.cs-skin-boxes.cs-active .cs-options li:nth-child(10) {
+	-webkit-transition-delay: 0.09s;
+	transition-delay: 0.09s;
+}
+
+.cs-skin-boxes.cs-active .cs-options li:nth-child(11) {
+	-webkit-transition-delay: 0.1s;
+	transition-delay: 0.1s;
+}
+
+.cs-skin-boxes.cs-active .cs-options li:nth-child(12) {
+	-webkit-transition-delay: 0.11s;
+	transition-delay: 0.11s;
+}
+
+.cs-skin-boxes.cs-active .cs-options li:nth-child(13) {
+	-webkit-transition-delay: 0.12s;
+	transition-delay: 0.12s;
+}
+
+.cs-skin-boxes.cs-active .cs-options li:nth-child(14) {
+	-webkit-transition-delay: 0.13s;
+	transition-delay: 0.13s;
+}
+
+.cs-skin-boxes.cs-active .cs-options li:nth-child(15) {
+	-webkit-transition-delay: 0.14s;
+	transition-delay: 0.14s;
+}
+
+.cs-skin-boxes.cs-active .cs-options li:nth-child(16) {
+	-webkit-transition-delay: 0.15s;
+	transition-delay: 0.15s;
+}
+
+.cs-skin-boxes.cs-active .cs-options li:nth-child(17) {
+	-webkit-transition-delay: 0.16s;
+	transition-delay: 0.16s;
+}
+
+.cs-skin-boxes.cs-active .cs-options li:nth-child(18) {
+	-webkit-transition-delay: 0.17s;
+	transition-delay: 0.17s;
+}
+
+.cs-skin-boxes.cs-active .cs-options li:nth-child(19) {
+	-webkit-transition-delay: 0.18s;
+	transition-delay: 0.18s;
+}
+
+.cs-skin-boxes.cs-active .cs-options li:nth-child(20) {
+	-webkit-transition-delay: 0.19s;
+	transition-delay: 0.19s;
+}
+
+.cs-skin-boxes .cs-options li.cs-selected::after {
+	content: '\2714';
+	color: rgba(0,0,0,0.6);
+	position: absolute;
+	font-size: 2em;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate3d(-50%,-50%,0) translate3d(0,-1em,0);
+	transform: translate3d(-50%,-50%,0) translate3d(0,-1em,0);
+}
+
+.cs-skin-boxes .cs-options li.cs-selected span::after {
+	content: '';
+}
+
+@media screen and (max-width: 30em) {
+	.cs-skin-boxes .cs-options li.cs-selected::after {
+		-webkit-transform: translate3d(-50%,-50%,0);
+		transform: translate3d(-50%,-50%,0);
+	}
+}
+
+.cs-skin-boxes .cs-options span {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	line-height: 2em;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+@media screen and (max-width: 30em) {
+	.cs-skin-boxes .cs-options span { display: none; }
+}
+
+.cs-skin-boxes .cs-options li span:hover,
+.cs-skin-boxes li.cs-focus span,
+.cs-skin-boxes li.cs-selected span {
+	color: #fff;
+}
+
+/*=========================================
  * = Responsive Tablet & Mobile
  ========================================*/
+
+@media (max-width: 768px) {
+	#form-wrap .modal-form {
+		font-size: 1.8em;
+		width: 80%;
+	}
+	.modal-form .form-fields .form-label {
+		margin-top: 1.8em;
+	}
+	.modal-content .section-title hr {
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.modal-content .section-title .list-inline {
+		text-align: center;
+	}
+}
 
 @media (max-width: 544px) {
 	#form-wrap .modal-form {
 		font-size: 1.2em;
 		width: 100%;
 	}
+	.modal-form .form-fields .form-label {
+		margin-top: 1.2em;
+	}
 	.modal-form .form-fields .form-label,
-	#quoteform .form-fields .form-field {
+	.modal-form .form-fields .form-field {
 		font-size: 1.6rem;
 	}
 	#form-wrap .form-nav-dots {
@@ -1619,5 +2160,12 @@ body.modal-open.quote-review .modal-dialog .modal-footer {
 	}
 	.modal-form .form-fields .form-label[data-info]:before {
 		padding-bottom: 0;
+	}
+	.modal-content .section-title hr {
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.modal-content .section-title .list-inline {
+		text-align: left;
 	}
 }

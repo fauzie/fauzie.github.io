@@ -5,6 +5,361 @@
 
 	'use strict';
 
+	/**
+	 * based on from https://github.com/inuyaksa/jquery.nicescroll/blob/master/jquery.nicescroll.js
+	 */
+	function hasParent( e, p ) {
+		if (!e) return false;
+		var el = e.target||e.srcElement||e||false;
+		while (el && el != p) {
+			el = el.parentNode||false;
+		}
+		return (el!==false);
+	};
+
+	/**
+	 * extend obj function
+	 */
+	function extend( a, b ) {
+		for( var key in b ) {
+			if( b.hasOwnProperty( key ) ) {
+				a[key] = b[key];
+			}
+		}
+		return a;
+	}
+
+	/**
+	 * auto generate color
+	 */
+	function getRandomColor() {
+    var letters = '0123456789ABCDEF'.split(''), color = '';
+    for (var i = 0; i < 6; i++ ) {
+			color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+	}
+
+	/**
+	 * SelectFx function
+	 */
+	function SelectFx( el, options ) {
+		this.el = el;
+		this.options = extend( {}, this.options );
+		extend( this.options, options );
+		this._init();
+	}
+
+	/**
+	 * SelectFx options
+	 */
+	SelectFx.prototype.options = {
+		// if true all the links will open in a new tab.
+		// if we want to be redirected when we click an option, we need to define a data-link attr on the option of the native select element
+		newTab : true,
+		// how many auto generated color will applied
+		colors : 22,
+		// when opening the select element, the default placeholder (if any) is shown
+		stickyPlaceholder : false,
+		// callback when changing the value
+		onChange : function( val ) { document.querySelector('span.cs-placeholder').style.backgroundColor = val; }
+	}
+
+	/**
+	 * init function
+	 * initialize and cache some vars
+	 */
+	SelectFx.prototype._init = function() {
+		// create random select option value
+		this._createLists();
+		// check if we are using a placeholder for the native select box
+		// we assume the placeholder is disabled and selected by default
+		var selectedOpt = this.el.querySelector( 'option[selected]' );
+		this.hasDefaultPlaceholder = selectedOpt && selectedOpt.disabled;
+
+		// get selected option (either the first option with attr selected or just the first option)
+		this.selectedOpt = selectedOpt || this.el.querySelector( 'option' );
+
+		// create structure
+		this._createSelectEl();
+
+		// all options
+		this.selOpts = [].slice.call( this.selEl.querySelectorAll( 'li[data-option]' ) );
+
+		// total options
+		this.selOptsCount = this.selOpts.length;
+
+		// current index
+		this.current = this.selOpts.indexOf( this.selEl.querySelector( 'li.cs-selected' ) ) || -1;
+
+		// placeholder elem
+		this.selPlaceholder = this.selEl.querySelector( 'span.cs-placeholder' );
+
+		// init events
+		this._initEvents();
+	}
+
+	SelectFx.prototype._createLists = function() {
+		var self = this,
+				opts = this.options.colors * 2,
+				div = document.createElement('div'),
+				optionHTML = '';
+
+		if ( opts < 1 ) {
+			return;
+		}
+
+		for (var i = 1; i <= opts; i++ ) {
+			var color = getRandomColor();
+			optionHTML += '<option value="#'+color+'" data-class="color-'+color+'">#'+color+'</option>';
+		}
+
+		div.innerHTML = optionHTML;
+		[].forEach.call( div.childNodes, child => self.el.appendChild(child) );
+	}
+
+	/**
+	 * creates the structure for the select element
+	 */
+	SelectFx.prototype._createSelectEl = function() {
+		var self = this, options = '', createOptionHTML = function(el) {
+			var optclass = '', classes = '', link = '';
+
+			if( el.selectedOpt && !this.foundSelected && !this.hasDefaultPlaceholder ) {
+				classes += 'cs-selected ';
+				this.foundSelected = true;
+			}
+			// extra classes
+			if( el.getAttribute( 'data-class' ) ) {
+				classes += el.getAttribute( 'data-class' );
+			}
+			// link options
+			if( el.getAttribute( 'data-link' ) ) {
+				link = 'data-link=' + el.getAttribute( 'data-link' );
+			}
+
+			if( classes !== '' ) {
+				optclass = 'class="' + classes + '" ';
+			}
+
+			if( el.value.length ) {
+				optclass += 'style="background-color:'+el.value+'" ';
+			}
+
+			return '<li ' + optclass + link + ' data-option data-value="' + el.value + '"><span>' + el.textContent + '</span></li>';
+		};
+
+		[].slice.call( this.el.children ).forEach( function(el) {
+			if( el.disabled ) { return; }
+
+			var tag = el.tagName.toLowerCase();
+
+			if( tag === 'option' ) {
+				options += createOptionHTML(el);
+			}
+			else if( tag === 'optgroup' ) {
+				options += '<li class="cs-optgroup"><span>' + el.label + '</span><ul>';
+				[].slice.call( el.children ).forEach( function(opt) {
+					options += createOptionHTML(opt);
+				} )
+				options += '</ul></li>';
+			}
+		} );
+
+		var opts_el = '<div class="cs-options"><ul>' + options + '</ul></div>';
+		this.selEl = document.createElement( 'div' );
+		this.selEl.className = this.el.className;
+		this.selEl.tabIndex = this.el.tabIndex;
+		this.selEl.innerHTML = '<span class="cs-placeholder">' + this.selectedOpt.textContent + '</span>' + opts_el;
+		this.el.parentNode.appendChild( this.selEl );
+		this.selEl.appendChild( this.el );
+	}
+
+	/**
+	 * initialize the events
+	 */
+	SelectFx.prototype._initEvents = function() {
+		var self = this;
+
+		// open/close select
+		this.selPlaceholder.addEventListener( 'click', function() {
+			self._toggleSelect();
+		} );
+
+		// clicking the options
+		this.selOpts.forEach( function(opt, idx) {
+			opt.addEventListener( 'click', function() {
+				self.current = idx;
+				self._changeOption();
+				// close select elem
+				self._toggleSelect();
+			} );
+		} );
+
+		// close the select element if the target it´s not the select element or one of its descendants..
+		document.addEventListener( 'click', function(ev) {
+			var target = ev.target;
+			if( self._isOpen() && target !== self.selEl && !hasParent( target, self.selEl ) ) {
+				self._toggleSelect();
+			}
+		} );
+
+		// keyboard navigation events
+		this.selEl.addEventListener( 'keydown', function( ev ) {
+			var keyCode = ev.keyCode || ev.which;
+
+			switch (keyCode) {
+				// up key
+				case 38:
+					ev.preventDefault();
+					self._navigateOpts('prev');
+					break;
+				// down key
+				case 40:
+					ev.preventDefault();
+					self._navigateOpts('next');
+					break;
+				// space key
+				case 32:
+					ev.preventDefault();
+					if( self._isOpen() && typeof self.preSelCurrent != 'undefined' && self.preSelCurrent !== -1 ) {
+						self._changeOption();
+					}
+					self._toggleSelect();
+					break;
+				// enter key
+				case 13:
+					ev.stopPropagation();
+					ev.preventDefault();
+					if( self._isOpen() && typeof self.preSelCurrent != 'undefined' && self.preSelCurrent !== -1 ) {
+						self._changeOption();
+						self._toggleSelect();
+					}
+					break;
+				// esc key
+				case 27:
+					ev.preventDefault();
+					if( self._isOpen() ) {
+						self._toggleSelect();
+					}
+					break;
+			}
+		} );
+	}
+
+	/**
+	 * navigate with up/dpwn keys
+	 */
+	SelectFx.prototype._navigateOpts = function(dir) {
+		if( !this._isOpen() ) {
+			this._toggleSelect();
+		}
+
+		var tmpcurrent = typeof this.preSelCurrent != 'undefined' && this.preSelCurrent !== -1 ? this.preSelCurrent : this.current;
+
+		if( dir === 'prev' && tmpcurrent > 0 || dir === 'next' && tmpcurrent < this.selOptsCount - 1 ) {
+			// save pre selected current - if we click on option, or press enter, or press space this is going to be the index of the current option
+			this.preSelCurrent = dir === 'next' ? tmpcurrent + 1 : tmpcurrent - 1;
+			// remove focus class if any..
+			this._removeFocus();
+			// add class focus - track which option we are navigating
+			classie.add( this.selOpts[this.preSelCurrent], 'cs-focus' );
+		}
+	}
+
+	/**
+	 * open/close select
+	 * when opened show the default placeholder if any
+	 */
+	SelectFx.prototype._toggleSelect = function() {
+		// remove focus class if any..
+		this._removeFocus();
+
+		if( this._isOpen() ) {
+			if( this.current !== -1 ) {
+				// update placeholder text
+				this.selPlaceholder.textContent = this.selOpts[ this.current ].textContent;
+			}
+			classie.remove( this.selEl, 'cs-active' );
+		}
+		else {
+			if( this.hasDefaultPlaceholder && this.options.stickyPlaceholder ) {
+				// everytime we open we wanna see the default placeholder text
+				this.selPlaceholder.textContent = this.selectedOpt.textContent;
+			}
+			classie.add( this.selEl, 'cs-active' );
+		}
+	}
+
+	/**
+	 * change option - the new value is set
+	 */
+	SelectFx.prototype._changeOption = function() {
+		// if pre selected current (if we navigate with the keyboard)...
+		if( typeof this.preSelCurrent != 'undefined' && this.preSelCurrent !== -1 ) {
+			this.current = this.preSelCurrent;
+			this.preSelCurrent = -1;
+		}
+
+		// current option
+		var opt = this.selOpts[ this.current ];
+
+		// update current selected value
+		this.selPlaceholder.textContent = opt.textContent;
+
+		// change native select element´s value
+		this.el.value = opt.getAttribute( 'data-value' );
+
+		// remove class cs-selected from old selected option and add it to current selected option
+		var oldOpt = this.selEl.querySelector( 'li.cs-selected' );
+		if( oldOpt ) {
+			classie.remove( oldOpt, 'cs-selected' );
+		}
+		classie.add( opt, 'cs-selected' );
+
+		// if there´s a link defined
+		if( opt.getAttribute( 'data-link' ) ) {
+			// open in new tab?
+			if( this.options.newTab ) {
+				window.open( opt.getAttribute( 'data-link' ), '_blank' );
+			}
+			else {
+				window.location = opt.getAttribute( 'data-link' );
+			}
+		}
+
+		// callback
+		this.options.onChange( this.el.value );
+	}
+
+	/**
+	 * returns true if select element is opened
+	 */
+	SelectFx.prototype._isOpen = function(opt) {
+		return classie.has( this.selEl, 'cs-active' );
+	}
+
+	/**
+	 * removes the focus class from the option
+	 */
+	SelectFx.prototype._removeFocus = function(opt) {
+		var focusEl = this.selEl.querySelector( 'li.cs-focus' )
+		if( focusEl ) {
+			classie.remove( focusEl, 'cs-focus' );
+		}
+	}
+
+	/**
+	 * add to global namespace
+	 */
+	window.SelectFx = SelectFx;
+
+} )( window );
+
+;( function( window ) {
+
+	'use strict';
+
 	var support = { animations : Modernizr.cssanimations },
 		animEndEventNames = { 'WebkitAnimation' : 'webkitAnimationEnd', 'OAnimation' : 'oAnimationEnd', 'msAnimation' : 'MSAnimationEnd', 'animation' : 'animationend' },
 		// animation end event name
@@ -48,8 +403,8 @@
 	function FForm( el, options ) {
 		this.el = el;
 		this.options = extend( {}, this.options );
-  		extend( this.options, options );
-  		this._init();
+		extend( this.options, options );
+		this._init();
 	}
 
 	/**
@@ -76,6 +431,12 @@
 
 		// list of fields
 		this.fieldsList = this.formEl.querySelector( 'ol.form-fields' );
+
+		// color picker select
+		this.colorPicker = this.fieldsList.querySelectorAll( 'select.cs-select' );
+		[].slice.call( this.colorPicker ).forEach( function(el) {
+			new SelectFx( el );
+		});
 
 		// current field position
 		this.current = 0;
@@ -132,7 +493,7 @@
 
 		// field number status
 		if( this.options.ctrlNavPosition ) {
-			this.ctrlFldStatus = createElement( 'h1', { cName : 'form-numbers', appendTo : this.ctrlStatus } );
+			this.ctrlFldStatus = createElement( 'span', { cName : 'form-numbers', appendTo : this.ctrlStatus } );
 
 			// current field placeholder
 			this.ctrlFldStatusCurr = createElement( 'span', { cName : 'current', inner : Number( this.current + 1 ) } );
@@ -255,11 +616,11 @@
 			this.farthest = this.current;
 		}
 
-		// add class "fs-display-next" or "fs-display-prev" to the list of fields
+		// add class "fields-next" or "fs-display-prev" to the list of fields
 		classie.add( this.fieldsList, 'fields-' + this.navdir );
 
-		// remove class "fs-current" from current field and add it to the next one
-		// also add class "fs-show" to the next field and the class "fs-hide" to the current one
+		// remove class "field-current" from current field and add it to the next one
+		// also add class "field-show" to the next field and the class "field-hide" to the current one
 		classie.remove( currentFld, 'field-current' );
 		classie.add( currentFld, 'field-hide' );
 
@@ -277,38 +638,40 @@
 
 		// after animation ends remove added classes from fields
 		var self = this,
-			onEndAnimationFn = function( ev ) {
-				if( support.animations ) {
-					this.removeEventListener( animEndEventName, onEndAnimationFn );
-				}
+		onEndAnimationFn = function( ev ) {
+			if( support.animations ) {
+				this.removeEventListener( animEndEventName, onEndAnimationFn );
+			}
 
-				classie.remove( self.fieldsList, 'fields-' + self.navdir );
-				classie.remove( currentFld, 'field-hide' );
+			classie.remove( self.fieldsList, 'fields-' + self.navdir );
+			classie.remove( currentFld, 'field-hide' );
 
-				if( self.isLastStep ) {
-					// show the complete form and hide the controls
-					self._hideCtrl( self.ctrlNav );
-					self._hideCtrl( self.ctrlProgress );
-					self._hideCtrl( self.ctrlContinue );
-					self._hideCtrl( self.ctrlFldStatus );
-					// replace class fs-form-full with fs-form-overview
-					classie.remove( self.formEl, 'form-full' );
-					classie.add( self.formEl, 'form-overview' );
-					classie.add( self.formEl, 'field-show' );
-					// callback
-					self.options.onReview();
-				}
-				else {
-					classie.remove( nextField, 'field-show' );
+			if( self.isLastStep ) {
+				// show the complete form and hide the controls
+				self._hideCtrl( self.ctrlNav );
+				self._hideCtrl( self.ctrlProgress );
+				self._hideCtrl( self.ctrlContinue );
+				self._hideCtrl( self.ctrlFldStatus );
+				// replace class fs-form-full with fs-form-overview
+				classie.remove( self.formEl, 'form-full' );
+				classie.add( self.formEl, 'form-overview' );
+				classie.add( self.formEl, 'field-show' );
+				self.formEl.scrollIntoView(true);
+				// callback
+				self.options.onReview();
+			}
+			else {
+				classie.remove( nextField, 'field-show' );
+				nextField.querySelector('.form-field').focus();
 
-					if( self.options.ctrlNavPosition ) {
-						self.ctrlFldStatusCurr.innerHTML = self.ctrlFldStatusNew.innerHTML;
-						self.ctrlFldStatus.removeChild( self.ctrlFldStatusNew );
-						classie.remove( self.ctrlFldStatus, 'field-show-' + self.navdir );
-					}
+				if( self.options.ctrlNavPosition ) {
+					self.ctrlFldStatusCurr.innerHTML = self.ctrlFldStatusNew.innerHTML;
+					self.ctrlFldStatus.removeChild( self.ctrlFldStatusNew );
+					classie.remove( self.ctrlFldStatus, 'show-' + self.navdir );
 				}
-				self.isAnimating = false;
-			};
+			}
+			self.isAnimating = false;
+		};
 
 		if( support.animations ) {
 			if( this.navdir === 'next' ) {
@@ -353,7 +716,7 @@
 			// insert it in the DOM
 			this.ctrlFldStatus.appendChild( this.ctrlFldStatusNew );
 
-			// add class "fs-show-next" or "fs-show-prev" depending on the navigation direction
+			// add class "show-next" or "show-prev" depending on the navigation direction
 			var self = this;
 			setTimeout( function() {
 				classie.add( self.ctrlFldStatus, self.navdir === 'next' ? 'show-next' : 'show-prev' );
@@ -402,48 +765,76 @@
 	// TODO: this is a very basic validation function. Only checks for required fields..
 	FForm.prototype._validate = function() {
 		var fld = this.fields[ this.current ],
-			input = fld.querySelector( 'input[required]' ) || fld.querySelector( 'textarea[required]' ) || fld.querySelector( 'select[required]' ),
+			input = fld.querySelector( 'input' ) || fld.querySelector( 'textarea' ) || fld.querySelector( 'select' ),
+			require = input.hasAttribute('required'),
 			error;
 
 		if( !input ) return true;
 
 		switch( input.tagName.toLowerCase() ) {
 			case 'input' :
-				if( input.type === 'radio' || input.type === 'checkbox' ) {
+				var type = input.getAttribute('type');
+				if( type == 'radio' || type == 'checkbox' ) {
 					var checked = 0;
 					[].slice.call( fld.querySelectorAll( 'input[type="' + input.type + '"]' ) ).forEach( function( inp ) {
 						if( inp.checked ) {
 							++checked;
 						}
 					} );
-					if( !checked ) {
+					if( require && !checked ) {
 						error = 'NOVAL';
 					}
 				}
-				else if( input.value === '' ) {
+				else if( require && input.value === '' ) {
 					error = 'NOVAL';
 				}
-				else if( input.value.length < 3 ) {
+				else if( require && input.value.length < 3 ) {
 					error = 'TOOSHORT';
 				}
-				//check email input type
-				if( input.type === 'email' && input.value !== '' ) {
-					var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
-					if ( !input.value.match(mailformat) ) {
-						error = 'INVALIDEMAIL';
+				else if( input.value !== '' ) {
+					//check email input type
+					if( type == 'text' ) {
+						var textformat = /^[a-zA-Z 0-9]+$/;
+						if ( !input.value.match(textformat) ) {
+							error = 'NOSCHAR';
+						}
 					}
+					//check email input type
+					if( type == 'email' ) {
+						var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+						if ( !input.value.match(mailformat) ) {
+							error = 'INVALIDEMAIL';
+						}
+					}
+					//check phone number input type
+					else if( type == 'phone' ) {
+						input.value.replace(/\D/g, "");
+						var phoneformat = /^[\(\)\s\-\+\d]{10,17}$/;
+						if ( !input.value.match(phoneformat) ) {
+							error = 'INVALIDPHONE';
+						}
+					}
+					//check domain or url value
+					else if( type == 'url' ) {
+						input.value.replace(/\D/g, "");
+						var urlformat = /^((?:(?:(?:\w[\.\-\+]?)*)\w)+)((?:(?:(?:\w[\.\-\+]?){0,62})\w)+)\.(\w{2,6})$/;
+						if ( !input.value.match(urlformat) ) {
+							error = 'INVALIDURL';
+						}
+					}
+					//console.log( type+' : '+input.value );
 				}
 				break;
 
 			case 'select' :
 				// assuming here '' or '-1' only
-				if( input.value === '' || input.value === '-1' ) {
+				if( require && (input.value === '' || input.value === '-1') ) {
 					error = 'NOVAL';
 				}
 				break;
 
 			case 'textarea' :
-				if( input.value === '' ) {
+				if( require && input.value === '' ) {
 					error = 'NOVAL';
 				}
 				break;
@@ -467,10 +858,18 @@
 			case 'TOOSHORT':
 				message = 'The value is too short';
 				break;
-			case 'INVALIDEMAIL' :
+			case 'NOSCHAR':
+				message = 'This field not accepted any special characters';
+				break;
+			case 'INVALIDEMAIL':
 				message = 'Please fill a valid email address';
 				break;
-			// ...
+			case 'INVALIDPHONE':
+				message = 'Please provide valid phone number';
+				break;
+			case 'INVALIDURL':
+				message = 'Your domain is not valid';
+				break;
 		};
 		this.msgError.innerHTML = message;
 		this._showCtrl( this.msgError );

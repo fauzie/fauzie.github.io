@@ -24,6 +24,7 @@
 	<link rel="stylesheet" href="css/photostack.css" />
 	<link rel="stylesheet" href="css/photoswipe.css" />
 	<link rel="stylesheet" href="css/styles.css" />
+
 	<script src="js/modernizr.min.js"></script>
 	<script src="js/wow.min.js"></script>
 	<script>new WOW().init();</script>
@@ -475,24 +476,61 @@
 				<div class="modal-body">
 					<div class="container-fluid">
 						<div class="row">
-							<form id="quoteform" class="modal-form" autocomplete="off">
+							<form id="quoteform" class="modal-form form-full" autocomplete="off">
 								<h2 class="text-xs-center review-title">Review Your Quotes<hr class="primary"></h2>
 								<ol class="form-fields">
+
 									<li>
 										<label class="form-label" for="customer">What's your name?</label>
 										<input type="text" id="customer" name="customer" class="form-field" placeholder="John Doe" required>
 									</li>
 									<li>
 										<label class="form-label" for="reply_to" data-info="I won't send you spam, promise...">What's your email address?</label>
-										<input type="email" id="reply_to" name="reply_to" class="form-field" placeholder="example@domain.com" required>
+										<input type="email" id="reply_to" name="reply_to" class="form-field" placeholder="name@example.com" required>
 									</li>
 									<li>
 										<label class="form-label" for="mobile">Your mobile number?</label>
 										<input type="phone" id="mobile" name="mobile" class="form-field" placeholder="+62 812 5555 5555" required>
 									</li>
 									<li>
-										<label class="form-label" for="domain" data-info="Leave empty if this new project">Do you have a domain name registered?</label>
-										<input type="text" id="domain" name="domain" class="form-field" placeholder="mywebsite-address.com">
+										<label class="form-label" for="domain" data-info="Leave empty if you dont have it">Do you have a domain name registered?</label>
+										<input type="url" id="domain" name="domain" class="form-field" placeholder="mywebsite.com">
+									</li>
+									<li>
+										<label class="form-label" for="budget" data-info="help me adapt my approach to respects your constraints">What's your budget?</label>
+										<input type="number" id="budget" name="budget" class="form-field field-mark" placeholder="1000" step="10" min="10">
+									</li>
+									<li data-input-trigger>
+										<label class="form-label" for="model" data-info="This will help us know what kind of service you need">What's your priority for your website?</label>
+										<div class="form-field form-radio-group clearfix">
+											<span><input id="model1" name="model" type="radio" value="conversion" required><label for="model1" class="radio-conversion" data-info="e-commerce, catalog, services, products">Sell Things</label></span>
+											<span><input id="model2" name="model" type="radio" value="social"><label for="model2" class="radio-social" data-info="personal web, blog, company profile, social">Become Famous</label></span>
+											<span><input id="model3" name="model" type="radio" value="mobile"><label for="model3" class="radio-apps" data-info="web application, user interface, internal tools">Provide Facilities</label></span>
+										</div>
+									</li>
+									<li data-input-trigger>
+										<label class="form-label" data-info="The main color of your company logo or brand">Choose a main color for your website</label>
+										<select id="selectfx" class="cs-select cs-skin-boxes form-field">
+											<option value="" disabled selected>Pick a color</option>
+											<option value="#000000" data-class="color-000000">Black</option>
+											<option value="#c0c0c0" data-class="color-c0c0c0">Silver</option>
+											<option value="#808080" data-class="color-808080">Gray</option>
+											<option value="#ffffff" data-class="color-ffffff">White</option>
+											<option value="#800000" data-class="color-800000">Maroon</option>
+											<option value="#ff0000" data-class="color-ff0000">Red</option>
+											<option value="#800080" data-class="color-800080">Purple</option>
+											<option value="#ff00ff" data-class="color-ff00ff">Fuchsia</option>
+											<option value="#008000" data-class="color-008000">Green</option>
+											<option value="#00ff00" data-class="color-00ff00">Lime</option>
+											<option value="#808000" data-class="color-808000">Olive</option>
+											<option value="#ffff00" data-class="color-ffff00">Yellow</option>
+											<option value="#000080" data-class="color-000080">Navy</option>
+											<option value="#0000ff" data-class="color-0000ff">Blue</option>
+											<option value="#008080" data-class="color-008080">Teal</option>
+											<option value="#00ffff" data-class="color-00ffff">Aqua</option>
+											<option value="#ffa500" data-class="color-ffa500">Orange</option>
+											<option value="#ffd700" data-class="color-ffd700">Gold</option>
+										</select>
 									</li>
 								</ol>
 								<button class="form-submit btn btn-primary-outline" type="submit">Send Project</button>
