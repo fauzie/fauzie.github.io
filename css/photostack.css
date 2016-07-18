@@ -40,6 +40,10 @@
 	background: #fff;
 }
 
+.photostack figure a {
+	cursor: zoom-in !important;
+}
+
 .js .photostack figure {
 	position: absolute;
 	display: block;
