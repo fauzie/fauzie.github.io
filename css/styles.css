@@ -1702,6 +1702,17 @@ textarea {
   background-repeat: no-repeat;
 }
 
+.modal-form .form-fields .form-field.textarea {
+  font-size: 1.5rem;
+  resize: none;
+  padding: 0.15em 0.4em;
+  border: 2px solid rgba(255,255,255,0.3);
+}
+
+.modal-form .form-fields .form-field.textarea:focus {
+	border-color: #fa023c;
+}
+
 /* Review after Wizard */
 
 #form-wrap .modal-form.form-overview {
@@ -1873,12 +1884,7 @@ div.cs-select:focus {
 	cursor: default;
 }
 
-/* Custom select */
-/* Read the article: http://tympanus.net/codrops/2014/07/10/inspiration-for-custom-select-elements/ */
-/* Demo: http://tympanus.net/Development/SelectInspiration/ */
-/* GitHub: https://github.com/codrops/SelectInspiration */
-
-/* Custom select skin: fullscreen color picker (adjusted for fullscreen form) */
+/* Custom select skin */
 div.cs-skin-boxes {
 	background: transparent;
 	font-size: 0.65em;
