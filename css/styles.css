@@ -195,8 +195,8 @@ hr.primary {
 }
 
 .icon-lg {
-	font-size: 30px;
-	line-height: 18px;
+	font-size: 40px;
+	line-height: 20px;
 }
 
 .bg-main {
@@ -326,7 +326,7 @@ hr.primary {
  ========================================*/
 
 .sitefooter {
-	padding: 45px;
+	padding: 45px 0;
 	padding-top: 50px;
 	background-color: #111;
 	border-top: 15px dashed #222;
@@ -339,8 +339,8 @@ hr.primary {
 
 .social-media a {
   display: block;
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
 }
 
 .sitefooter .copyright {
@@ -406,6 +406,11 @@ hr.primary {
 	position: relative;
 }
 
+.navbar-default .nav .quote-link,
+.navbar-default .nav .quote-link:focus {
+	color: #fa023c;
+}
+
 .navbar-default .nav .nav-link::before {
 	content: " ";
 	position: absolute;
@@ -433,6 +438,10 @@ hr.primary {
 	text-shadow: none;
 }
 
+.navbar-default .nav .quote-link:hover {
+	color: #fff;
+}
+
 .navbar-default .nav .nav-link.active,
 .navbar-default .nav .nav-link.active:focus {
 	color: #fa023c !important;
@@ -442,6 +451,18 @@ hr.primary {
 /* responsive nav */
 
 @media(max-width:48em) {
+	.navbar-default .navbar-toggleable-sm {
+		margin: 33.33333% 0 100%;
+	}
+	.navbar-default .navbar-toggleable-sm.collapsing {
+		display: block;
+		height: auto;
+	}
+	.navbar-default .nav .nav-link,
+	.navbar-default .nav .nav-link:focus,
+	.navbar-default .nav .nav-link:active {
+		font-size: 2rem;
+	}
 	.navbar-default .navbar-nav>.nav-item {
 		float: none;
 		margin-left: .1rem;
@@ -472,6 +493,10 @@ hr.primary {
 	}
 	.section-title .lead {
 		width: 95%;
+	}
+	.social-media a {
+		width: 60px;
+		height: 60px;
 	}
 }
 
@@ -530,6 +555,7 @@ hr.primary {
 	text-align: center;
 	color: #333;
 	width: 100%;
+	height: 100%;
 	background-color: #f1f1f1;
 	background-image: url(../img/fauzie-bg.jpg);
 	background-repeat: no-repeat;
@@ -540,7 +566,7 @@ hr.primary {
 .siteheader .header-content {
 	position: relative;
 	width: 100%;
-	padding: 100px 15px;
+	padding: 50% 15px;
 	text-align: center;
 	z-index: 2;
 }
@@ -1094,6 +1120,10 @@ textarea {
 
 #form-wrap .form-submit {
 	display: none;
+	margin: 5rem auto 2rem;
+	padding: 8px 50px;
+	font-size: 1.2rem;
+	font-weight: 600 !important;
 }
 
 #form-wrap .btn-continue {
@@ -1111,6 +1141,10 @@ textarea {
   font-size: 12px;
 	line-height: 20px;
   color: #888;
+}
+
+#form-wrap .review-title {
+	display: none;
 }
 
 #form-progress {
@@ -1261,7 +1295,7 @@ textarea {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.7);
   content: '';
   text-indent: 0;
   -webkit-backface-visibility: hidden;
@@ -1276,7 +1310,7 @@ textarea {
 
 #form-wrap .form-nav-dots button:hover:before,
 #form-wrap .form-nav-dots button.form-dot-current:before {
-	background: #fffed8;
+	background: #eee;
 }
 
 #form-wrap .form-nav-dots button[disabled] {
@@ -1345,6 +1379,11 @@ textarea {
   font-size: 1.5em;
   border-radius: 0;
 	position: relative;
+}
+
+.modal-form .form-fields .form-field:focus,
+.modal-form .form-fields .form-field:active {
+	border-color: #fa023c;
 }
 
 .modal-form .form-fields .form-label[data-info]:before {
@@ -1503,19 +1542,68 @@ textarea {
 	from { opacity: 0; -webkit-transform: translate3d(0,-500px,0); transform: translate3d(0,-500px,0); }
 }
 
+/* Review after Wizard */
+
+#form-wrap .modal-form.form-overview {
+	display: block;
+	height: 100%;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+#form-wrap .modal-form.form-overview .form-fields > li {
+	position: relative;
+	display: block;
+	visibility: visible;
+	margin-bottom: 1rem;
+}
+
+#form-wrap .modal-form.form-overview li .form-label {
+	font-size: 1rem;
+	font-weight: 300;
+}
+
+#form-wrap .modal-form.form-overview li .form-field {
+	font-size: 1rem;
+	padding: 10px 15px;
+	border: 2px solid rgba(255,255,255,0.3);
+}
+
+#form-wrap .modal-form.form-overview .review-title,
+#form-wrap .modal-form.form-overview .form-submit {
+	display: block;
+}
+
+body.modal-open.quote-review .modal .modal-content {
+	overflow-y: scroll;
+}
+
 /*=========================================
  * = Responsive Tablet & Mobile
  ========================================*/
 
 @media (max-width: 544px) {
-	#form-wrap form {
+	#form-wrap .modal-form {
 		font-size: 1.2em;
-		width: 95%;
+		width: 100%;
 	}
+	.modal-form .form-fields .form-label,
 	#quoteform .form-fields .form-field {
-		font-size: 1em;
+		font-size: 1.6rem;
 	}
 	#form-wrap .form-nav-dots {
 		right: 1em;
+	}
+	#form-wrap .modal-header h1 {
+    font-size: 1.4em;
+    text-align: left;
+	}
+	#form-wrap .modal-header h1 > small {
+		font-size: .5em;
+		text-align: left;
+		margin: 0;
+	}
+	.modal-form .form-fields .form-label[data-info]:before {
+		padding-bottom: 0;
 	}
 }

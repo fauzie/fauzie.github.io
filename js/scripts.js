@@ -15,7 +15,7 @@
 
 	$('body').scrollspy({
 		target: '#topNav',
-		offset: 78
+		offset: 75
 	});
 
 	$('#getquote').modal({
@@ -23,9 +23,10 @@
 		keyboard: false,
 		show: window.location.hash === '#getquote' ? true : false
 	}).on('shown.bs.modal', function (e) {
+		$("#quoteform").trigger('reset');
 		new FForm(document.getElementById('form-wrap'), {
 			onReview : function () {
-				$('#getquote').modal('close');
+				$('body').addClass('quote-review');
 			}
 		});
 		return window.history.pushState(null, null, '#getquote');
