@@ -65,6 +65,10 @@
 		}
 	});
 
+	$(window).on('load',function () {
+		$("input#referrer").attr("value", window.location.href);
+	});
+
 	$("#typed").typed({
 		stringsElement: $('#typedsource'),
 		showCursor: true,

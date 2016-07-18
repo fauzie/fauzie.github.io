@@ -381,7 +381,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-10 col-lg-offset-1 text-xs-center">
-					<form id="feedback" class="row">
+					<form id="feedback" class="row" autocomplete="off">
 						<div class="col-xs-12 feedback-message">
 							<small class="success" style="display:none"><i class="ion-happy"></i>Hooray! Your message has been sent, soon I'll contact you. Thanks.</small>
 							<small class="error" style="display:none"><i class="ion-sad"></i>Uups! Something wrong, please try again or refresh your browser</small>
@@ -411,7 +411,7 @@
 							</fieldset>
 						</div>
 						<div class="col-lg-4 col-lg-offset-4 submit-group">
-							<input type="hidden" name="referrer" value="fauzie.my.id">
+							<input type="hidden" id="referrer" name="referrer" value="fauzie.my.id">
 							<button type="submit" class="btn btn-primary-outline btn-block btn-lg"><span>Send</span> <i class="ion-android-arrow-forward"></i></button>
 						</div>
 					</form>
