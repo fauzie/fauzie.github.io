@@ -381,9 +381,10 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-10 col-lg-offset-1 text-xs-center">
-					<form id="feedback" class="row" autocomplete="off">
-						<div class="col-xs-12" style="display:none">
-							<ul id="formmessage" class="list-inline"></ul>
+					<form id="feedback" class="row">
+						<div class="col-xs-12 feedback-message">
+							<small class="success" style="display:none"><i class="ion-happy"></i>Hooray! Your message has been sent, soon I'll contact you. Thanks.</small>
+							<small class="error" style="display:none"><i class="ion-sad"></i>Uups! Something wrong, please try again or refresh your browser</small>
 						</div>
 						<div class="col-xs-12 col-md-4">
 							<fieldset class="form-group">
@@ -414,6 +415,14 @@
 							<button type="submit" class="btn btn-primary-outline btn-block btn-lg"><span>Send</span> <i class="ion-android-arrow-forward"></i></button>
 						</div>
 					</form>
+					<div id="loadingbar" class="spinner">
+						<div class="rect1"></div>
+						<div class="rect2"></div>
+						<div class="rect3"></div>
+						<div class="rect4"></div>
+						<div class="rect5"></div>
+						<span class="wait">Loading...</span>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -469,12 +478,12 @@
 							<form id="quoteform" class="modal-form" autocomplete="off">
 								<ol class="form-fields">
 									<li>
-										<label class="form-label" for="name" data-info="Give your full name, along with the title if any.">What's your name?</label>
-										<input type="text" id="name" name="name" class="form-field" placeholder="John Doe" required>
+										<label class="form-label" for="customer">What's your name?</label>
+										<input type="text" id="customer" name="customer" class="form-field" placeholder="John Doe" required>
 									</li>
 									<li>
-										<label class="form-label" for="email" data-info="I won't send you spam, promise...">What's your email address?</label>
-										<input type="email" id="email" name="email" class="form-field" placeholder="example@domain.com" required>
+										<label class="form-label" for="reply_to" data-info="I won't send you spam, promise...">What's your email address?</label>
+										<input type="email" id="reply_to" name="reply_to" class="form-field" placeholder="example@domain.com" required>
 									</li>
 								</ol>
 								<button class="form-submit btn btn-primary-outline" type="submit">Send Quotes</button>

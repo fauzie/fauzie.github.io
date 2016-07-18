@@ -1,9 +1,12 @@
+/*jshint -W031 browser: true, strict: true, undef: true */
+/*global define: false */
+
 (function ($) {
 
 	"use strict";
 
-	new Photostack( document.getElementById( 'photostack' ), {
-		callback : function( item ) {
+	new Photostack(document.getElementById('photostack'), {
+		callback : function (item) {
 			//console.log(item)
 		}
 	});
@@ -18,29 +21,25 @@
 	$('#getquote').modal({
 		backdrop: 'static',
 		keyboard: false,
-		show: window.location.hash=='#getquote'?true:false
-	})
-	.on('shown.bs.modal', function (e) {
-
-		new FForm( document.getElementById( 'form-wrap' ), {
-			onReview : function() {
-				classie.add( document.body, 'overview' );
+		show: window.location.hash === '#getquote' ? true : false
+	}).on('shown.bs.modal', function (e) {
+		new FForm(document.getElementById('form-wrap'), {
+			onReview : function () {
+				$('#getquote').modal('close');
 			}
 		});
-
 		return window.history.pushState(null, null, '#getquote');
-	})
-	.on('hidden.bs.modal', function (e) {
+	}).on('hidden.bs.modal', function (e) {
 		return window.history.back();
 	});
 
 	$('a.page-scroll').on('click', function (event) {
-		if ( this.hash !== "" ) {
+		if (this.hash !== "") {
 			event.preventDefault();
-			var hash = this.hash, navset = hash=="#about"?0:76;
+			var hash = this.hash, navset = hash === "#about" ? 0 : 76;
 			$('html, body').stop().animate({
 				scrollTop: $(hash).offset().top - navset
-			}, 800, 'easeInOutExpo', function(){
+			}, 800, 'easeInOutExpo', function () {
 				return window.history.pushState(null, document.title, hash);
 			});
 		}
@@ -50,17 +49,16 @@
 		$('.navbar-toggler:visible').click();
 	});
 
-	var bannerH = $(".siteheader").height() + $("#about").height() + 500,
-			aboutH = $(".siteheader").height() + ($("#about").height() / 2);
+	var bannerH = $(".siteheader").height() + $("#about").height() + 500, aboutH = $(".siteheader").height() + ($("#about").height() / 2);
 
-	$(window).scroll( function() {
+	$(window).scroll(function () {
 		var Wscroll = $(this).scrollTop();
-		if ( Wscroll >= bannerH ) {
+		if (Wscroll >= bannerH) {
 			$("#topNav").addClass("navbar-fixed-top animated slideInDown");
 		} else {
 			$("#topNav").removeClass("navbar-fixed-top animated slideInDown");
 		}
-		if ( Wscroll >= aboutH ) {
+		if (Wscroll >= aboutH) {
 			$("#about").addClass("faded");
 		} else {
 			$("#about").removeClass("faded");
@@ -76,25 +74,31 @@
 		backDelay: 900
 	});
 
-	$( ".form-control:not(.form-control-xl)" )
-	.bind('blur', function() {
-		if( !$(this).val() ) {
-    	$(this).closest(".form-group").removeClass("active-filled");
+	$(".form-control:not(.form-control-xl)").bind('blur', function () {
+		if (!$(this).val()) {
+			$(this).closest(".form-group").removeClass("active-filled");
 		}
-	})
-	.bind('focus', function() {
+	}).bind('focus', function () {
 		$(this).closest(".form-group").addClass("active-filled");
 	});
 
 	$("#feedback").on('submit', function (e) {
 		e.preventDefault();
 
-		var $form = $(this), $fields = $(this).find(".form-control");
+		var desti = 'https://getsimpleform.com/messages?form_api_token=d9e3917e58198e5444069eefa5365dd5', $form = $(this), $fields = $(this).find(".form-group"), vals = $("#feedback :input[value!='']").serialize(), fajax = $.ajax({ url: desti, data: vals, type: 'POST', cache: false });
 
-		$form.slideUp();
+		$form.slideUp("fast", function () {
+			$form.next("#loadingbar").show().addClass("animated slideInUp");
+		});
 
-		console.log( $fields.serialize );
-
+		fajax.done(function (data, textStatus, xhr) {
+			var is_done = (xhr.status === 200) ? 'success' : 'error';
+			$form.find(".feedback-message>." + is_done).show();
+			$form.slideDown("fast", function () {
+				$form.next("#loadingbar").hide().removeClass("animated slideInUp");
+			}).trigger("reset");
+			$fields.removeClass("active-filled");
+		});
 	});
 
 })(jQuery);

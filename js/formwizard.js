@@ -422,6 +422,13 @@
 				else if( input.value === '' ) {
 					error = 'NOVAL';
 				}
+				//check email input type
+				if( input.type === 'email' && input.value !== '' ) {
+					var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+					if ( !input.value.match(mailformat) ) {
+						error = 'INVALIDEMAIL';
+					}
+				}
 				break;
 
 			case 'select' :
