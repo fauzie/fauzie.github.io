@@ -1569,6 +1569,11 @@ textarea {
 	border: 2px solid rgba(255,255,255,0.3);
 }
 
+#form-wrap .modal-form.form-overview li .form-field:focus,
+#form-wrap .modal-form.form-overview li .form-field:active {
+	border-color: #fa023c;
+}
+
 #form-wrap .modal-form.form-overview .review-title,
 #form-wrap .modal-form.form-overview .form-submit {
 	display: block;
@@ -1576,6 +1581,15 @@ textarea {
 
 body.modal-open.quote-review .modal .modal-content {
 	overflow-y: scroll;
+}
+
+body.modal-open.quote-review .modal-dialog .modal-footer {
+	display: none;
+	visibility: hidden;
+}
+
+.modal-form.form-overview .form-fields .form-label[data-info]:before {
+	width: 200%;
 }
 
 /*=========================================

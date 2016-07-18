@@ -5,6 +5,8 @@
 
 	"use strict";
 
+	var FFormInit = false;
+
 	new Photostack(document.getElementById('photostack'), {
 		callback : function (item) {
 			//console.log(item)
@@ -23,12 +25,15 @@
 		keyboard: false,
 		show: window.location.hash === '#getquote' ? true : false
 	}).on('shown.bs.modal', function (e) {
-		$("#quoteform").trigger('reset');
-		new FForm(document.getElementById('form-wrap'), {
-			onReview : function () {
-				$('body').addClass('quote-review');
-			}
-		});
+		if ( !FFormInit ) {
+			FFormInit = true;
+			$("#quoteform").trigger('reset');
+			new FForm(document.getElementById('form-wrap'), {
+				onReview : function () {
+					$('body').addClass('quote-review');
+				}
+			});
+		}
 		return window.history.pushState(null, null, '#getquote');
 	}).on('hidden.bs.modal', function (e) {
 		return window.history.back();
@@ -104,6 +109,14 @@
 			}).trigger("reset");
 			$fields.removeClass("active-filled");
 		});
+	});
+
+	$("#quoteform").on('submit', function (e) {
+		e.preventDefault();
+
+		var desti = 'https://getsimpleform.com/messages?form_api_token=b4dc5ec27a03e5b568940fe2433bd78c', $modal = $(this).closest("#form-wrap"), $fields = $(this).find(".form-field"), vals = $("#quoteform :input[value!='']").serialize();
+
+		console.log( vals );
 	});
 
 })(jQuery);

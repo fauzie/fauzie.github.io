@@ -226,9 +226,10 @@
 	 * jumps to the next field
 	 */
 	FForm.prototype._nextField = function( backto ) {
-		if( this.isLastStep || !this._validade() || this.isAnimating ) {
+		if( this.isLastStep || !this._validate() || this.isAnimating ) {
 			return false;
 		}
+
 		this.isAnimating = true;
 
 		// check if on last step
@@ -399,7 +400,7 @@
 	}
 
 	// TODO: this is a very basic validation function. Only checks for required fields..
-	FForm.prototype._validade = function() {
+	FForm.prototype._validate = function() {
 		var fld = this.fields[ this.current ],
 			input = fld.querySelector( 'input[required]' ) || fld.querySelector( 'textarea[required]' ) || fld.querySelector( 'select[required]' ),
 			error;
@@ -421,6 +422,9 @@
 				}
 				else if( input.value === '' ) {
 					error = 'NOVAL';
+				}
+				else if( input.value.length < 3 ) {
+					error = 'TOOSHORT';
 				}
 				//check email input type
 				if( input.type === 'email' && input.value !== '' ) {
@@ -459,6 +463,9 @@
 		switch( err ) {
 			case 'NOVAL' :
 				message = 'Please fill the field before continuing';
+				break;
+			case 'TOOSHORT':
+				message = 'The value is too short';
 				break;
 			case 'INVALIDEMAIL' :
 				message = 'Please fill a valid email address';
