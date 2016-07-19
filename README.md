@@ -1,4 +1,4 @@
-<p align="center"><img src="https://github.com/fauzie/fauzie.github.io/raw/master/img/fauzie.png"></p>
+<p align="center"><img src="https://github.com/fauzie/fauzie.github.io/raw/master/img/fauzie-banner.jpg"></p>
 
 ---
 
