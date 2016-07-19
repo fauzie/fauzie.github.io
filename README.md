@@ -1,4 +1,4 @@
-<p align="center"><img src="https://github.com/fauzie/fauzie.github.io/raw/master/img/fauzie-banner.jpg"></p>
+<p align="center"><img src="https://github.com/fauzie/fauzie.github.io/raw/master/img/fauzie.png"></p>
 
 ---
 
@@ -12,7 +12,7 @@
 
 ---
 
-#### Powered By :
+### Powered By :
 
 | CSS Libs | JavaScript |
 |:---------------:|:---------------:|
@@ -23,7 +23,7 @@
 
 ___
 
-#### Thanks To :
+### Thanks To :
 
 * http://tympanus.net/codrops
 * http://www.site.uplabs.com/posts/c/resources
@@ -31,7 +31,7 @@ ___
 
 ___
 
-#### Licence : MIT License
+### Licence : MIT License
 
 Copyright (c) 2016 Rizal Fauzie Ridwan
 
