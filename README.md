@@ -14,12 +14,13 @@
 
 #### Powered By :
 
-CSS Libs | JavaScript
-:---: | :---:
-[Bootstrap 4](http://v4-alpha.getbootstrap.com/) | [jQuery](http://jquery.com/)
-[animate.css](http://github.com/daneden/animate.css) | [WOW.js](http://mynameismatthieu.com/WOW/)
-[Devicons](https://github.com/vorillaz/devicons) | [Typed.js](https://github.com/mattboldt/typed.js/)
-[Ionicons](http://ionicons.com/) | [Photoswipe](https://github.com/dimsemenov/photoswipe)
+| CSS Libs | JavaScript |
+|:---------------:|:---------------:|
+| [Bootstrap 4](http://v4-alpha.getbootstrap.com/) | [jQuery](http://jquery.com/) |
+| [animate.css](http://github.com/daneden/animate.css) | [WOW.js](http://mynameismatthieu.com/WOW/) |
+| [Devicons](https://github.com/vorillaz/devicons) | [Typed.js](https://github.com/mattboldt/typed.js/) |
+| [Ionicons](http://ionicons.com/) | [Photoswipe](https://github.com/dimsemenov/photoswipe) |
+
 ___
 
 #### Thanks To :
@@ -51,7 +52,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-<style>
-table {width:100%}
-</style>
