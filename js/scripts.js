@@ -5,7 +5,8 @@
 
 	"use strict";
 
-	var FFormInit = false;
+	var FFormInit = false, bannerH = $(".siteheader").height() + $("#about").height() + 500, aboutH = $(".siteheader").height() + ($("#about").height() / 2),
+			$checkedEl = '<div class="checked" data-dismiss="modal"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="61" height="52" viewBox="0 0 61 52" class="check-icon"><path d="M56.560,-0.010 C37.498,10.892 26.831,26.198 20.617,33.101 C20.617,33.101 5.398,23.373 5.398,23.373 C5.398,23.373 0.010,29.051 0.010,29.051 C0.010,29.051 24.973,51.981 24.973,51.981 C29.501,41.166 42.502,21.583 60.003,6.565 C60.003,6.565 56.560,-0.010 56.560,-0.010 Z" id="path-1" class="cls-2" fill-rule="evenodd"/></svg></div><div class="checkcs"><h1>Thank You!</h1><p>I have received your custom project quote.<br>I will review and reply your worksheet ASAP.</p><a href="#" data-dismiss="modal">close</a></div>';
 
 	new Photostack(document.getElementById('photostack'), {
 		callback : function (item) {
@@ -25,7 +26,7 @@
 		keyboard: false,
 		show: window.location.hash === '#getquote' ? true : false
 	}).on('shown.bs.modal', function (e) {
-		if ( !FFormInit ) {
+		if (!FFormInit) {
 			FFormInit = true;
 			$("#quoteform").trigger('reset');
 			new FForm(document.getElementById('form-wrap'), {
@@ -33,15 +34,15 @@
 					$('body').addClass('quote-review');
 				}
 			});
-			/*new SelectFx(document.getElementById('selectfx'), {
-				stickyPlaceholder: false,
-				onChange: function(val){
-					document.querySelector('span.cs-placeholder').style.backgroundColor = val;
-				}
-			});*/
+		}
+		if ( $(this).children(".checked").length ) {
+			$(this).children(".checked").addClass("active");
 		}
 		return window.history.pushState(null, null, '#getquote');
 	}).on('hidden.bs.modal', function (e) {
+		if ( $(this).children(".checked").length ) {
+			$(this).children(".checked").removeClass("active");
+		}
 		return window.history.back();
 	});
 
@@ -57,12 +58,6 @@
 		}
 	});
 
-	$('#collapsingNavbar li a').click(function () {
-		$('.navbar-toggler:visible').click();
-	});
-
-	var bannerH = $(".siteheader").height() + $("#about").height() + 500, aboutH = $(".siteheader").height() + ($("#about").height() / 2);
-
 	$(window).scroll(function () {
 		var Wscroll = $(this).scrollTop();
 		if (Wscroll >= bannerH) {
@@ -77,7 +72,7 @@
 		}
 	});
 
-	$(window).on('load',function () {
+	$(window).on('load', function () {
 		$("input#referrer").attr("value", window.location.href);
 	});
 
@@ -101,7 +96,11 @@
 	$("#feedback").on('submit', function (e) {
 		e.preventDefault();
 
-		var desti = 'https://getsimpleform.com/messages?form_api_token=d9e3917e58198e5444069eefa5365dd5', $form = $(this), $fields = $(this).find(".form-group"), vals = $("#feedback :input[value!='']").serialize(), fajax = $.ajax({ url: desti, data: vals, type: 'POST', cache: false });
+		var desti = 'https://getsimpleform.com/messages?form_api_token=d9e3917e58198e5444069eefa5365dd5',
+				$form = $(this),
+				$fields = $form.find(".form-group"),
+				vals = $("#feedback :input[value!='']").serialize(),
+				fajax = $.ajax({ url: desti, data: vals, type: 'POST', cache: false });
 
 		$form.slideUp("fast", function () {
 			$form.next("#loadingbar").show().addClass("animated slideInUp");
@@ -120,9 +119,36 @@
 	$("#quoteform").on('submit', function (e) {
 		e.preventDefault();
 
-		var desti = 'https://getsimpleform.com/messages?form_api_token=b4dc5ec27a03e5b568940fe2433bd78c', $modal = $(this).closest("#form-wrap"), $fields = $(this).find(".form-field"), vals = $("#quoteform :input[value!='']").serialize();
+		var $quote = $(this),
+				desti = 'https://getsimpleform.com/messages?form_api_token=b4dc5ec27a03e5b568940fe2433bd78c',
+				$modal = $("#getquote"),
+				$fields = $quote.find(".form-field"),
+				vals = $("#quoteform :input[value!='']").serialize(),
+				qajax = $.ajax({ url: desti, data: vals, type: 'POST', cache: false }),
+				animCheck = function () {
+					setTimeout( function () {
+						$modal.find(".checked").addClass("active");
+					}, 500);
+				};
 
-		console.log( vals );
+		$quote.slideUp("fast", function () {
+			$quote.next("#loadingbar").show().addClass("animated slideInUp");
+		});
+
+		qajax.done(function (data, textStatus, xhr) {
+			if (xhr.status === 200) {
+				setTimeout( function () {
+					$modal.html( $checkedEl );
+					animCheck();
+				}, 2000);
+			}
+			else {
+				$form.slideDown("fast", function () {
+					$form.next("#loadingbar").hide().removeClass("animated slideInUp");
+					$fields.prop('disabled',true);
+				});
+			}
+		});
 	});
 
 })(jQuery);

@@ -817,7 +817,7 @@
 					//check domain or url value
 					else if( type == 'url' ) {
 						input.value.replace(/\D/g, "");
-						var urlformat = /^((?:(?:(?:\w[\.\-\+]?)*)\w)+)((?:(?:(?:\w[\.\-\+]?){0,62})\w)+)\.(\w{2,6})$/;
+						var urlformat = /^https?:\/\/(www\.)?((?:(?:(?:\w[\.\-\+]?)*)\w)+)((?:(?:(?:\w[\.\-\+]?){0,62})\w)+)\.(\w{2,6})$/;
 						if ( !input.value.match(urlformat) ) {
 							error = 'INVALIDURL';
 						}
