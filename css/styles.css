@@ -435,8 +435,7 @@ hr.primary {
  ========================================*/
 
 .sitefooter {
-	padding: 45px 0;
-	padding-top: 50px;
+	padding: 15px 0 30px;
 	background-color: #111;
 	border-top: 15px dashed #222;
 }
@@ -1255,6 +1254,54 @@ textarea {
 	font-weight: 600;
 }
 
+/* equal card height */
+
+.row-equal > div[class*='col-'] {
+	display: flex;
+	flex: 1 0 auto;
+}
+
+.row-equal .card {
+ width: 100%;
+}
+
+.row-equal .card h6 span i {
+  font-size: 1.2rem;
+  color: #999;
+}
+
+.row-equal .card h4 {
+	font-size: 1.3rem;
+}
+
+.row-equal .card h4 a {
+	display: block;
+	text-align: center;
+	font-weight: 600;
+}
+
+@media (max-width: 543px) {
+	.row-equal .card h4 {
+		font-size: 1.1rem;
+	}
+}
+
+.carousel-inner>.row-equal.active,
+.carousel-inner>.row-equal.next,
+.carousel-inner>.row-equal.prev {
+	display: flex;
+}
+
+.carousel-inner>.row-equal.active.left,
+.carousel-inner>.row-equal.active.right {
+	opacity: 0.5;
+	display: flex;
+}
+
+.card-img-top-display {
+	max-height: 180px;
+	overflow:hidden;
+}
 
 #cta .get-quote {
 	width: 95%;

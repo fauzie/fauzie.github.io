@@ -53,6 +53,9 @@
 		offset: 75
 	});
 
+	$("#projectslide .next").click(function(){ $("#projectslide").carousel('next');return false; });
+	$("#projectslide .prev").click(function(){ $("#projectslide").carousel('prev');return false; });
+
 	$('#getquote').modal({
 		backdrop: 'static',
 		keyboard: false,
