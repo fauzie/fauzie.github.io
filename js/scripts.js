@@ -5,19 +5,51 @@
 
 	"use strict";
 
-	var FFormInit = false, bannerH = $(".siteheader").height() + $("#about").height() + 500, aboutH = $(".siteheader").height() + ($("#about").height() / 2),
+	new Photostack( document.getElementById('photostack') );
+
+	var _window = $(window),
+			_body = $("body"),
+			FFormInit = false,
+			bannerH = $(".siteheader").height() + $("#about").height() + 500,
+			aboutH = $(".siteheader").height() + ($("#about").height() / 2),
+			isMobile = ( _window.outerWidth() <= 768 ) ? true : false,
+			menuToggle = function () {
+				if ( !isMobile ) return;
+				$(".navbar-toggler").toggleClass("cross");
+				$("#menuMobile").toggleClass("shown");
+				_body.toggleClass("menu-open");
+			},
 			$checkedEl = '<div class="checked" data-dismiss="modal"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="61" height="52" viewBox="0 0 61 52" class="check-icon"><path d="M56.560,-0.010 C37.498,10.892 26.831,26.198 20.617,33.101 C20.617,33.101 5.398,23.373 5.398,23.373 C5.398,23.373 0.010,29.051 0.010,29.051 C0.010,29.051 24.973,51.981 24.973,51.981 C29.501,41.166 42.502,21.583 60.003,6.565 C60.003,6.565 56.560,-0.010 56.560,-0.010 Z" id="path-1" class="cls-2" fill-rule="evenodd"/></svg></div><div class="checkcs"><h1>Thank You!</h1><p>I have received your custom project quote.<br>I will review and reply your worksheet ASAP.</p><a href="#" data-dismiss="modal">close</a></div>';
 
-	new Photostack(document.getElementById('photostack'), {
-		callback : function (item) {
-			//console.log(item)
+	_window
+	.on('load', function () {
+		$("input#referrer").attr("value", window.location.href);
+	})
+	.on('resize', function () {
+		if ( _window.outerWidth() <= 768 ) {
+			isMobile = true;
+		} else {
+			isMobile = false;
+		}
+	})
+	.on('scroll', function () {
+		var Wscroll = $(this).scrollTop();
+		if (isMobile || Wscroll >= bannerH) {
+			$("#topNav").addClass("navbar-fixed-top animated slideInDown");
+		} else {
+			$("#topNav").removeClass("navbar-fixed-top animated slideInDown");
+		}
+		if (Wscroll >= aboutH) {
+			$("#about").addClass("faded");
+		} else {
+			$("#about").removeClass("faded");
 		}
 	});
 
 	$('[data-toggle="tooltip"]').tooltip();
 
 	$('body').scrollspy({
-		target: '#topNav',
+		target: isMobile ? '#menuMobile' : '#topNav',
 		offset: 75
 	});
 
@@ -46,34 +78,19 @@
 		return window.history.back();
 	});
 
+	$(".navbar-toggler").on('click', menuToggle);
+
 	$('a.page-scroll').on('click touchend', function (event) {
+		menuToggle();
 		if (this.hash !== "") {
 			event.preventDefault();
-			var hash = this.hash, navset = hash === "#about" ? 0 : 76;
+			var hash = this.hash, navset = (isMobile || hash === "#about") ? 0 : 56;
 			$('html, body').stop().animate({
 				scrollTop: $(hash).offset().top - navset
 			}, 800, 'easeInOutExpo', function () {
 				return window.history.pushState(null, document.title, hash);
 			});
 		}
-	});
-
-	$(window).scroll(function () {
-		var Wscroll = $(this).scrollTop();
-		if (Wscroll >= bannerH) {
-			$("#topNav").addClass("navbar-fixed-top animated slideInDown");
-		} else {
-			$("#topNav").removeClass("navbar-fixed-top animated slideInDown");
-		}
-		if (Wscroll >= aboutH) {
-			$("#about").addClass("faded");
-		} else {
-			$("#about").removeClass("faded");
-		}
-	});
-
-	$(window).on('load', function () {
-		$("input#referrer").attr("value", window.location.href);
 	});
 
 	$("#typed").typed({
