@@ -1,21 +1,32 @@
 <p align="center"><img src="https://github.com/fauzie/fauzie.github.io/raw/master/img/fauzie.png"></p>
 
-___
+---
 
 <p align="center">:sparkles: personal portfolio <a href="https://github.com/fauzie">@fauzie</a> :sparkles:</p>
 
-<p align="center">web designer, developer &amp; web system administrator</p>
-___
+<p align="center">:o: web designer :o: web developer :o: web system administrator :o:</p>
+
+---
+
+<p align="center"><a href="http://fauzie.my.id/">Home</a> | <a href="http://fauzie.my.id/#about">About</a> | <a href="http://fauzie.my.id/#skills">Skills</a> | <a href="http://fauzie.my.id/#projects">Projects</a> | <a href="http://fauzie.my.id/#services">Services</a> | <a href="http://fauzie.my.id/#contacts">Contact</a></p>
+
+---
 
 #### Powered By :
 
-* BootStrap 4
-* Ionicons
-* Devicons
+CSS Libs | JavaScript
+:---: | :---:
+[Bootstrap 4](http://v4-alpha.getbootstrap.com/) | [jQuery](http://jquery.com/)
+[animate.css](http://github.com/daneden/animate.css) | [WOW.js](http://mynameismatthieu.com/WOW/)
+[Devicons](https://github.com/vorillaz/devicons) | [Typed.js](https://github.com/mattboldt/typed.js/)
+[Ionicons](http://ionicons.com/) | [Photoswipe](https://github.com/dimsemenov/photoswipe)
+___
 
-* jQuery
-* WOW.js
-* Typed.js
+#### Thanks To :
+
+* http://tympanus.net/codrops
+* http://www.site.uplabs.com/posts/c/resources
+* https://codyhouse.co/category/web-components
 
 ___
 
