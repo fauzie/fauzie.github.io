@@ -16,10 +16,10 @@
 <p align="center"><a href="https://jekyllrb.com/"><img src="https://github.com/jekyll/jekyll/raw/master/site/img/logo-rss.png"></a></p>
 <p align="center"><small><em>and</em></small></p>
 
-<table cellpadding="5" align="center" width="100">
+<table align="center">
 <tr>
-<th align="center">CSS Libs</th>
-<th align="center">JavaScript</th>
+<th align="center" width="500">CSS Libs</th>
+<th align="center" width="500">JavaScript</th>
 </tr>
 <tr>
 <td align="center"><a href="http://v4-alpha.getbootstrap.com/">Bootstrap 4</a></td>
