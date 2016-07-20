@@ -1,0 +1,19 @@
+{
+  "name": "fauzie",
+  "version": "1.0.0",
+  "description": "Personal Webfolio of Rizal Fauzie Ridwan",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "grunt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fauzie/fauzie.github.io.git"
+  },
+  "author": "fauzie",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fauzie/fauzie.github.io/issues"
+  },
+  "homepage": "https://github.com/fauzie/fauzie.github.io#readme"
+}

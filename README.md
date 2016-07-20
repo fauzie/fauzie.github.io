@@ -12,14 +12,34 @@
 
 ---
 
-### Powered By :
+<h3 align="center">powered by</h3>
+<p align="center"><a href="https://jekyllrb.com/"><img src="https://github.com/jekyll/jekyll/raw/master/site/img/logo-rss.png"></a></p>
+<p align="center"><small><em>and</em></small></p>
 
-| CSS Libs | JavaScript |
-|:---------------:|:---------------:|
-| [Bootstrap 4](http://v4-alpha.getbootstrap.com/) | [jQuery](http://jquery.com/) |
-| [animate.css](http://github.com/daneden/animate.css) | [WOW.js](http://mynameismatthieu.com/WOW/) |
-| [Devicons](https://github.com/vorillaz/devicons) | [Typed.js](https://github.com/mattboldt/typed.js/) |
-| [Ionicons](http://ionicons.com/) | [Photoswipe](https://github.com/dimsemenov/photoswipe) |
+<table border="1" cellpadding="5" align="center" width="100%"><thead>
+<tr>
+<th align="center">CSS Libs</th>
+<th align="center">JavaScript</th>
+</tr>
+</thead><tbody>
+<tr>
+<td align="center"><a href="http://v4-alpha.getbootstrap.com/">Bootstrap 4</a></td>
+<td align="center"><a href="http://jquery.com/">jQuery</a></td>
+</tr>
+<tr>
+<td align="center"><a href="http://github.com/daneden/animate.css">animate.css</a></td>
+<td align="center"><a href="http://mynameismatthieu.com/WOW/">WOW.js</a></td>
+</tr>
+<tr>
+<td align="center"><a href="https://github.com/vorillaz/devicons">Devicons</a></td>
+<td align="center"><a href="https://github.com/mattboldt/typed.js/">Typed.js</a></td>
+</tr>
+<tr>
+<td align="center"><a href="http://ionicons.com/">Ionicons</a></td>
+<td align="center"><a href="https://github.com/dimsemenov/photoswipe">Photoswipe</a></td>
+</tr>
+</tbody></table>
+<p align="center">:star::star::star::star::star:</p>
 
 ___
 

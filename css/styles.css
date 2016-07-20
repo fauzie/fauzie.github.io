@@ -1305,8 +1305,9 @@ textarea {
 	display: block;
 	text-align: center;
 	font-weight: 600;
-	font-size: 1.1rem;
+	font-size: 1rem;
 	margin-bottom: 8px;
+	letter-spacing: -0.0005rem;
 }
 
 .row-equal .card h4 small {
