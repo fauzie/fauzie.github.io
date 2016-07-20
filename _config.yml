@@ -1,0 +1,28 @@
+# Dependencies
+markdown:         kramdown
+highlighter:      rouge
+
+# Permalinks
+permalink:        pretty
+
+# Server
+destination:      master
+host:             0.0.0.0
+port:             9001
+url:              http://fauzie.github.io
+encoding:         UTF-8
+
+gems:
+  - jekyll-sitemap
+
+# Custom vars
+env:							dev
+
+# SEO metadata
+metadata:
+	shortname:				fauzie
+	name:							"Rizal Fauzie Ridwan"
+	title:						"Full Stack Freelance Web Worker"
+	description:			"Webfolio Freelancer Web Designer, Developer and Web Server Management"
+	keyword:					"fauzie, rizal, ridwan, freelance, web, website, developer, designer, server, admin"
+	image:						http://fauzie.my.id/img/fauzie-banner.jpg

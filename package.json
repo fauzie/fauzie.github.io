@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/fauzie/fauzie.github.io.git"
+    "url": "https://github.com/fauzie/fauzie.github.io"
   },
   "author": "fauzie",
   "license": "MIT",

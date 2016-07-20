@@ -16,12 +16,11 @@
 <p align="center"><a href="https://jekyllrb.com/"><img src="https://github.com/jekyll/jekyll/raw/master/site/img/logo-rss.png"></a></p>
 <p align="center"><small><em>and</em></small></p>
 
-<table border="1" cellpadding="5" align="center" width="100%"><thead>
+<table cellpadding="5" align="center" width="100">
 <tr>
 <th align="center">CSS Libs</th>
 <th align="center">JavaScript</th>
 </tr>
-</thead><tbody>
 <tr>
 <td align="center"><a href="http://v4-alpha.getbootstrap.com/">Bootstrap 4</a></td>
 <td align="center"><a href="http://jquery.com/">jQuery</a></td>
@@ -38,7 +37,7 @@
 <td align="center"><a href="http://ionicons.com/">Ionicons</a></td>
 <td align="center"><a href="https://github.com/dimsemenov/photoswipe">Photoswipe</a></td>
 </tr>
-</tbody></table>
+</table>
 <p align="center">:star::star::star::star::star:</p>
 
 ___
