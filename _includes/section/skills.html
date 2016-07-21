@@ -1,3 +1,4 @@
+{% assign wowdelay = 0 %}
 <section id="skills" class="bg-light">
 	<div class="container section-title">
 		<div class="row">
@@ -10,86 +11,28 @@
 	</div>
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-6 left-frontend m-y-3">
-				<h6 class="skill-title">Front-End</h6>
-				<div class="skillbars">
-					<div class="skillbar-wrap">
-						<div class="icon text-right"><i class="devicons devicons-html5"></i></div>
+    {% for skillgroup in site.data.skills %}
+      <div id="{{ skillgroup.name | slugify }}" class="{{ skillgroup.name | slugify }} col-lg-6 m-y-3">
+        <h6 class="skill-title">
+          {{ skillgroup.name }} {% if skillgroup.desc != '' %}<br><small>{{ skillgroup.desc }}</small>{% endif %}
+        </h6>
+        <div class="skillbars">
+        {% for skill in skillgroup.skills %}
+          {% assign wowdelay = wowdelay | plus: 0.3 %}
+          <div id="skill-{{ skill.name | slugify }}" class="skillbar-wrap">
+						{% if skill.icon != '' %}<div class="icon text-right"><i class="{{ skill.icon }}"></i></div>{% endif %}
 						<div class="bar-and-text">
-							<span>HTML 5</span><div class="bar"><div class="filled wow fadeInLeft" style="width:90%;"></div></div>
+							<span>{{ skill.name }}</span>
+							<div class="bar">
+							  <div class="filled wow fadeInLeft" style="width:{{ skill.value | abs }}%;" data-wow-delay="{{ wowdelay | abs }}s"></div>
+							</div>
 						</div>
-						<div class="number-wrap text-right"><div class="number">90%</div></div>
+						<div class="number-wrap text-right"><div class="number">{{ skill.value | abs }}%</div></div>
 					</div>
-					<div class="skillbar-wrap">
-						<div class="icon text-right"><i class="devicons devicons-css3"></i></div>
-						<div class="bar-and-text">
-							<span>CSS 3</span><div class="bar"><div class="filled wow fadeInLeft" style="width:80%;" data-wow-delay=".3s"></div></div>
-						</div>
-						<div class="number-wrap text-right"><div class="number">80%</div></div>
-					</div>
-					<div class="skillbar-wrap">
-						<div class="icon text-right"><i class="devicons devicons-javascript_shield"></i></div>
-						<div class="bar-and-text">
-							<span>JavaScript</span><div class="bar"><div class="filled wow fadeInLeft" style="width:60%;" data-wow-delay=".6s"></div></div>
-						</div>
-						<div class="number-wrap text-right"><div class="number">60%</div></div>
-					</div>
-					<div class="skillbar-wrap">
-						<div class="icon text-right"><i class="devicons devicons-jquery"></i></div>
-						<div class="bar-and-text">
-							<span>jQuery</span><div class="bar"><div class="filled wow fadeInLeft" style="width:70%;" data-wow-delay=".9s"></div></div>
-						</div>
-						<div class="number-wrap text-right"><div class="number">70%</div></div>
-					</div>
-					<div class="skillbar-wrap">
-						<div class="icon text-right"><i class="devicons devicons-nodejs_small"></i></div>
-						<div class="bar-and-text">
-							<span>Node JS</span><div class="bar"><div class="filled wow fadeInLeft" style="width:45%;" data-wow-delay="1.2s"></div></div>
-						</div>
-						<div class="number-wrap text-right"><div class="number">45%</div></div>
-					</div>
-				</div>
-			</div><!-- .left-frontend -->
-			<div class="col-lg-6 right-backend m-y-3">
-				<h6 class="skill-title">Back-End</h6>
-				<div class="skillbars">
-					<div class="skillbar-wrap">
-						<div class="icon text-right"><i class="devicons devicons-git"></i></div>
-						<div class="bar-and-text">
-							<span>Git</span><div class="bar"><div class="filled wow fadeInLeft" style="width:90%;" data-wow-delay="1.5s"></div></div>
-						</div>
-						<div class="number-wrap text-right"><div class="number">90%</div></div>
-					</div>
-					<div class="skillbar-wrap">
-						<div class="icon text-right"><i class="devicons devicons-php"></i></div>
-						<div class="bar-and-text">
-							<span>PHP</span><div class="bar"><div class="filled wow fadeInLeft" style="width:80%;" data-wow-delay="1.8s"></div></div>
-						</div>
-						<div class="number-wrap text-right"><div class="number">80%</div></div>
-					</div>
-					<div class="skillbar-wrap">
-						<div class="icon text-right"><i class="devicons devicons-python"></i></div>
-						<div class="bar-and-text">
-							<span>Python</span><div class="bar"><div class="filled wow fadeInLeft" style="width:30%;" data-wow-delay="2.1s"></div></div>
-						</div>
-						<div class="number-wrap text-right"><div class="number">30%</div></div>
-					</div>
-					<div class="skillbar-wrap">
-						<div class="icon text-right"><i class="devicons devicons-perl"></i></div>
-						<div class="bar-and-text">
-							<span>Bash/Perl Script</span><div class="bar"><div class="filled wow fadeInLeft" style="width:50%;" data-wow-delay="2.4s"></div></div>
-						</div>
-						<div class="number-wrap text-right"><div class="number">50%</div></div>
-					</div>
-					<div class="skillbar-wrap">
-						<div class="icon text-right"><i class="devicons devicons-linux"></i></div>
-						<div class="bar-and-text">
-							<span>Linux Server</span><div class="bar"><div class="filled wow fadeInLeft" style="width:70%;" data-wow-delay="2.7s"></div></div>
-						</div>
-						<div class="number-wrap text-right"><div class="number">70%</div></div>
-					</div>
-				</div>
-			</div><!-- .right-backend -->
+        {% endfor %}
+        </div>
+      </div>
+    {% endfor %}
 		</div>
 	</div>
 </section>

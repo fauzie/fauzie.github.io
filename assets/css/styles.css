@@ -6679,6 +6679,13 @@ a.pswp__share--download:hover {
 	text-transform: uppercase;
 }
 
+.skill-title small {
+  display: block;
+  margin: 5px auto;
+  text-align: center;
+  text-transform: lowercase;
+}
+
 .skillbars .skillbar-wrap {
   display: table;
   width: 100%;

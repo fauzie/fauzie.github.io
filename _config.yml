@@ -10,8 +10,8 @@ env:              dev # (dev|prod)
 destination:      _gh_pages
 
 # Server
-#url:              http://fauzie.github.io
-url:              http://default.dev
+url:              http://fauzie.github.io
+#url:              
 baseurl:          /
 timezone:         Asia/jakarta
 encoding:         UTF-8
@@ -20,40 +20,25 @@ exclude:          ['package.json', 'Gruntfile.js', 'src', 'node_modules', 'Gemfi
 
 gems:
   - jekyll-sitemap
+  
+
+### START EDITING HERE ###
 
 # Homepage
-homepage: [about, photostack, skills, projects, services, cta, contact]
+homepage: [ about, photostack, skills, projects, services, cta, contact ]
 
 # Main header menu
 menu:
   - title: About
-    url: /#about
+    url: "#about"
   - title: Skills
-    url: /#skills
+    url: "#skills"
   - title: Projects
-    url: /#projects
+    url: "#projects"
   - title: Services
-    url: /#services
+    url: "#services"
   - title: Contact
-    url: /#contact
-
-# Social Media
-social:
-  - title: GitHub
-    icon: ion-social-github-outline
-    url: https://github.com/fauzie
-  - title: Twitter
-    icon: ion-social-twitter-outline
-    url: https://twitter.com/fauzievolute
-  - title: Facebook
-    icon: ion-social-facebook-outline
-    url: https://facebook.com/fauzievolute
-  - title: Google+
-    icon: ion-social-googleplus-outline
-    url: https://plus.google.com/+RizalFauzieRidwan
-  - title: Instagram
-    icon: ion-social-instagram-outline
-    url: https://www.instagram.com/fauzievolute
+    url: "#contact"
 
 # SEO metadata
 seodata:

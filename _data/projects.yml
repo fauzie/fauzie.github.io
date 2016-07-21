@@ -1,0 +1,154 @@
+- id: projectslide
+  nav: true
+  interval: 4000
+  legend:
+  - title: WordPress
+    icon: devicons devicons-wordpress
+  - title: Joomla
+    icon: devicons devicons-joomla
+  - title: OpenCart
+    icon: ion-android-cart
+  - title: PHP Codeigniter
+    icon: devicons devicons-codeigniter
+  - title: HTML Template
+    icon: devicons devicons-html5
+  items:
+  - year: 2013
+    name: PT. Persada Inti Data
+    cat: Web Development
+    url: http://www.pid.co.id/
+    image: http://res.cloudinary.com/fauzie/image/upload/v1469013680/projects/pid_lu0fty.jpg
+    thumb: http://res.cloudinary.com/fauzie/image/upload/c_scale,w_320/v1469013680/projects/pid_lu0fty.jpg
+    tech:
+    - devicons devicons-html5
+    - devicons devicons-jquery
+  - year: 2013
+    name: PT. Java Digital Indonesia
+    cat: Web Development
+    url: http://www.javadigital.co.id/
+    image: http://res.cloudinary.com/fauzie/image/upload/v1469013678/projects/javadigital_cvqctl.jpg
+    thumb: http://res.cloudinary.com/fauzie/image/upload/c_scale,w_320/v1469013678/projects/javadigital_cvqctl.jpg
+    tech:
+    - devicons devicons-html5
+    - devicons devicons-jquery
+  - year: 2013
+    name: PT. Indotrans Data
+    cat: Web Development
+    url: http://www.indotrans.net.id/
+    image: http://res.cloudinary.com/fauzie/image/upload/v1469013678/projects/indotrans_srk2gi.jpg
+    thumb: http://res.cloudinary.com/fauzie/image/upload/c_scale,w_320/v1469013678/projects/indotrans_srk2gi.jpg
+    tech:
+    - devicons devicons-html5
+    - devicons devicons-jquery
+  
+  - year: 2012
+    name: Alien Sick Band
+    cat: Web Development
+    url: http://www.aliensick.com/
+    image: http://res.cloudinary.com/fauzie/image/upload/v1469013677/projects/aliensick_ic62ob.jpg
+    thumb: http://res.cloudinary.com/fauzie/image/upload/c_scale,w_320/v1469013677/projects/aliensick_ic62ob.jpg
+    tech:
+    - devicons devicons-html5
+    - devicons devicons-jquery
+  - year: 2012
+    name: Makalula Clothing
+    cat: Web Development
+    url: http://www.makalula.com/
+    image: http://res.cloudinary.com/fauzie/image/upload/v1469013679/projects/makalula_hsnyie.jpg
+    thumb: http://res.cloudinary.com/fauzie/image/upload/c_scale,w_320/v1469013679/projects/makalula_hsnyie.jpg
+    tech:
+    - devicons devicons-wordpress
+    - devicons devicons-jquery
+  - year: 2011
+    name: Panecook Resto
+    cat: Web Development
+    url: http://www.panecook.co.id/
+    image: http://res.cloudinary.com/fauzie/image/upload/v1469013680/projects/panecook_ojqjjk.jpg
+    thumb: http://res.cloudinary.com/fauzie/image/upload/c_scale,w_320/v1469013680/projects/panecook_ojqjjk.jpg
+    tech:
+    - devicons devicons-html5
+    - devicons devicons-jquery
+  
+  - year: 2011
+    name: Tike Priyatna Kusuma
+    cat: Front-End Dev
+    url: http://www.nengtike.com/
+    image: http://res.cloudinary.com/fauzie/image/upload/v1469013679/projects/negtike_p2ielx.jpg
+    thumb: http://res.cloudinary.com/fauzie/image/upload/c_scale,w_320/v1469013679/projects/negtike_p2ielx.jpg
+    tech:
+    - devicons devicons-html5
+    - devicons devicons-jquery
+  - year: 2011
+    name: PT. Mitra Selaras Sejati
+    cat: Front-End Dev
+    url: http://www.cilebutresidence.com/
+    image: http://res.cloudinary.com/fauzie/image/upload/v1469013677/projects/cilebutresidences_cv13eg.jpg
+    thumb: http://res.cloudinary.com/fauzie/image/upload/c_scale,w_320/v1469013677/projects/cilebutresidences_cv13eg.jpg
+    tech:
+    - devicons devicons-wordpress
+    - devicons devicons-jquery
+  - year: 2010
+    name: Pemikiran Islam
+    cat: Web Development
+    url: 
+    image: http://res.cloudinary.com/fauzie/image/upload/v1469013679/projects/pemikiran-islam_dumv0r.jpg
+    thumb: http://res.cloudinary.com/fauzie/image/upload/c_scale,w_320/v1469013679/projects/pemikiran-islam_dumv0r.jpg
+    tech:
+    - devicons devicons-wordpress
+    - devicons devicons-jquery
+    
+  - year: 2010
+    name: LIA Conferences
+    cat: Web Development
+    url: 
+    image: http://res.cloudinary.com/fauzie/image/upload/v1469013678/projects/liaconferences_a26bkc.jpg
+    thumb: http://res.cloudinary.com/fauzie/image/upload/c_scale,w_320/v1469013678/projects/liaconferences_a26bkc.jpg
+    tech:
+    - devicons devicons-joomla
+    - devicons devicons-jquery
+  - year: 2010
+    name: Batik Pohon
+    cat: Web Development
+    url: http://batikpohon.com/
+    image: http://res.cloudinary.com/fauzie/image/upload/v1469013678/projects/batikpohon_zwmel5.jpg
+    thumb: http://res.cloudinary.com/fauzie/image/upload/c_scale,w_320/v1469013678/projects/batikpohon_zwmel5.jpg
+    tech:
+    - devicons devicons-joomla
+    - devicons devicons-jquery
+  - year: 2010
+    name: PT. Cipta Selaras
+    cat: Web Development
+    url: 
+    image: http://res.cloudinary.com/fauzie/image/upload/v1469013677/projects/ciptaselaras_bhvqnx.jpg
+    thumb: http://res.cloudinary.com/fauzie/image/upload/c_scale,w_320/v1469013677/projects/ciptaselaras_bhvqnx.jpg
+    tech:
+    - devicons devicons-wordpress
+    - devicons devicons-jquery
+  
+  - year: 2010
+    name: CV. Permata Kaisar
+    cat: Web Development
+    url: 
+    image: http://res.cloudinary.com/fauzie/image/upload/v1469013680/projects/permatakaisar_mnbagx.jpg
+    thumb: http://res.cloudinary.com/fauzie/image/upload/c_scale,w_320/v1469013680/projects/permatakaisar_mnbagx.jpg
+    tech:
+    - devicons devicons-joomla
+    - devicons devicons-jquery
+  - year: 2009
+    name: PT. Poliyama Belle Prima
+    cat: Web Development
+    url: 
+    image: http://res.cloudinary.com/fauzie/image/upload/v1469013680/projects/poliyama_zvopts.jpg
+    thumb: http://res.cloudinary.com/fauzie/image/upload/c_scale,w_320/v1469013680/projects/poliyama_zvopts.jpg
+    tech:
+    - devicons devicons-html5
+    - devicons devicons-jquery
+  - year: 2009
+    name: PT. Listaswave Network Solution
+    cat: Web Development
+    url: 
+    image: http://res.cloudinary.com/fauzie/image/upload/v1469013678/projects/lintaswave_a9x679.jpg
+    thumb: http://res.cloudinary.com/fauzie/image/upload/c_scale,w_320/v1469013678/projects/lintaswave_a9x679.jpg
+    tech:
+    - devicons devicons-joomla
+    - devicons devicons-jquery

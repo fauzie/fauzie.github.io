@@ -1,0 +1,37 @@
+- name: Front-End
+  desc: client-side development languages
+  skills:
+  - name: HTML 5
+    icon: devicons devicons-html5
+    value: 90
+  - name: CSS 3
+    icon: devicons devicons-css3
+    value: 85
+  - name: JavaScript
+    icon: devicons devicons-javascript_shield
+    value: 60
+  - name: jQuery
+    icon: devicons devicons-jquery
+    value: 70
+  - name: Node JS
+    icon: devicons devicons-nodejs_small
+    value: 45
+    
+- name: Back-End
+  desc: server-side development languages
+  skills:
+  - name: Git
+    icon: devicons devicons-git
+    value: 90
+  - name: PHP
+    icon: devicons devicons-php
+    value: 80
+  - name: Python
+    icon: devicons devicons-python
+    value: 30
+  - name: Bash/Perl Script
+    icon: devicons devicons-perl
+    value: 40
+  - name: Linux Server
+    icon: devicons devicons-linux
+    value: 75

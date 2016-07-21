@@ -1,84 +1,14 @@
 <section id="photostack" class="bg-main photostack photostack-start">
 	<div class="photostack-container" itemscope itemtype="http://schema.org/ImageGallery">
+  {% for gallery in site.data.galleries %}
 		<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-			<a href="{{ site.url | append: site.baseurl }}assets/img/photos/fauzie-1.jpg" class="photostack-img" itemprop="contentUrl" data-size="713x800">
-				<img src="{{ site.url | append: site.baseurl }}assets/img/photos/fauzie-1_thumb.jpg" itemprop="thumbnail" alt="fauzie 1">
+			<a href="{{ gallery.image }}" class="photostack-img" itemprop="contentUrl" data-size="{{ gallery.width }}x{{ gallery.height }}">
+				<img src="{{ gallery.thumb }}" itemprop="thumbnail" alt="{{ gallery.title }}">
 			</a>
 			<figcaption itemprop="caption description">
-				<h2 class="photostack-title">My Backyard <small>- 2013</small></h2>
+				<h2 class="photostack-title">{{ gallery.title }}<small>- {{ gallery.year }}</small></h2>
 			</figcaption>
-		</figure><!--photostack item-->
-		<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-			<a href="{{ site.url | append: site.baseurl }}assets/img/photos/fauzie-2.jpg" class="photostack-img" itemprop="contentUrl" data-size="450x558">
-				<img src="{{ site.url | append: site.baseurl }}assets/img/photos/fauzie-2_thumb.jpg" itemprop="thumbnail" alt="fauzie 2">
-			</a>
-			<figcaption itemprop="caption description">
-				<h2 class="photostack-title">Relaxing at Restaurant <small>- 2015</small></h2>
-			</figcaption>
-		</figure><!--photostack item-->
-		<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-			<a href="{{ site.url | append: site.baseurl }}assets/img/photos/fauzie-3.jpg" class="photostack-img" itemprop="contentUrl" data-size="800x800">
-				<img src="{{ site.url | append: site.baseurl }}assets/img/photos/fauzie-3_thumb.jpg" itemprop="thumbnail" alt="fauzie 3">
-			</a>
-			<figcaption itemprop="caption description">
-				<h2 class="photostack-title">Sisha at Cafe <small>- 2015</small></h2>
-			</figcaption>
-		</figure><!--photostack item-->
-		<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-			<a href="{{ site.url | append: site.baseurl }}assets/img/photos/fauzie-4.jpg" class="photostack-img" itemprop="contentUrl" data-size="677x800">
-				<img src="{{ site.url | append: site.baseurl }}assets/img/photos/fauzie-4_thumb.jpg" itemprop="thumbnail" alt="fauzie 4">
-			</a>
-			<figcaption itemprop="caption description">
-				<h2 class="photostack-title">Eid Al-Fitr <small>- 2015</small></h2>
-			</figcaption>
-		</figure><!--photostack item-->
-		<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-			<a href="{{ site.url | append: site.baseurl }}assets/img/photos/fauzie-5.jpg" class="photostack-img" itemprop="contentUrl" data-size="615x900">
-				<img src="{{ site.url | append: site.baseurl }}assets/img/photos/fauzie-5_thumb.jpg" itemprop="thumbnail" alt="fauzie 5">
-			</a>
-			<figcaption itemprop="caption description">
-				<h2 class="photostack-title">Eid Al-Fitr with My Wife <small>- 2016</small></h2>
-			</figcaption>
-		</figure><!--photostack item-->
-		<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-			<a href="{{ site.url | append: site.baseurl }}assets/img/photos/alfarise-1.jpg" class="photostack-img" itemprop="contentUrl" data-size="600x600">
-				<img src="{{ site.url | append: site.baseurl }}assets/img/photos/alfarise-1_thumb.jpg" itemprop="thumbnail" alt="alfarise 1">
-			</a>
-			<figcaption itemprop="caption description">
-				<h2 class="photostack-title">With my Wife <small>- 2016</small></h2>
-			</figcaption>
-		</figure><!--photostack item-->
-		<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-			<a href="{{ site.url | append: site.baseurl }}assets/img/photos/alfarise-2.jpg" class="photostack-img" itemprop="contentUrl" data-size="683x800">
-				<img src="{{ site.url | append: site.baseurl }}assets/img/photos/alfarise-2_thumb.jpg" itemprop="thumbnail" alt="alfarise 2">
-			</a>
-			<figcaption itemprop="caption description">
-				<h2 class="photostack-title">Great Mosque Bandung <small>- 2015</small></h2>
-			</figcaption>
-		</figure><!--photostack item-->
-		<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-			<a href="{{ site.url | append: site.baseurl }}assets/img/photos/alfarise-3.jpg" class="photostack-img" itemprop="contentUrl" data-size="900x674">
-				<img src="{{ site.url | append: site.baseurl }}assets/img/photos/alfarise-3_thumb.jpg" itemprop="thumbnail" alt="alfarise 3">
-			</a>
-			<figcaption itemprop="caption description">
-				<h2 class="photostack-title">Farm House Lembang <small>- 2016</small></h2>
-			</figcaption>
-		</figure><!--photostack item-->
-		<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-			<a href="{{ site.url | append: site.baseurl }}assets/img/photos/alfarise-4.jpg" class="photostack-img" itemprop="contentUrl" data-size="904x600">
-				<img src="{{ site.url | append: site.baseurl }}assets/img/photos/alfarise-4_thumb.jpg" itemprop="thumbnail" alt="alfarise 4">
-			</a>
-			<figcaption itemprop="caption description">
-				<h2 class="photostack-title">Lembang Garden <small>- 2016</small></h2>
-			</figcaption>
-		</figure><!--photostack item-->
-		<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-			<a href="{{ site.url | append: site.baseurl }}assets/img/photos/alfarise-5.jpg" class="photostack-img" itemprop="contentUrl" data-size="900x674">
-				<img src="{{ site.url | append: site.baseurl }}assets/img/photos/alfarise-5_thumb.jpg" itemprop="thumbnail" alt="alfarise 5">
-			</a>
-			<figcaption itemprop="caption description">
-				<h2 class="photostack-title">Lembang Garden <small>- 2016</small></h2>
-			</figcaption>
-		</figure><!--photostack item-->
+		</figure>
+  {% endfor %}
 	</div>
 </section>

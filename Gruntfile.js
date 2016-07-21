@@ -61,6 +61,7 @@ module.exports = function (grunt) {
       },
       assets: {
         src: [
+          'src/js/easing.min.js',
           'src/js/typed.min.js',
           'src/js/photoswipe.min.js',
           'src/js/photoswipe-ui.min.js',
@@ -155,7 +156,10 @@ module.exports = function (grunt) {
   require('load-grunt-tasks')(grunt, { scope: 'devDependencies' });
   require('time-grunt')(grunt);
 
-	grunt.registerTask('validate', ['postcss:test', 'concat:assets', 'jekyll:test', 'htmllint']);
+  grunt.registerTask('compileJS', ['concat', 'uglify']);
+  grunt.registerTask('compileCSS', ['postcss:test', 'postcss:dist']);
+  
+	grunt.registerTask('test', ['postcss:test', 'concat:assets', 'jekyll:test', 'htmllint']);
 	grunt.registerTask('assets', ['uglify:dist', 'postcss:dist']);
 	grunt.registerTask('release', ['assets', 'jekyll:github', 'htmlmin']);
 };

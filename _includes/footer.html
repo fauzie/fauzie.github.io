@@ -4,7 +4,7 @@
 			<div class="col-xs-12 col-sm-6 col-sm-push-3 text-xs-center">
 				<h6 class="text-uppercase m-y-2 p-b-1">Follow Me</h6>
 				<ul class="list-inline social-media">
-        {% for social in site.social %}
+        {% for social in site.data.social %}
 					<li class="list-inline-item">
             <a rel="nofollow" target="ext" href="{{ social.url }}" title="{{ social.title }}" data-toggle="tooltip">
               <i class="icon-lg {{ social.icon }}"></i>

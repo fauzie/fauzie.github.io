@@ -8,131 +8,52 @@
 			</div>
 		</div>
 	</div>
-	<div class="carousel slide m-y-3" data-ride="carousel" data-interval="0" data-keyboard="false" data-pause="false" id="projectslide">
+  {% for carousel in site.data.projects %}
+	<div id="{{ carousel.id | slugify }}" class="carousel slide m-y-3" data-ride="carousel" data-interval="{{ carousel.interval | abs }}" data-keyboard="false" data-pause="false">
 		<div class="container">
 			<div class="row">
+        {% if carousel.nav %}
 				<div class="col-xs-12 col-md-3 col-md-push-9 text-xs-center text-md-right lead">
 					<a class="btn btn-primary-outline prev" href="#" title="Previous"><i class="ion-chevron-left"></i></a>
 					<a class="btn btn-primary-outline next" href="#" title="Next"><i class="ion-chevron-right"></i></a>
 				</div>
+        {% endif %}
 				<div class="col-xs-12 col-md-9 col-md-pull-3 text-xs-center text-md-left">
 					<ul class="list-inline history-line">
-						<li class="list-inline-item"><i class="devicons devicons-wordpress"></i> <span>WordPress</span></li>
-						<li class="list-inline-item"><i class="devicons devicons-joomla"></i> <span>Joomla</span></li>
-						<li class="list-inline-item"><i class="ion-android-cart"></i> <span>OpenCart</span></li>
-						<li class="list-inline-item"><i class="devicons devicons-codeigniter"></i> <span>PHP Codeigniter</span></li>
-						<li class="list-inline-item"><i class="devicons devicons-html5"></i> <span>HTML Template</span></li>
+          {% for legend in carousel.legend %}
+						<li id="{{ legend.title | slugify }}" class="list-inline-item"><i class="{{ legend.icon }}"></i> <span>{{ legend.title }}</span></li>
+          {% endfor %}
 					</ul>
 				</div>
 			</div>
 		</div>
 		<div class="container p-t-0 m-t-2 carousel-inner">
-			<div class="row row-equal carousel-item active m-t-0">
-				<div class="col-sm-6 col-md-4">
-					<div class="card">
-						<div class="card-img-top card-img-top-display">
-							<img alt="Permata Kaisar" class="img-fluid" src="{{ site.url | append: site.baseurl }}assets/img/projects/thumbs/permatakaisar.jpg">
-						</div>
-						<div class="card-block p-t-1">
-							<h6 class="small text-wide text-xs-center text-md-left p-b-1">
-								Web Development
-								<span class="text-xs-center pull-md-right">
-									<i class="devicons devicons-joomla"></i>
-									<i class="devicons devicons-jquery"></i>
-								</span>
-							</h6>
-							<h4><a href="">CV. Permata Kaisar</a><small>2010</small></h4>
-						</div>
-					</div>
-				</div>
-				<div class="col-xs-6 col-sm-6 col-md-4">
-					<div class="card">
-						<div class="card-img-top card-img-top-display">
-							<img alt="PT. Poliyama Belle Prima" class="img-fluid" src="{{ site.url | append: site.baseurl }}assets/img/projects/thumbs/poliyama.jpg">
-						</div>
-						<div class="card-block p-t-1">
-							<h6 class="small text-wide text-xs-center text-md-left p-b-1">
-								Web Development
-								<span class="text-xs-center pull-md-right">
-									<i class="devicons devicons-html5"></i>
-									<i class="devicons devicons-jquery"></i>
-								</span>
-							</h6>
-							<h4><a href="">PT. Poliyama Belle Prima</a><small>2009</small></h4>
-						</div>
-					</div>
-				</div>
-				<div class="col-xs-6 col-sm-6 col-md-4">
-					<div class="card">
-						<div class="card-img-top card-img-top-display">
-							<img alt="Listaswave Network Solution" class="img-fluid" src="{{ site.url | append: site.baseurl }}assets/img/projects/thumbs/lintaswave.jpg">
-						</div>
-						<div class="card-block p-t-1">
-							<h6 class="small text-wide text-xs-center text-md-left p-b-1">
-								Web Development
-								<span class="text-xs-center pull-md-right">
-									<i class="devicons devicons-joomla"></i>
-									<i class="devicons devicons-mootools"></i>
-								</span>
-							</h6>
-							<h4><a href="">PT. Cipta Selaras</a><small>2009</small></h4>
-						</div>
-					</div>
-				</div>
-			</div><!-- .carousel-item -->
-			<div class="row row-equal carousel-item m-t-0">
-				<div class="col-sm-6 col-md-4">
-					<div class="card">
-						<div class="card-img-top card-img-top-display">
-							<img alt="Permata Kaisar" class="img-fluid" src="{{ site.url | append: site.baseurl }}assets/img/projects/thumbs/permatakaisar.jpg">
-						</div>
-						<div class="card-block p-t-1">
-							<h6 class="small text-wide text-xs-center text-md-left p-b-1">
-								Web Development
-								<span class="text-xs-center pull-md-right">
-									<i class="devicons devicons-joomla"></i>
-									<i class="devicons devicons-jquery"></i>
-								</span>
-							</h6>
-							<h4><a href="">CV. Permata Kaisar</a><small>2010</small></h4>
-						</div>
-					</div>
-				</div>
-				<div class="col-xs-6 col-sm-6 col-md-4">
-					<div class="card">
-						<div class="card-img-top card-img-top-display">
-							<img alt="PT. Poliyama Belle Prima" class="img-fluid" src="{{ site.url | append: site.baseurl }}assets/img/projects/thumbs/poliyama.jpg">
-						</div>
-						<div class="card-block p-t-1">
-							<h6 class="small text-wide text-xs-center text-md-left p-b-1">
-								Web Development
-								<span class="text-xs-center pull-md-right">
-									<i class="devicons devicons-html5"></i>
-									<i class="devicons devicons-jquery"></i>
-								</span>
-							</h6>
-							<h4><a href="">PT. Poliyama Belle Prima</a><small>2009</small></h4>
-						</div>
-					</div>
-				</div>
-				<div class="col-xs-6 col-sm-6 col-md-4">
-					<div class="card">
-						<div class="card-img-top card-img-top-display">
-							<img alt="Listaswave Network Solution" class="img-fluid" src="{{ site.url | append: site.baseurl }}assets/img/projects/thumbs/lintaswave.jpg">
-						</div>
-						<div class="card-block p-t-1">
-							<h6 class="small text-wide text-xs-center text-md-left p-b-1">
-								Web Development
-								<span class="text-xs-center pull-md-right">
-									<i class="devicons devicons-joomla"></i>
-									<i class="devicons devicons-mootools"></i>
-								</span>
-							</h6>
-							<h4><a href="">PT. Listaswave Network Solution</a><small>2009</small></h4>
-						</div>
-					</div>
-				</div>
-			</div><!-- .carousel-item -->
+    {% for item in carousel.items %}
+      {% capture rowstart %}<div class="row row-equal carousel-item m-t-0{% if forloop.first %} active{% endif %}">{% endcapture %}
+      {% cycle 'row-group-start': rowstart, '', '' %}
+      <div id="project-{{ item.name | slugify }}" class="project-item project-{{ item.name | slugify }} col-sm-6 col-md-4">
+        <div class="card">
+          <div class="card-img-top card-img-top-display">
+            <img alt="{{ item.name }}" class="img-fluid" src="{{ item.thumb }}">
+          </div>
+          <div class="card-block p-t-1">
+            <h6 class="small text-wide text-xs-center text-md-left p-b-1">
+              {{ item.cat }}
+              <span class="text-xs-center pull-md-right">
+              {% for tech in item.tech %}
+                <i class="{{ tech }}"></i>
+              {% endfor %}
+              </span>
+            </h6>
+            <h4><a href="{{ item.url }}" title="{{ item.name }}" target="ext">{{ item.name }}</a><small>{{ item.year }}</small></h4>
+          </div>
+        </div>
+      </div>
+      {% if forloop.last %}</div>{% else %}
+      {% cycle 'row-group-end': '', '', '</div>' %}
+      {% endif %}
+    {% endfor %}
 		</div>
 	</div>
+  {% endfor %}
 </section>
