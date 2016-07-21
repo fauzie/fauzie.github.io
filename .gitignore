@@ -1,14 +1,41 @@
 # https://git-scm.com/docs/gitignore
 # https://help.github.com/articles/ignoring-files
 # Example .gitignore files: https://github.com/github/gitignore
-/bower_components/
-/node_modules/
-_site/
+$RECYCLE.BIN/
 .sass-cache/
 .jekyll-metadata
 .htaccess
 *.gem
 *.rbc
+*.lnk
+*.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Files that might appear in the root of a volume
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+/bower_components/
+/node_modules/
+_gh_pages/
+_site/
 /.config
 /coverage/
 /InstalledFiles

@@ -1,0 +1,33 @@
+#form-wrap .modal-form {
+	font-size: 1.2em;
+	width: 100%;
+}
+.modal-form .form-fields .form-label {
+	margin-top: 1.2em;
+}
+.modal-form .form-fields .form-label,
+.modal-form .form-fields .form-field {
+	font-size: 1.6rem;
+}
+#form-wrap .form-nav-dots {
+	right: 1em;
+}
+#form-wrap .modal-header h1 {
+	font-size: 1.4em;
+	text-align: left;
+}
+#form-wrap .modal-header h1 > small {
+	font-size: .5em;
+	text-align: left;
+	margin: 0;
+}
+.modal-form .form-fields .form-label[data-info]:before {
+	padding-bottom: 0;
+}
+.modal-content .section-title hr {
+	margin-left: 0;
+	margin-right: 0;
+}
+.modal-content .section-title .list-inline {
+	text-align: left;
+}

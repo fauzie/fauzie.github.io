@@ -5,32 +5,64 @@ highlighter:      rouge
 # Permalinks
 permalink:        pretty
 
-# Server
-source:           .
+# Environment
+env:              dev # (dev|prod)
 destination:      _gh_pages
-host:             0.0.0.0
-port:             9001
-url:              http://fauzie.github.io
+
+# Server
+#url:              http://fauzie.github.io
+url:              http://default.dev
 baseurl:          /
 timezone:         Asia/jakarta
 encoding:         UTF-8
 
+exclude:          ['package.json', 'Gruntfile.js', 'src', 'node_modules', 'Gemfile', 'Gemfile.lock']
+
 gems:
   - jekyll-sitemap
 
-# Environment test|dev|prod
-env: dev
+# Homepage
+homepage: [about, photostack, skills, projects, services, cta, contact]
+
+# Main header menu
+menu:
+  - title: About
+    url: /#about
+  - title: Skills
+    url: /#skills
+  - title: Projects
+    url: /#projects
+  - title: Services
+    url: /#services
+  - title: Contact
+    url: /#contact
+
+# Social Media
+social:
+  - title: GitHub
+    icon: ion-social-github-outline
+    url: https://github.com/fauzie
+  - title: Twitter
+    icon: ion-social-twitter-outline
+    url: https://twitter.com/fauzievolute
+  - title: Facebook
+    icon: ion-social-facebook-outline
+    url: https://facebook.com/fauzievolute
+  - title: Google+
+    icon: ion-social-googleplus-outline
+    url: https://plus.google.com/+RizalFauzieRidwan
+  - title: Instagram
+    icon: ion-social-instagram-outline
+    url: https://www.instagram.com/fauzievolute
 
 # SEO metadata
 seodata:
-	shortname:        fauzie
-	name:             "Rizal Fauzie Ridwan"
-	title:            "Full Stack Freelance Web Worker"
-	description:      "Webfolio Freelancer Web Designer, Developer and Web Server Management"
-	keyword:          "fauzie, rizal, ridwan, freelance, web, website, developer, designer, server, admin"
-	image:            http://fauzie.my.id/img/fauzie-banner.jpg
-	fbapp_id:         116522439772
-	fbadmins:         1071962187
-
-# exclude my node related stuff
-exclude: ['package.json', 'src', 'node_modules']
+  shortname:        fauzie
+  name:             Rizal Fauzie Ridwan
+  title:            Full Stack Freelance Web Worker
+  description:      Webfolio Freelancer Web Designer, Developer and Web Server Management
+  keyword:          fauzie, rizal, ridwan, freelance, web, website, developer, designer, server, admin
+  image:            http://fauzie.my.id/img/fauzie-banner.jpg
+  twitter:          fauzievolute
+  fbapp_id:         116522439772
+  fbadmins:         1071962187

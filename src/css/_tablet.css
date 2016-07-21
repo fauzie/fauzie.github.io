@@ -1,0 +1,14 @@
+#form-wrap .modal-form {
+	font-size: 1.8em;
+	width: 80%;
+}
+.modal-form .form-fields .form-label {
+	margin-top: 1.8em;
+}
+.modal-content .section-title hr {
+	margin-left: auto;
+	margin-right: auto;
+}
+.modal-content .section-title .list-inline {
+	text-align: center;
+}

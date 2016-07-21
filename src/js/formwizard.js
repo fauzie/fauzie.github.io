@@ -115,7 +115,9 @@
 		}
 
 		div.innerHTML = optionHTML;
-		[].forEach.call( div.childNodes, child => self.el.appendChild(child) );
+		[].slice.call( div.childNodes ).forEach( function(el) {
+			self.el.appendChild(el);
+		});
 	}
 
 	/**
