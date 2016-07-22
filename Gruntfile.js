@@ -160,6 +160,6 @@ module.exports = function (grunt) {
   grunt.registerTask('compileCSS', ['postcss:test', 'postcss:dist']);
   
 	grunt.registerTask('test', ['postcss:test', 'concat:assets', 'jekyll:test', 'htmllint']);
-	grunt.registerTask('assets', ['uglify:dist', 'postcss:dist']);
-	grunt.registerTask('release', ['assets', 'jekyll:github', 'htmlmin']);
+	grunt.registerTask('assets', ['compileJS', 'compileCSS']);
+	grunt.registerTask('default', ['assets', 'jekyll:github', 'htmlmin']);
 };

@@ -13,6 +13,62 @@
   - title: HTML Template
     icon: devicons devicons-html5
   items:
+  - year: 2015
+    name: Pemudi Persis
+    cat: Web Development
+    url: http://www.pemudipersis.or.id/
+    image: http://res.cloudinary.com/fauzie/image/upload/v1469013679/projects/pemudipersis_okxheq.jpg
+    thumb: http://res.cloudinary.com/fauzie/image/upload/c_scale,w_320/v1469013679/projects/pemudipersis_okxheq.jpg
+    tech:
+    - devicons devicons-wordpress
+    - devicons devicons-jquery
+  - year: 2014
+    name: Pilot Headsets
+    cat: Web Development
+    url: http://www.pilot-headsets.com/
+    image: http://res.cloudinary.com/fauzie/image/upload/v1469013680/projects/pilotheadsets_boo2ax.jpg
+    thumb: http://res.cloudinary.com/fauzie/image/upload/c_scale,w_320/v1469013680/projects/pilotheadsets_boo2ax.jpg
+    tech:
+    - ion-android-cart
+    - devicons devicons-jquery
+  - year: 2014
+    name: Pemikiran Islam
+    cat: Web Design
+    url: http://www.pemikiranislam.com/
+    image: http://res.cloudinary.com/fauzie/image/upload/v1469013679/projects/pemikiranislam_unhcoh.jpg
+    thumb: http://res.cloudinary.com/fauzie/image/upload/c_scale,w_320/v1469013679/projects/pemikiranislam_unhcoh.jpg
+    tech:
+    - devicons devicons-wordpress
+    - devicons devicons-jquery
+    
+  - year: 2014
+    name: Plantronics Aviation
+    cat: Web Development
+    url: http://www.plantronics-aviation.com/
+    image: http://res.cloudinary.com/fauzie/image/upload/v1469013680/projects/plantronics_w5dks3.jpg
+    thumb: http://res.cloudinary.com/fauzie/image/upload/c_scale,w_320/v1469013680/projects/plantronics_w5dks3.jpg
+    tech:
+    - ion-android-cart
+    - devicons devicons-jquery
+  - year: 2014
+    name: New Batik Pohon
+    cat: Web Design
+    url: http://www.batikpohon.com/
+    image: http://res.cloudinary.com/fauzie/image/upload/v1469013677/projects/batikpohon2_j4mv4a.jpg
+    thumb: http://res.cloudinary.com/fauzie/image/upload/c_scale,w_320/v1469013677/projects/batikpohon2_j4mv4a.jpg
+    tech:
+    - devicons devicons-wordpress
+    - devicons devicons-jquery
+  - year: 2014
+    name: Pelatihan Batik Warna Alami
+    cat: Web Development
+    url: 
+    image: http://res.cloudinary.com/fauzie/image/upload/v1469013676/projects/warnatura_uffibx.jpg
+    thumb: http://res.cloudinary.com/fauzie/image/upload/c_scale,w_320/v1469013676/projects/warnatura_uffibx.jpg
+    tech:
+    - devicons devicons-wordpress
+    - devicons devicons-jquery
+    
   - year: 2013
     name: PT. Persada Inti Data
     cat: Web Development
