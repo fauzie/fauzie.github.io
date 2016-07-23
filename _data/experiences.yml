@@ -1,0 +1,41 @@
+- work: Tech & Web Developer
+  comp: PT. Lintaswave Network Solution, Jakarta
+  date: Sep 2009
+  desc: Working as a Customer Service and developing the company website.
+  icon: ion-help-buoy
+
+- work: Web Developer
+  comp: PT. Indonesia Digital Media, Jakarta
+  date: Feb 2011
+  desc: Working as a web developer for internal company websites and client hosting in magnet-id.com.
+  icon: ion-android-desktop
+
+- work: Back-End Web Developer
+  comp: Webgopek, Jakarta
+  date: Jun 2011
+  desc: Convert HTML/PSD into template-based CMS or a static website.
+  icon: devicons devicons-code
+
+- work: System Administrator
+  comp: PT. Indotrans Data, Jakarta
+  date: Oct 2013
+  desc: Supervising and maintenance of web server, VPS and cPanel at data center.
+  icon: devicons devicons-linux
+
+- work: Web Developer
+  comp: Java Retro Hotel, Bandung
+  date: Aug 2014
+  desc: Creating and developing web application and management system for hotel.
+  icon: ion-android-desktop
+
+- work: System Administrator
+  comp: PT. Vox Teneo Indonesia, Bandung
+  date: Jan 2015
+  desc: Monitoring and troubleshooting system infrastructure servers.
+  icon: devicons devicons-linux
+
+- work: Back-End Web Developer
+  comp: CV. Puri Cipta, Bandung
+  date: NOW
+  desc: Convert HTML or PSD to WordPress premium theme for theme marketplace.
+  icon: devicons devicons-code

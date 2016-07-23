@@ -21,6 +21,7 @@
 @import "skillbars.css";
 @import "formwizard.css";
 @import "cselects.css";
+@import "timeline.css";
 
 /*=========================================
  * = Responsive Tablet & Mobile
@@ -552,8 +553,7 @@ hr.primary {
 	margin: 8px 15px 8px 0;
 }
 
-.navbar-default .nav .nav-link,
-.navbar-default .nav .nav-link:focus {
+.navbar-default .nav .nav-link {
 	font-size: 12px;
 	font-weight: 600;
 	color: #fff;
@@ -1189,6 +1189,19 @@ textarea {
 	font-size: 18px;
 	text-transform: uppercase;
 	font-weight: 600;
+}
+
+#services .feature i {
+  font-size: 4rem;
+  line-height: 7rem;
+}
+
+#services .feature .text-uppercase:after {
+  display: block;
+  content: "";
+  width: 25%;
+  margin: 8px auto 10px;
+  border-bottom: 1px solid #fa023c;
 }
 
 #projects {

@@ -12,3 +12,7 @@
 .modal-content .section-title .list-inline {
 	text-align: center;
 }
+#services .feature i {
+  font-size: 3rem;
+  line-height: 5rem;
+}

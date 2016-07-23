@@ -31,3 +31,7 @@
 .modal-content .section-title .list-inline {
 	text-align: left;
 }
+#services .feature i {
+  font-size: 2rem;
+  line-height: 4rem;
+}

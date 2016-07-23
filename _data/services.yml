@@ -1,0 +1,35 @@
+- icon: ion-cloud
+  title: Web Hosting
+  desc: data storage for your website content managed by popular panels.
+
+- icon: ion-ios-world
+  title: Domain Registration
+  desc: domain name for your website address like .com tld and many others.
+
+- icon: ion-soup-can
+  title: Managed Server
+  desc: managing of virtual or dedicated server for data storage, and website.
+
+- icon: ion-paintbucket
+  title: Web Design
+  desc: create html or photoshop mockup design for your site.
+
+- icon: ion-ios-monitor
+  title: Web Development
+  desc: create a site with many features, you can manage by using CMS.
+
+- icon: ion-erlenmeyer-flask
+  title: Theme Development
+  desc: create a custom theme for CMS like WordPress, Joomla, OpenCart.
+
+- icon: ion-chatbox-working
+  title: Web Consultant
+  desc: analyzing and selecting technology and software for your site.
+
+- icon: ion-code-download
+  title: Customizing
+  desc: improving or adding new features for existing websites.
+
+- icon: ion-bug
+  title: Bug Fixes
+  desc: fixing error or repairing your website in design aspect or code.

@@ -8,7 +8,7 @@
 
 ---
 
-<p align="center"><a href="http://fauzie.my.id/">Home</a> | <a href="http://fauzie.my.id/#about">About</a> | <a href="http://fauzie.my.id/#skills">Skills</a> | <a href="http://fauzie.my.id/#projects">Projects</a> | <a href="http://fauzie.my.id/#services">Services</a> | <a href="http://fauzie.my.id/#contacts">Contact</a></p>
+<p align="center"><a href="http://fauzie.my.id/">Home</a> | <a href="http://fauzie.my.id/#about">About</a> | <a href="http://fauzie.my.id/#skills">Skills</a> | <a href="http://fauzie.my.id/#experience">Experience</a> | <a href="http://fauzie.my.id/#projects">Projects</a> | <a href="http://fauzie.my.id/#services">Services</a> | <a href="http://fauzie.my.id/#contacts">Contact</a></p>
 
 ---
 
