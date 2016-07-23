@@ -10,7 +10,7 @@ env:              prod # (dev|prod)
 destination:      _gh_pages
 
 # Server
-url:              http://fauzie.github.io
+url:              http://fauzie.my.id
 baseurl:          /
 timezone:         Asia/jakarta
 encoding:         UTF-8
