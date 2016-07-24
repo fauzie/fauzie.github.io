@@ -1754,4 +1754,19 @@ jQuery.easing.jswing=jQuery.easing.swing;jQuery.extend(jQuery.easing,{def:"easeO
 		});
 	});
 
+  $("#printquote").on('click', function (e) {
+    e.preventDefault();
+    var pdfiframe = document.getElementById("pdfiframe");
+    pdfiframe.src = "assets/docs/ProjectWorksheet.pdf";
+    pdfiframe.onload = function () {
+      this.contentWindow.focus();
+      this.contentWindow.print();
+    };
+  });
+
+  $("#ddlquote").on('click', function (e) {
+    e.preventDefault();
+    window.open("assets/docs/ProjectWorksheet.docx");
+  });
+
 })(jQuery);

@@ -9179,6 +9179,10 @@ textarea {
  * = Custom Section Specific
  ========================================*/
 
+#pdfiframe {
+  display: none !important;
+}
+
 #about {
 	position: relative;
 	background-color: transparent;
