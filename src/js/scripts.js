@@ -35,9 +35,9 @@
 	.on('scroll', function () {
 		var Wscroll = $(this).scrollTop();
 		if (isMobile || Wscroll >= bannerH) {
-			$("#topNav").addClass("navbar-fixed-top animated slideInDown");
+			$("#topNav").addClass("fixed-top animated slideInDown");
 		} else {
-			$("#topNav").removeClass("navbar-fixed-top animated slideInDown");
+			$("#topNav").removeClass("fixed-top animated slideInDown");
 		}
 		if (Wscroll >= aboutH) {
 			$("#about").addClass("faded");
@@ -46,15 +46,48 @@
 		}
 	});
 
-	$('[data-toggle="tooltip"]').tooltip();
+	$('[data-toggle="tooltip"]').tooltip({ animation: false });
 
 	$('body').scrollspy({
 		target: isMobile ? '#menuMobile' : '#topNav',
-		offset: 75
+		offset: 85
 	});
-
-	$("#projectslide .next").click(function(){ $("#projectslide").carousel('next');return false; });
-	$("#projectslide .prev").click(function(){ $("#projectslide").carousel('prev');return false; });
+  
+	var $project = $('.project-row').slick({
+	  autoplay: false,
+    autoplaySpeed: 6000,
+    infinite: false,
+    dots: false,
+    arrows: false,
+    pauseOnFocus: false,
+    pauseOnHover: false,
+    slidesToShow: 3,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 2
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1
+        }
+      }
+    ]
+	});
+  
+  $('#projectPrevArrow').on('click', function (e){
+    e.preventDefault();
+    $project.slick('slickPrev');
+  });
+  
+  $('#projectNextArrow').on('click', function (e){
+    e.preventDefault();
+    $project.slick('slickNext');
+  });
 
 	$('#getquote').modal({
 		backdrop: 'static',
@@ -81,7 +114,7 @@
 		return window.history.back();
 	});
 
-	$(".navbar-toggler").on('click', menuToggle);
+	$('#topNav .navbar-toggler').on('click', menuToggle);
 
 	$('a.page-scroll').on('click touchend', function (event) {
 		menuToggle();
@@ -184,6 +217,15 @@
   $("#ddlquote").on('click', function (e) {
     e.preventDefault();
     window.open("assets/docs/ProjectWorksheet.docx");
+  });
+  
+  $(document).ready(function (){
+    var viewer = ImageViewer({ snapView: false });
+    $('img.zoomable').on('click', function (){
+      if ( this.hasAttribute('data-high-res-src') ) {
+        viewer.show( this.src, $(this).data('high-res-src') );
+      }
+    });
   });
 
 })(jQuery);

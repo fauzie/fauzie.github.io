@@ -1,8 +1,8 @@
 <footer id="footer" class="sitefooter">
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-12 col-sm-6 col-sm-push-3 text-xs-center">
-				<h6 class="text-uppercase m-y-2 p-b-1">Follow Me</h6>
+			<div class="col-12 col-sm-6 push-sm-3 text-center">
+				<h6 class="text-uppercase my-2 pb-3">Follow Me</h6>
 				<ul class="list-inline social-media">
         {% for social in site.data.social %}
 					<li class="list-inline-item">
@@ -15,8 +15,8 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-xs-12 col-sm-6 col-sm-push-3 text-xs-center">
-				<span class="pull-right text-muted small copyright" itemprop="copyrightHolder" itemscope itemtype="http://schema.org/Person"><i class="ion-code" title="Coding" data-toggle="tooltip"></i>with<i class="ion-ios-heart" title="Love" data-toggle="tooltip"></i>and<i class="ion-coffee" title="Coffee" data-toggle="tooltip"></i>by <a href="{{ site.url | append: site.baseurl }}" title="Me" data-toggle="tooltip" itemprop="name">{{ site.seodata.shortname }}</a> &copy; 2016. Powered by <a href="https://pages.github.com/" title="GitHub Page" data-toggle="tooltip" target="ext"><i class="ion-social-octocat"></i>GitHub Page</a>.</span>
+			<div class="col-12 col-sm-6 push-sm-3 text-center">
+				<span class="pull-right text-muted small copyright" itemprop="copyrightHolder" itemscope itemtype="http://schema.org/Person"><i class="ion-code" title="Code" data-toggle="tooltip"></i>with<i class="ion-ios-heart" title="Love" data-toggle="tooltip"></i>and<i class="ion-coffee" title="Coffee" data-toggle="tooltip"></i>by <a href="{{ site.url | append: site.baseurl }}" title="Me" data-toggle="tooltip" itemprop="name">{{ site.seodata.shortname }}</a> &copy; 2015-2017. Powered by <a href="https://pages.github.com/" title="GitHub Page" data-toggle="tooltip" target="ext"><i class="ion-social-octocat"></i>GitHub Page</a>.</span>
 			</div>
 		</div>
 	</div>
@@ -27,8 +27,9 @@
 {% include parts/photoswipe.html %}
 
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.3.3/js/tether.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.2/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.js"></script>
 {% if site.env == "prod" %}
 <script src="{{ site.url | append: site.baseurl }}assets/js/scripts.min.js"></script>
 {% else %}

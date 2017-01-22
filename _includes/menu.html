@@ -1,6 +1,6 @@
-<nav id="topNav" class="navbar navbar-default" itemscope itemtype="http://schema.org/SiteNavigationElement" itemid="{{ site.url | append: site.baseurl }}">
+<nav id="topNav" class="navbar navbar-toggleable-sm navbar-default" itemscope itemtype="http://schema.org/SiteNavigationElement" itemid="{{ site.url | append: site.baseurl }}">
 	<div class="container">
-		<div class="navbar-toggler hidden-md-up pull-right">
+		<div class="navbar-toggler hidden-md-up">
 			<svg viewBox="0 0 800 600">
 				<path d="M300,220 C300,220 520,220 540,220 C740,220 640,540 520,420 C440,340 300,200 300,200" id="top"></path>
 				<path d="M300,320 L540,320" id="middle"></path>
@@ -9,14 +9,16 @@
 		</div>
 		<!-- .navbar-toggler -->
 		<a class="navbar-brand page-scroll" href="#home"><img src="{{ site.url | append: site.baseurl }}assets/img/fauzie-logo.png"></a>
-		<div id="mainmenu" class="hidden-sm-down">
-			<ul class="nav navbar-nav">
+		<div id="mainmenu" class="collapse navbar-collapse">
+			<ul class="navbar-nav mr-auto">
 			{% for menu in site.menu %}
 				<li class="nav-item"> <a class="nav-link page-scroll" href="{{ menu.url }}">{{ menu.title }}</a> </li>
 			{% endfor %}
 			</ul>
-			<ul class="nav navbar-nav pull-xs-right hidden-xs-down">
-				<li class="nav-item"> <a class="nav-link quote-link" data-toggle="modal" title="Project Worksheet" href="#getquote">Get a Quote</a> </li>
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item">
+				  <a class="nav-link quote-link" data-toggle="modal" title="Project Worksheet" href="#getquote">Get a Quote</a>
+				</li>
 			</ul>
 		</div>
 	</div>
@@ -25,13 +27,13 @@
 <nav id="menuMobile" class="hidden-md-up menu-mobile navbar-default">
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-12">
-				<ul class="nav">
+			<div class="col">
+				<ul class="navbar-nav">
 				{% for menu in site.menu %}
 					<li class="nav-item"> <a class="nav-link page-scroll" href="{{ menu.url }}">{{ menu.title }}</a> </li>
 				{% endfor %}
 				</ul>
-				<ul class="nav nav-quote">
+				<ul class="navbar-nav nav-quote">
 					<li class="nav-item"> <a class="nav-link quote-link" data-toggle="modal" title="Project Worksheet" href="#getquote">Get a Quote</a> </li>
 				</ul>
 			</div>

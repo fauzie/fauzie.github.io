@@ -7,54 +7,64 @@
 
 module.exports = function (grunt) {
 
-	'use strict';
+  'use strict';
 
-	var pixRem = require('pixrem'),
-			autoPrefixer = require('autoprefixer'),
-			postcssURL = require('postcss-url'),
-			cssImport = require('postcss-import'),
-			cssNano = require('cssnano');
+  var pixRem = require('pixrem'),
+    autoPrefixer = require('autoprefixer'),
+    postcssURL = require('postcss-url'),
+    cssImport = require('postcss-import'),
+    cssNano = require('cssnano');
 
-	grunt.util.linefeed = '\n';
+  grunt.util.linefeed = '\n';
 
-	grunt.initConfig({
+  grunt.initConfig({
 
-		pkg: grunt.file.readJSON('package.json'),
-		banner: '/*!\n' +
-            ' * <%= pkg.name %> v<%= pkg.version %> (<%= pkg.homepage %>)\n' +
-            ' * Copyright <%= grunt.template.today("yyyy") %> <%= pkg.author %>\n' +
-            ' * Licensed under the <%= pkg.license %> license\n' +
-            ' */\n',
+    pkg: grunt.file.readJSON('package.json'),
+    banner: '/*!\n' +
+      ' * <%= pkg.name %> v<%= pkg.version %> (<%= pkg.homepage %>)\n' +
+      ' * Copyright <%= grunt.template.today("yyyy") %> <%= pkg.author %>\n' +
+      ' * Licensed under the <%= pkg.license %> license\n' +
+      ' */\n',
 
-		postcss: {
-			test: {
-				options: {
-					map: false,
-					processors: [
+    postcss: {
+      test: {
+        options: {
+          map: false,
+          processors: [
 						cssImport(),
-						postcssURL({ url: "rebase" })
+						postcssURL({
+              url: "rebase"
+            })
 					]
-				},
-				files: {
-        	'assets/css/styles.css': ['src/css/styles.css']
-				}
-			},
-			dist: {
-				options: {
-					map: true,
-					processors: [
+        },
+        files: {
+          'assets/css/styles.css': ['src/css/styles.css']
+        }
+      },
+      dist: {
+        options: {
+          map: true,
+          processors: [
 						pixRem(),
-						autoPrefixer({ browsers: 'last 2 versions' }),
-						cssNano({ calc: false, colormin: false, discardComments: {removeAll: true} })
+						autoPrefixer({
+              browsers: 'last 2 versions'
+            }),
+						cssNano({
+              calc: false,
+              colormin: false,
+              discardComments: {
+                removeAll: true
+              }
+            })
 					]
-				},
-				files: {
-        	'assets/css/styles.min.css': ['assets/css/styles.css']
-				}
-			}
-		},
+        },
+        files: {
+          'assets/css/styles.min.css': ['assets/css/styles.css']
+        }
+      }
+    },
 
-		concat: {
+    concat: {
       options: {
         banner: '<%= banner %>',
         stripBanners: false
@@ -65,6 +75,7 @@ module.exports = function (grunt) {
           'src/js/typed.min.js',
           'src/js/photoswipe.min.js',
           'src/js/photoswipe-ui.min.js',
+          'src/js/imageviewer.min.js',
           'src/js/photostack.js',
           'src/js/formwizard.js',
           'src/js/scripts.js'
@@ -73,25 +84,25 @@ module.exports = function (grunt) {
       }
     },
 
-		uglify: {
+    uglify: {
       options: {
-				banner: '<%= banner %>',
-				sourceMap: false,
+        banner: '<%= banner %>',
+        sourceMap: false,
         compress: {
           warnings: false
         },
         mangle: {
-					except: ['jQuery']
-				}
+          except: ['jQuery']
+        }
       },
       dist: {
         files: {
-        	'assets/js/scripts.min.js': ['assets/js/scripts.js']
-				}
+          'assets/js/scripts.min.js': ['assets/js/scripts.js']
+        }
       }
     },
 
-		jekyll: {
+    jekyll: {
       options: {
         bundleExec: true,
         config: '_config.yml',
@@ -105,7 +116,7 @@ module.exports = function (grunt) {
       }
     },
 
-		htmlmin: {
+    htmlmin: {
       dist: {
         options: {
           collapseBooleanAttributes: true,
@@ -139,16 +150,18 @@ module.exports = function (grunt) {
       }
     }
 
-	});
+  });
 
-	// These plugins provide necessary tasks.
-  require('load-grunt-tasks')(grunt, { scope: 'devDependencies' });
+  // These plugins provide necessary tasks.
+  require('load-grunt-tasks')(grunt, {
+    scope: 'devDependencies'
+  });
   require('time-grunt')(grunt);
 
-  grunt.registerTask('compileJS', ['concat', 'uglify']);
-  grunt.registerTask('compileCSS', ['postcss:test', 'postcss:dist']);
-  
-	grunt.registerTask('test', ['postcss:test', 'concat:assets', 'jekyll:test']);
-	grunt.registerTask('assets', ['compileJS', 'compileCSS']);
-	grunt.registerTask('default', ['assets', 'jekyll:github', 'htmlmin']);
+  grunt.registerTask('script', ['concat', 'uglify']);
+  grunt.registerTask('style', ['postcss:test', 'postcss:dist']);
+  grunt.registerTask('assets', ['script', 'style']);
+
+  grunt.registerTask('dev', ['postcss:test', 'concat:assets', 'jekyll:test']);
+  grunt.registerTask('default', ['assets', 'jekyll:github', 'htmlmin']);
 };

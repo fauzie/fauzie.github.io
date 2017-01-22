@@ -1,7 +1,7 @@
-<section id="experience" class="bg-alt p-t-3 p-b-0">
+<section id="experience" class="bg-alt pb-0">
   <div class="container section-title">
 		<div class="row">
-			<div class="col-lg-12 text-xs-center">
+			<div class="col-lg-12 text-center">
 				<h2 class="wow fadeInUp">Work Experiences</h2>
 				<hr class="primary">
 				<p class="lead wow flipInX" data-wow-delay="1s">timeline for formal work experience</p>
@@ -12,13 +12,13 @@
     <div class="container timeline">
     {% for exp in site.data.experiences %}
       <div class="timeline-block {% cycle 'left', 'right' %}">
-        <div class="timeline-img wow bounceIn" data-wow-offset="200" data-wow-delay="1s">
+        <div class="timeline-img wow bounceIn" data-wow-offset="100" data-wow-delay="1s">
           {% if exp.icon %}<i class="{{ exp.icon }}"></i>{% else %}<i class="ion-ios-briefcase"></i>{% endif %}
         </div>
         <div class="timeline-content wow {% cycle 'fadeInLeft', 'fadeInRight' %}" data-wow-offset="200" data-wow-delay=".3s" data-wow-duration=".5s">
           <h2>{{ exp.work }}<small>{{ exp.comp }}</small></h2>
           <p>{{ exp.desc }}</p>
-          <span class="cd-date wow {% cycle 'zoomInRight', 'zoomInLeft' %}" data-wow-offset="200" data-wow-delay="1.3s">{{ exp.date }}</span>
+          <span class="cd-date wow {% cycle 'zoomInRight', 'zoomInLeft' %}" data-wow-offset="200" data-wow-delay=".5s">{{ exp.date }}</span>
         </div>
       </div>
     {% endfor %}

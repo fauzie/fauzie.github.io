@@ -1,24 +1,24 @@
-<div id="getquote" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+<div id="getquote" class="modal" tabindex="-1" role="dialog" aria-hidden="true" aria-labelledby="quoteTitle">
 	<div id="form-wrap" class="modal-dialog">
 		<div id="form-progress"></div>
 		<div class="modal-content">
 			<div class="modal-header section-title">
 				<div class="close"></div>
-				<h1>Project Worksheet<small class="text-muted">Completing this form will help me understand your project requirements</small></h1>
+				<h1 id="quoteTitle">Project Worksheet<small class="text-muted">Completing this form will help me understand your project requirements</small></h1>
 				<hr class="primary">
 				<ul class="list-inline">
 					<li class="list-inline-item">
-						<button class="btn-clear" title="Close" data-dismiss="modal" data-toggle="tooltip" data-placement="bottom" aria-hidden="true"><i class="ion-android-close"></i></button>
+						<button class="btn-clear" title="Close" data-dismiss="modal" data-toggle="tooltip" data-placement="bottom" aria-hidden="true" data-animation="false"><i class="ion-android-close"></i></button>
 					</li>
 					<li class="list-inline-item">
-						<button id="printquote" class="btn-clear" title="Print" data-toggle="tooltip" data-placement="bottom" aria-hidden="true"><i class="ion-android-print"></i></button>
+						<button id="printquote" class="btn-clear" title="Print" data-toggle="tooltip" data-placement="bottom" aria-hidden="true" data-animation="false"><i class="ion-android-print"></i></button>
             <iframe id="pdfiframe" aria-hidden="true"></iframe>
 					</li>
 					<li class="list-inline-item">
-						<button id="ddlquote" class="btn-clear" title="Download" data-toggle="tooltip" data-placement="bottom" aria-hidden="true"><i class="ion-android-archive"></i></button>
+						<button id="ddlquote" class="btn-clear" title="Download" data-toggle="tooltip" data-placement="bottom" aria-hidden="true" data-animation="false"><i class="ion-android-archive"></i></button>
 					</li>
 					<li class="list-inline-item">
-						<button class="btn-clear" title="you can download or print this worksheet to fill out when offline" data-toggle="tooltip" data-placement="bottom" aria-hidden="true"><i class="ion-android-alert"></i></button>
+						<button class="btn-clear" title="you can download or print this worksheet to fill out when offline" data-toggle="tooltip" data-placement="bottom" aria-hidden="true" data-animation="false"><i class="ion-android-alert"></i></button>
 					</li>
 				</ul>
 			</div>
@@ -26,7 +26,7 @@
 				<div class="container-fluid">
 					<div class="row">
 						<form id="quoteform" class="modal-form form-full" autocomplete="off">
-							<h2 class="text-xs-center review-title">Review Your Quotes<hr class="primary"></h2>
+							<h2 class="text-center review-title">Review Your Quotes<hr class="primary"></h2>
 							<ol class="form-fields">
 								<li>
 									<label class="form-label" for="customer">What's your name?</label>
@@ -98,7 +98,7 @@
 					</div>
 				</div>
 			</div>
-			<div class="modal-footer"></div>
+			<div class="modal-footer text-right"></div>
 		</div>
 	</div>
 </div>

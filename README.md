@@ -2,7 +2,7 @@
 
 ---
 
-<p align="center">:sparkles: personal portfolio <a href="https://github.com/fauzie">@fauzie</a> :sparkles:</p>
+<p align="center">:sparkles: personal portfolio <a href="https://github.com/fauzie">@fauzie</a> v1.1.0 :sparkles:</p>
 
 <p align="center">:o: web designer :o: web developer :o: web system administrator :o:</p>
 
@@ -13,7 +13,7 @@
 ---
 
 <h3 align="center">powered by</h3>
-<p align="center"><a href="https://jekyllrb.com/"><img src="https://github.com/jekyll/jekyll/raw/master/site/img/logo-rss.png"></a></p>
+<p align="center"><a href="https://jekyllrb.com/"><img src="https://jekyllrb.com/img/logo-2x.png" width="200" height="92"></a></p>
 <p align="center"><small><em>and</em></small></p>
 
 <table align="center">

@@ -2,7 +2,7 @@
 <section id="skills" class="bg-light">
 	<div class="container section-title">
 		<div class="row">
-			<div class="col-lg-12 text-xs-center">
+			<div class="col-lg-12 text-center">
 				<h2 class="wow fadeInUp">My Skills</h2>
 				<hr class="primary">
 				<p class="lead wow flipInX" data-wow-delay="1s">illustration skill mastery in a presentation</p>
@@ -12,7 +12,7 @@
 	<div class="container">
 		<div class="row">
     {% for skillgroup in site.data.skills %}
-      <div id="{{ skillgroup.name | slugify }}" class="{{ skillgroup.name | slugify }} col-lg-6 m-y-3">
+      <div id="{{ skillgroup.name | slugify }}" class="{{ skillgroup.name | slugify }} col-lg-6 my-3">
         <h6 class="skill-title">
           {{ skillgroup.name }} {% if skillgroup.desc != '' %}<br><small>{{ skillgroup.desc }}</small>{% endif %}
         </h6>

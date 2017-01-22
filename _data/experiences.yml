@@ -36,6 +36,12 @@
 
 - work: Back-End Web Developer
   comp: CV. Puri Cipta, Bandung
-  date: NOW
+  date: Oct 2016
   desc: Convert HTML or PSD to WordPress premium theme for theme marketplace.
+  icon: devicons devicons-code
+
+- work: Magento Back-End Developer
+  comp: PT. Kemana Solution, Bandung
+  date: NOW
+  desc: Creating or extending magento module, develop theme functionality.
   icon: devicons devicons-code
