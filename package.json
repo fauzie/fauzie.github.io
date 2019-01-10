@@ -1,8 +1,8 @@
 {
   "name": "fauzie",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "description": "Personal Webfolio of Rizal Fauzie Ridwan",
-  "main": "Gruntfile.js",
+  "main": "gulpfile.js",
   "scripts": {
     "test": "grunt"
   },
@@ -15,20 +15,18 @@
   "bugs": {
     "url": "https://github.com/fauzie/fauzie.github.io/issues"
   },
-  "homepage": "http://fauzie.github.io",
+  "homepage": "https://fauzie.my.id",
   "devDependencies": {
-    "autoprefixer": "^6.3.7",
-    "cssnano": "^3.7.3",
-    "grunt": "^1.0.1",
-    "grunt-contrib-concat": "^1.0.1",
-    "grunt-contrib-htmlmin": "^2.0.0",
-    "grunt-contrib-uglify": "^2.0.0",
-    "grunt-jekyll": "^0.4.4",
-    "grunt-postcss": "^0.8.0",
-    "load-grunt-tasks": "^3.5.0",
-    "pixrem": "^3.0.1",
-    "postcss-import": "^8.1.2",
-    "postcss-url": "^5.1.2",
-    "time-grunt": "^1.4.0"
+    "gulp": "^4.0.0",
+    "gulp-autoprefixer": "^4.1.0",
+    "gulp-clean-css": "^3.9.2",
+    "gulp-concat": "*",
+    "gulp-htmlmin": "^3.0.0",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-uglify": "*",
+    "gulp-watch": "*"
+  },
+  "engines": {
+    "node": ">=10.0.0"
   }
 }

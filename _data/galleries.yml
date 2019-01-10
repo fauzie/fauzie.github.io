@@ -1,66 +1,38 @@
-- title: My backyard
-  year: 2013
-  thumb: http://res.cloudinary.com/fauzie/image/upload/c_thumb,h_240,w_240/v1469103644/photos/fauzie-1.jpg
-  image: http://res.cloudinary.com/fauzie/image/upload/v1469103644/photos/fauzie-1.jpg
-  width: 713
-  height: 800
-  
 - title: Relaxing at Restaurant
   year: 2015
   thumb: http://res.cloudinary.com/fauzie/image/upload/c_thumb,h_240,w_240/v1469103641/photos/fauzie-2.jpg
   image: http://res.cloudinary.com/fauzie/image/upload/v1469103641/photos/fauzie-2.jpg
   width: 450
   height: 558
-  
+
 - title: Sisha at Cafe
   year: 2015
   thumb: http://res.cloudinary.com/fauzie/image/upload/c_thumb,h_240,w_240/v1469103639/photos/fauzie-3.jpg
   image: http://res.cloudinary.com/fauzie/image/upload/v1469103639/photos/fauzie-3.jpg
   width: 800
   height: 800
-  
+
 - title: Eid Al-Fitr
   year: 2015
   thumb: http://res.cloudinary.com/fauzie/image/upload/c_thumb,h_240,w_240/v1469103649/photos/fauzie-4.jpg
   image: http://res.cloudinary.com/fauzie/image/upload/v1469103649/photos/fauzie-4.jpg
   width: 677
   height: 800
-  
+
 - title: Eid Al-Fitr with My Wife
   year: 2016
   thumb: http://res.cloudinary.com/fauzie/image/upload/c_thumb,h_240,w_240/v1469103637/photos/fauzie-5.jpg
   image: http://res.cloudinary.com/fauzie/image/upload/v1469103637/photos/fauzie-5.jpg
   width: 615
   height: 900
-  
-- title: With my Wife
-  year: 2016
-  thumb: http://res.cloudinary.com/fauzie/image/upload/c_thumb,h_240,w_240/v1469103637/photos/alfarise-1.jpg
-  image: http://res.cloudinary.com/fauzie/image/upload/v1469103637/photos/alfarise-1.jpg
-  width: 600
-  height: 600
-  
-- title: Great Mosque Bandung
-  year: 2015
-  thumb: http://res.cloudinary.com/fauzie/image/upload/c_thumb,h_240,w_240/v1469103637/photos/alfarise-2.jpg
-  image: http://res.cloudinary.com/fauzie/image/upload/v1469103637/photos/alfarise-2.jpg
-  width: 683
-  height: 800
-  
+
 - title: Farm House Lembang
   year: 2016
   thumb: http://res.cloudinary.com/fauzie/image/upload/c_thumb,h_240,w_240/v1469103638/photos/alfarise-3.jpg
   image: http://res.cloudinary.com/fauzie/image/upload/v1469103638/photos/alfarise-3.jpg
   width: 900
   height: 674
-  
-- title: Lembang Garden
-  year: 2016
-  thumb: http://res.cloudinary.com/fauzie/image/upload/c_thumb,h_240,w_240/v1469103643/photos/alfarise-4.jpg
-  image: http://res.cloudinary.com/fauzie/image/upload/v1469103643/photos/alfarise-4.jpg
-  width: 904
-  height: 600
-  
+
 - title: Lembang Garden
   year: 2016
   thumb: http://res.cloudinary.com/fauzie/image/upload/c_thumb,h_240,w_240/v1469103639/photos/alfarise-5.jpg

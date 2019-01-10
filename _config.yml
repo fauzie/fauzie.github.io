@@ -10,21 +10,21 @@ env:              prod # (dev|prod)
 destination:      _gh_pages
 
 # Server
-url:              http://fauzie.my.id
+url:              https://fauzie.my.id
 baseurl:          /
-timezone:         Asia/jakarta
+timezone:         Asia/Jakarta
 encoding:         UTF-8
 
-exclude:          ['package.json', 'Gruntfile.js', 'src', 'node_modules', 'Gemfile', 'Gemfile.lock']
+exclude:          ['package.json', 'gulpfile.js', 'src', 'node_modules', 'Gemfile', 'Gemfile.lock']
 
-gems:
+plugins:
   - jekyll-sitemap
-  
+
 
 ### START EDITING HERE ###
 
 # Homepage
-homepage: [ about, photostack, skills, timeline, projects, services, cta, contact ]
+homepage: [ about, photostack, skills, timeline, services, cta, contact ]
 
 # Main header menu
 menu:
@@ -34,8 +34,6 @@ menu:
     url: "#skills"
   - title: Experience
     url: "#experience"
-  - title: Projects
-    url: "#projects"
   - title: Services
     url: "#services"
   - title: Contact

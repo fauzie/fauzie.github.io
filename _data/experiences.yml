@@ -14,13 +14,13 @@
   comp: Webgopek, Jakarta
   date: Jun 2011
   desc: Convert HTML/PSD into template-based CMS or a static website.
-  icon: devicons devicons-code
+  icon: ion-code
 
 - work: System Administrator
   comp: PT. Indotrans Data, Jakarta
   date: Oct 2013
   desc: Supervising and maintenance of web server, VPS and cPanel at data center.
-  icon: devicons devicons-linux
+  icon: ion-social-tux
 
 - work: Web Developer
   comp: Java Retro Hotel, Bandung
@@ -32,16 +32,16 @@
   comp: PT. Vox Teneo Indonesia, Bandung
   date: Jan 2015
   desc: Monitoring and troubleshooting system infrastructure servers.
-  icon: devicons devicons-linux
+  icon: ion-social-tux
 
 - work: Back-End Web Developer
   comp: CV. Puri Cipta, Bandung
   date: Oct 2016
   desc: Convert HTML or PSD to WordPress premium theme for theme marketplace.
-  icon: devicons devicons-code
+  icon: ion-code
 
 - work: Magento Back-End Developer
-  comp: PT. Kemana Solution, Bandung
+  comp: PT. Kemana Teknologi Solusi, Bandung
   date: NOW
   desc: Creating or extending magento module, develop theme functionality.
-  icon: devicons devicons-code
+  icon: ion-code
