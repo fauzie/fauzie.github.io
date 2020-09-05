@@ -8,7 +8,7 @@
 
 ---
 
-<p align="center"><a href="http://fauzie.my.id/">Home</a> | <a href="http://fauzie.my.id/#about">About</a> | <a href="http://fauzie.my.id/#skills">Skills</a> | <a href="http://fauzie.my.id/#experience">Experience</a> | <a href="http://fauzie.my.id/#projects">Projects</a> | <a href="http://fauzie.my.id/#services">Services</a> | <a href="http://fauzie.my.id/#contacts">Contact</a></p>
+<p align="center"><a href="https://fauzie.id/">Home</a> | <a href="https://fauzie.id/#about">About</a> | <a href="https://fauzie.id/#skills">Skills</a> | <a href="https://fauzie.id/#experience">Experience</a> | <a href="https://fauzie.id/#projects">Projects</a> | <a href="https://fauzie.id/#services">Services</a> | <a href="https://fauzie.id/#contacts">Contact</a></p>
 
 ---
 
@@ -52,7 +52,7 @@ ___
 
 ### Licence : MIT License
 
-Copyright (c) 2016 Rizal Fauzie Ridwan
+Copyright (c) 2020 Rizal Fauzie Ridwan
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
