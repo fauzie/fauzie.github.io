@@ -1,14 +1,11 @@
-const gulp = require('gulp');
-const watch = require('gulp-watch');
-const concat = require('gulp-concat');
-const uglify = require('gulp-uglify');
-const htmlmin = require('gulp-htmlmin');
-const cleancss = require('gulp-clean-css');
+const { src, dest, watch, series, parallel } = require('gulp');
 const sourcemaps = require('gulp-sourcemaps');
 const autoprefixer = require('gulp-autoprefixer');
+const cleancss = require('gulp-clean-css');
+const concat = require('gulp-concat');
+const uglify = require('gulp-uglify');
 
 const autoprefixeropts = {
-    browsers: ['last 2 versions', 'not ie <= 8', 'iOS 7'],
     cascade: false
 };
 
@@ -35,30 +32,34 @@ const jsFiles = [
     'src/js/scripts.js'
 ];
 
-gulp.task('css', (done) => {
-    gulp.src('src/css/styles.css')
-    .pipe(sourcemaps.init())
-    .pipe(autoprefixer(autoprefixeropts))
-    .pipe(cleancss(cssminoptions))
-    .pipe(concat('styles.min.css'),{newLine: ""})
-    .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('assets/css'))
-    .on('end', done);
-});
+function css(done) {
+    src('src/css/styles.css')
+        .pipe(sourcemaps.init())
+        .pipe(autoprefixer(autoprefixeropts))
+        .pipe(cleancss(cssminoptions))
+        .pipe(concat('styles.min.css'),{newLine: ""})
+        .pipe(sourcemaps.write('.'))
+        .pipe(dest('assets/css'))
+        .on('end', done);
+}
 
-gulp.task('js', (done) => {
-    gulp.src(jsFiles)
-    .pipe(sourcemaps.init())
-    .pipe(uglify(uglifyOptions))
-    .pipe(concat('scripts.min.js'),{newLine: ""})
-    .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('assets/js'))
-    .on('end', done);
-});
+function js(done) {
+    src(jsFiles)
+        .pipe(sourcemaps.init())
+        .pipe(uglify(uglifyOptions))
+        .pipe(concat('scripts.min.js'),{newLine: ""})
+        .pipe(sourcemaps.write('.'))
+        .pipe(dest('assets/js'))
+        .on('end', done);
+}
 
-gulp.task('watch', () => {
-    gulp.watch('src/css/*.css', gulp.parallel('css'));
-    gulp.watch('src/js/*.js', gulp.parallel('js'));
-});
+function watcher(cb) {
+    watch('src/css/*.css', parallel('css'));
+    watch('src/js/*.js', parallel('js'));
+    cb();
+}
 
-gulp.task('default', gulp.series('css', 'js', 'watch'));
+exports.js = js;
+exports.css = css;
+exports.watcher = watcher;
+exports.default = series(css, js, watcher);

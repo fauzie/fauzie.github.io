@@ -218,28 +218,28 @@
 		});
 	});
 
-  $("#printquote").on('click', function (e) {
-    e.preventDefault();
-    var pdfiframe = document.getElementById("pdfiframe");
-    pdfiframe.src = "assets/docs/ProjectWorksheet.pdf";
-    pdfiframe.onload = function () {
-      this.contentWindow.focus();
-      this.contentWindow.print();
-    };
-  });
-
-  $("#ddlquote").on('click', function (e) {
-    e.preventDefault();
-    window.open("assets/docs/ProjectWorksheet.docx");
-  });
-  
-  $(document).ready(function (){
-    var viewer = ImageViewer({ snapView: false });
-    $('img.zoomable').on('click', function (){
-      if ( this.hasAttribute('data-high-res-src') ) {
-        viewer.show( this.src, $(this).data('high-res-src') );
-      }
+    $("#printquote").on('click', function (e) {
+        e.preventDefault();
+        var pdfiframe = document.getElementById("pdfiframe");
+        pdfiframe.src = "assets/docs/ProjectWorksheet.pdf";
+        pdfiframe.onload = function () {
+            this.contentWindow.focus();
+            this.contentWindow.print();
+        };
     });
-  });
+
+    $("#ddlquote").on('click', function (e) {
+        e.preventDefault();
+        window.open("assets/docs/ProjectWorksheet.docx");
+    });
+  
+    $(document).ready(function (){
+        var viewer = ImageViewer({ snapView: false });
+        $('img.zoomable').on('click', function (){
+            if ( this.hasAttribute('data-high-res-src') ) {
+                viewer.show( this.src, $(this).data('high-res-src') );
+            }
+        });
+    });
 
 })(jQuery);

@@ -17,16 +17,20 @@
   },
   "homepage": "https://fauzie.id",
   "devDependencies": {
-    "gulp": "^4.0.0",
-    "gulp-autoprefixer": "^4.1.0",
-    "gulp-clean-css": "^3.9.2",
-    "gulp-concat": "*",
-    "gulp-htmlmin": "^3.0.0",
-    "gulp-sourcemaps": "^2.6.4",
-    "gulp-uglify": "*",
-    "gulp-watch": "*"
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-clean-css": "^4.3.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2"
   },
   "engines": {
     "node": ">=10.0.0"
-  }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8",
+    "not dead"
+  ]
 }
