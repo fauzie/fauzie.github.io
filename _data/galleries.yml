@@ -1,4 +1,4 @@
-- title: Relaxing at Restaurant
+- title: Relax
   year: 2015
   thumb: http://res.cloudinary.com/fauzie/image/upload/c_thumb,h_240,w_240/v1469103641/photos/fauzie-2.jpg
   image: http://res.cloudinary.com/fauzie/image/upload/v1469103641/photos/fauzie-2.jpg
@@ -19,23 +19,23 @@
   width: 677
   height: 800
 
-- title: Eid Al-Fitr with My Wife
-  year: 2016
-  thumb: http://res.cloudinary.com/fauzie/image/upload/c_thumb,h_240,w_240/v1469103637/photos/fauzie-5.jpg
-  image: http://res.cloudinary.com/fauzie/image/upload/v1469103637/photos/fauzie-5.jpg
-  width: 615
-  height: 900
-
-- title: Farm House Lembang
-  year: 2016
-  thumb: http://res.cloudinary.com/fauzie/image/upload/c_thumb,h_240,w_240/v1469103638/photos/alfarise-3.jpg
-  image: http://res.cloudinary.com/fauzie/image/upload/v1469103638/photos/alfarise-3.jpg
-  width: 900
-  height: 674
-
 - title: Lembang Garden
   year: 2016
   thumb: http://res.cloudinary.com/fauzie/image/upload/c_thumb,h_240,w_240/v1469103639/photos/alfarise-5.jpg
   image: http://res.cloudinary.com/fauzie/image/upload/v1469103639/photos/alfarise-5.jpg
   width: 900
   height: 674
+
+- title: Pangandaran Beach
+  year: 2019
+  thumb: https://res.cloudinary.com/fauzie/image/upload/c_scale,w_240/v1599277583/photos/fauzie-2019.jpg
+  image: https://res.cloudinary.com/fauzie/image/upload/v1599277583/photos/fauzie-2019.jpg
+  width: 1024
+  height: 1024
+
+- title: Digital Ocean Tester
+  year: 2020
+  thumb: https://res.cloudinary.com/fauzie/image/upload/c_scale,h_240,w_200/v1599277770/photos/fauzie-do.jpg
+  image: https://res.cloudinary.com/fauzie/image/upload/v1599277770/photos/fauzie-do.jpg
+  width: 960
+  height: 1200

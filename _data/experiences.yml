@@ -42,6 +42,12 @@
 
 - work: Magento Back-End Developer
   comp: PT. Kemana Teknologi Solusi, Bandung
-  date: NOW
+  date: Oct 2019
   desc: Creating or extending magento module, develop theme functionality.
+  icon: ion-code
+
+- work: Magento Back-End Engineer
+  comp: PT. Inovasi Informasi Indonesia, Jakarta
+  date: NOW
+  desc: Doing a thing from the back, it's all about Magento 2 customization.
   icon: ion-code

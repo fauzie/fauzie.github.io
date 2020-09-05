@@ -15,7 +15,7 @@
   "bugs": {
     "url": "https://github.com/fauzie/fauzie.github.io/issues"
   },
-  "homepage": "https://fauzie.my.id",
+  "homepage": "https://fauzie.id",
   "devDependencies": {
     "gulp": "^4.0.0",
     "gulp-autoprefixer": "^4.1.0",
