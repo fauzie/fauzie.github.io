@@ -7,6 +7,14 @@
 
 	new Photostack( document.getElementById('photostack') );
 
+    var getFormData = function (el) {
+        var forms = {}, values = $(el).serializeArray();
+        $.map(values, function (obj) {
+            forms[obj.name] = obj.value;
+        });
+        return forms;
+    };
+
 	var _window = $(window),
 			_body = $("body"),
 			FFormInit = false,
@@ -150,16 +158,19 @@
 		e.preventDefault();
 
 		var desti = 'https://formspree.io/xnqgenqv',
-				$form = $(this),
-				$fields = $form.find(".form-group"),
-				vals = $("#feedback :input[value!='']").serialize(),
-				fajax = $.ajax({ url: desti, data: vals, type: 'POST', cache: false });
+			$form = $(this),
+			$fields = $form.find(".form-group"),
+            data = getFormData("#feedback :input[value!='']");
 
+        data._subject = 'NEW Feedback!';
+        data._language = 'id';
+				
 		$form.slideUp("fast", function () {
 			$form.next("#loadingbar").show().addClass("animated slideInUp");
 		});
 
-		fajax.done(function (data, textStatus, xhr) {
+		$.ajax({ url: desti, data: data, dataType: 'json', type: 'POST', cache: false })
+        .done(function (data, textStatus, xhr) {
 			var is_done = (xhr.status === 200) ? 'success' : 'error';
 			$form.find(".feedback-message>." + is_done).show();
 			$form.slideDown("fast", function () {
@@ -173,22 +184,25 @@
 		e.preventDefault();
 
 		var $quote = $(this),
-				desti = 'https://formspree.io/mqkyrakg',
-				$modal = $("#getquote"),
-				$fields = $quote.find(".form-field"),
-				vals = $("#quoteform :input[value!='']").serialize(),
-				qajax = $.ajax({ url: desti, data: vals, type: 'POST', cache: false }),
-				animCheck = function () {
-					setTimeout( function () {
-						$modal.find(".checked").addClass("active");
-					}, 500);
-				};
+			desti = 'https://formspree.io/mqkyrakg',
+			$modal = $("#getquote"),
+			$fields = $quote.find(".form-field"),
+			data = getFormData("#quoteform :input[value!='']"),
+			animCheck = function () {
+				setTimeout( function () {
+					$modal.find(".checked").addClass("active");
+				}, 500);
+			};
+
+        data._subject = 'NEW Quote Request!';
+        data._language = 'id';
 
 		$quote.slideUp("fast", function () {
 			$quote.next("#loadingbar").show().addClass("animated slideInUp");
 		});
 
-		qajax.done(function (data, textStatus, xhr) {
+		$.ajax({ url: desti, data: data, dataType: 'json', type: 'POST', cache: false })
+        .done(function (data, textStatus, xhr) {
 			if (xhr.status === 200) {
 				setTimeout( function () {
 					$modal.html( $checkedEl );
