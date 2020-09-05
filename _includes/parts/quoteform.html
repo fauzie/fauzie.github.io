@@ -26,6 +26,8 @@
 				<div class="container-fluid">
 					<div class="row">
 						<form id="quoteform" class="modal-form form-full" autocomplete="off">
+							<input type="hidden" name="_subject" value="NEW Quote Request!" />
+							<input type="hidden" name="_language" value="id" />
 							<h2 class="text-center review-title">Review Your Quotes<hr class="primary"></h2>
 							<ol class="form-fields">
 								<li>
@@ -33,8 +35,8 @@
 									<input type="text" id="customer" name="customer" class="form-field" placeholder="John Doe" required>
 								</li>
 								<li>
-									<label class="form-label" for="reply_to" data-info="I won't send you spam, promise...">What's your email address?</label>
-									<input type="email" id="reply_to" name="reply_to" class="form-field" placeholder="name@example.com" required>
+									<label class="form-label" for="_replyto" data-info="I won't send you spam, promise...">What's your email address?</label>
+									<input type="email" id="_replyto" name="_replyto" class="form-field" placeholder="name@example.com" required>
 								</li>
 								<li>
 									<label class="form-label" for="mobile">Your mobile number?</label>

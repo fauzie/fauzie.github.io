@@ -12,6 +12,8 @@
 		<div class="row">
 			<div class="col-lg-10 offset-lg-1 text-center">
 				<form id="feedback" class="row" autocomplete="off">
+					<input type="hidden" name="_subject" value="NEW Feedback!" />
+					<input type="hidden" name="_language" value="id" />
 					<div class="col-12 feedback-message">
 						<small class="success" style="display:none"><i class="ion-happy"></i>Hooray! Your message has been sent, soon I'll contact you. Thanks.</small>
 						<small class="error" style="display:none"><i class="ion-sad"></i>Uups! Something wrong, please try again or refresh your browser</small>
@@ -24,7 +26,7 @@
 					</div>
 					<div class="col-12 col-md-4">
 						<fieldset class="form-group">
-							<input type="email" class="form-control" id="email" name="email" required>
+							<input type="email" class="form-control" id="email" name="_replyto" required>
 							<label class="form-control-label" for="email"><span class="label-content" data-content="Your Email">Your Email</span></label>
 						</fieldset>
 					</div>

@@ -149,7 +149,7 @@
 	$("#feedback").on('submit', function (e) {
 		e.preventDefault();
 
-		var desti = 'https://getsimpleform.com/messages?form_api_token=d9e3917e58198e5444069eefa5365dd5',
+		var desti = 'https://formspree.io/xnqgenqv',
 				$form = $(this),
 				$fields = $form.find(".form-group"),
 				vals = $("#feedback :input[value!='']").serialize(),
@@ -173,7 +173,7 @@
 		e.preventDefault();
 
 		var $quote = $(this),
-				desti = 'https://getsimpleform.com/messages?form_api_token=b4dc5ec27a03e5b568940fe2433bd78c',
+				desti = 'https://formspree.io/mqkyrakg',
 				$modal = $("#getquote"),
 				$fields = $quote.find(".form-field"),
 				vals = $("#quoteform :input[value!='']").serialize(),
