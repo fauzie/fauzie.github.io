@@ -2,10 +2,11 @@
 /*global define: false */
 
 (function ($) {
+    "use strict";
 
-	"use strict";
-
-	new Photostack( document.getElementById('photostack') );
+    if (document.getElementById('photostack') !== null) {
+        new Photostack( document.getElementById('photostack') );
+    }
 
     var getFormData = function (el) {
         var forms = {}, values = $(el).serializeArray();
