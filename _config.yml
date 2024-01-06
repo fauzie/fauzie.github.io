@@ -24,7 +24,7 @@ plugins:
 ### START EDITING HERE ###
 
 # Homepage
-homepage: [ about, photostack, skills, timeline, services, cta, contact ]
+homepage: [ about, skills, timeline, services, cta, contact ]
 
 # Main header menu
 menu:
