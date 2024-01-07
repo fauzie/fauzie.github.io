@@ -4,7 +4,7 @@
   "description": "Personal Webfolio of Rizal Fauzie Ridwan",
   "main": "gulpfile.js",
   "scripts": {
-    "test": "grunt"
+    "test": "gulp"
   },
   "repository": {
     "type": "git",
