@@ -1,0 +1,24 @@
+<section id="contact">
+	<div class="wrap">
+		<div class="kicker">get in touch</div>
+		<h2>Let's build something.</h2>
+		<div class="contact-box">
+			<p>Have a project in mind? I take on a limited number of freelance engagements each quarter — reach out and let's talk about what you're building.</p>
+			<div class="email-line"><a id="contact-email" href="#">Contact me by email</a></div>
+			<a id="contact-email-link" href="#" class="btn btn-fill">Send a message</a>
+		</div>
+	</div>
+</section>
+
+<script is:inline>
+	const email = String.fromCharCode(104, 101, 108, 108, 111, 64, 102, 97, 117, 122, 105, 101, 46, 105, 100);
+	const emailLink = document.querySelector('#contact-email');
+	const emailButton = document.querySelector('#contact-email-link');
+
+	if (emailLink && emailButton) {
+		const mailto = `mailto:${email}`;
+		emailLink.textContent = email;
+		emailLink.href = mailto;
+		emailButton.href = mailto;
+	}
+</script>

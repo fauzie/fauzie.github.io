@@ -1,0 +1,26 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+	items: CollectionEntry<'skills'>[];
+}
+
+const { items } = Astro.props;
+---
+
+<section id="skills">
+	<div class="wrap">
+		<div class="kicker">capabilities</div>
+		<h2>Skills &amp; Tools</h2>
+		<div class="skill-groups">
+			{items.sort((a, b) => a.data.order - b.data.order).map((skill) => (
+				<div class="skill-group">
+					<h3>{skill.data.title}</h3>
+					<div class="chips">
+						{skill.data.items.map((item) => <span class="chip">{item}</span>)}
+					</div>
+				</div>
+			))}
+		</div>
+	</div>
+</section>

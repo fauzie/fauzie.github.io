@@ -1,0 +1,24 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+	items: CollectionEntry<'services'>[];
+}
+
+const { items } = Astro.props;
+---
+
+<section id="services">
+	<div class="wrap">
+		<div class="kicker">how I can help</div>
+		<h2>Services</h2>
+		<div class="services">
+			{items.sort((a, b) => a.data.order - b.data.order).map((service) => (
+				<div class="svc">
+					<h3>{service.data.title}</h3>
+					<p>{service.data.description}</p>
+				</div>
+			))}
+		</div>
+	</div>
+</section>

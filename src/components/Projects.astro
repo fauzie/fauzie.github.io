@@ -1,0 +1,28 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+	items: CollectionEntry<'projects'>[];
+}
+
+const { items } = Astro.props;
+---
+
+<section id="projects">
+	<div class="wrap">
+		<div class="kicker">selected work</div>
+		<h2>Projects</h2>
+		<div class="grid-2">
+			{items.sort((a, b) => a.data.order - b.data.order).map((project) => (
+				<div class="card">
+					<h3>{project.data.title}</h3>
+					<p>{project.data.description}</p>
+					<div class="tags">
+						{project.data.tags.map((tag) => <span class="tag">{tag}</span>)}
+					</div>
+					<a class="link" href={project.data.link}>View case study →</a>
+				</div>
+			))}
+		</div>
+	</div>
+</section>

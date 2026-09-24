@@ -1,0 +1,43 @@
+---
+import { getCollection } from 'astro:content';
+import Contact from '../components/Contact.astro';
+import Experience from '../components/Experience.astro';
+import Footer from '../components/Footer.astro';
+import Hero from '../components/Hero.astro';
+import Nav from '../components/Nav.astro';
+import Projects from '../components/Projects.astro';
+import Services from '../components/Services.astro';
+import Skills from '../components/Skills.astro';
+import '../styles/global.css';
+
+const skills = await getCollection('skills');
+const experiences = await getCollection('experiences');
+const projects = await getCollection('projects');
+const services = await getCollection('services');
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content="Fauzie is a freelance full-stack developer building fast, reliable digital products." />
+		<link rel="canonical" href="https://fauzie.id/" />
+		<title>FAUZIE — Full-Stack Developer</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+		<link href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&family=Inconsolata:wght@400;500;600;700&display=swap" rel="stylesheet" />
+	</head>
+	<body>
+		<div class="halo"></div>
+		<Nav />
+		<Hero />
+		<Skills items={skills} />
+		<Experience items={experiences} />
+		<Projects items={projects} />
+		<Services items={services} />
+		<Contact />
+		<Footer />
+	</body>
+</html>

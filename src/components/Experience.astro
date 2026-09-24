@@ -1,0 +1,25 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+	items: CollectionEntry<'experiences'>[];
+}
+
+const { items } = Astro.props;
+---
+
+<section id="experience">
+	<div class="wrap">
+		<div class="kicker">career</div>
+		<h2>Experience</h2>
+		<div class="timeline">
+			{items.sort((a, b) => a.data.order - b.data.order).map((experience) => (
+				<div class="tl-item">
+					<div class="tl-role">{experience.data.role}</div>
+					<div class="tl-meta">{experience.data.meta}</div>
+					<div class="tl-desc">{experience.data.description}</div>
+				</div>
+			))}
+		</div>
+	</div>
+</section>
