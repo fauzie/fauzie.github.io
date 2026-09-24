@@ -41,14 +41,3 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-
-## GitHub Pages deployment
-
-This site is configured for the custom domain [fauzie.id](https://fauzie.id).
-
-1. Push the repository to GitHub with the default branch named `main`.
-2. In **Settings > Pages**, set **Source** to **GitHub Actions**.
-3. Point `fauzie.id` at GitHub Pages with `A` records for `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, and `185.199.111.153`.
-4. Enable HTTPS in **Settings > Pages** after DNS propagation.
-
-The workflow in `.github/workflows/deploy.yml` builds and publishes `dist/` on every push to `main`. The `public/CNAME` file preserves the custom domain across deployments.
